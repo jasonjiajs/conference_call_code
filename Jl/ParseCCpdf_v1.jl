@@ -462,8 +462,8 @@ println("start Parse CC pdf")
 global dfBadFile=DataFrame(filname=String[],Title=String[])
 
 try
-    # cd("..//..//..//..//project//EC_Mercury//final_sup")
-    cd("C://CC2019-20//Updated")
+    # Sixun's comment, N/A: cd("..//..//..//..//project//EC_Mercury//final_sup")
+    cd("/Users/jasonjia/ConferenceCall/Misc")
     @time main()
     CSV.write("BadList.csv",dfBadFile)
     # filename="20030311-20030314_1"
