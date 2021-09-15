@@ -441,16 +441,16 @@ end
 
 # ```parse all file from the currrent  ```
 function main()
-    files=readdir()
+    files=readdir() # ok
     for file in files
         if file[end-2:end]=="xls"
             try
                 filename=file[1:end-4]
                 println(file)
-                @time dfCalls=parseCalls(filename)
-                CSV.write("$filename.csv",dfCalls)
+                # @time dfCalls=parseCalls(filename)
+                #CSV.write("$filename.csv",dfCalls)
             catch e
-                println(e)
+                println(e) #println adds a new line to the end of the output vs print
             end
         end
     end
