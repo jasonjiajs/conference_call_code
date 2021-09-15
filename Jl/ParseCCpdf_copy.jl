@@ -447,9 +447,10 @@ function main()
             try
                 filename=file[1:end-4]
                 println(file)
-                # @time dfCalls=parseCalls(filename)
+                println(filename)
+                @time dfCalls=parseCalls(filename) # @time shows the time it took to run the code
                 #CSV.write("$filename.csv",dfCalls)
-            catch e
+            catch e #catches the error (eg ValueError), stored as variable e here (can be x or y or anything tho)
                 println(e) #println adds a new line to the end of the output vs print
             end
         end
