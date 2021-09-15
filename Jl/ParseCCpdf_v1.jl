@@ -80,7 +80,7 @@ end
 end
 
 
-``` get from the content the fist page number of the CCall firm by name or by Rpt number```
+``` get from the content the first page number of the CCall firm by name or by Rpt number```
 ``` we use report number, since the firm can have several report for a documents ```
 function getFirmPageNumber(content,report_n::Int)
     try
@@ -461,6 +461,7 @@ end
 println("start Parse CC pdf")
 global dfBadFile=DataFrame(filname=String[],Title=String[])
 
+# Overall structure: -> main
 try
     # Sixun's comment, N/A: cd("..//..//..//..//project//EC_Mercury//final_sup")
     cd("/Users/jasonjia/ConferenceCall/Misc")
