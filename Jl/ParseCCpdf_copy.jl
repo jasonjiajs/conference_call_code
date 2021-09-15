@@ -122,8 +122,8 @@ end
 
 function cutBottom(page)
     try
-        if !isnothing(findfirst("thomson reuters streetevents",lowercase(page[prevind(page, lastindex(page),700):end])))
-            l=findfirst("thomson reuters streetevents",lowercase(page[prevind(page, lastindex(page),700):end]))[1]
+        if !isnothing(findfirst("refinitiv streetevents",lowercase(page[prevind(page, lastindex(page),700):end])))
+            l=findfirst("refinitiv streetevents",lowercase(page[prevind(page, lastindex(page),700):end]))[1]
         elseif !isnothing(findfirst("streetevents@thomson.com",lowercase(page[prevind(page, lastindex(page),700):end])))
             l=findfirst("streetevents@thomson.com",lowercase(page[prevind(page, lastindex(page),700):end]))[1]
         else
@@ -457,14 +457,15 @@ function main()
 end
 
 
+# ACTUAL CODE STARTS
 
 println("start Parse CC pdf")
-global dfBadFile=DataFrame(filname=String[],Title=String[])
+global dfBadFile=DataFrame(filename=String[],Title=String[])
 
 # Overall structure: -> main
 try
     # Sixun's comment, N/A: cd("..//..//..//..//project//EC_Mercury//final_sup")
-    cd("/Users/jasonjia/ConferenceCall/Misc")
+    cd("/Users/jasonjia/ConferenceCall/Misc/Trial")
     @time main()
     CSV.write("BadList.csv",dfBadFile)
     # filename="20030311-20030314_1"
