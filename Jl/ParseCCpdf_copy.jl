@@ -373,6 +373,7 @@ end
 
 # ``` Parse file```
 function parseCalls(filename)
+    filename="20210825-20210828_1" ### pdDocOpen("20210825-20210828_1.pdf")
     try
     #get list of CC
     dflist=parseHtmlXlsToDf("$filename.xls")
@@ -442,14 +443,15 @@ end
 # ```parse all file from the currrent  ```
 function main()
     files=readdir() # ok
-    for file in files
-        if file[end-2:end]=="xls"
+    for file in files # ok
+        if file[end-2:end]=="xls" # ok
             try
-                filename=file[1:end-4]
-                println(file)
-                println(filename)
+                filename=file[1:end-4] # ok
+                println(file) # ok
+                # println(filename)
+                # println(typeof(filename))
                 @time dfCalls=parseCalls(filename) # @time shows the time it took to run the code
-                #CSV.write("$filename.csv",dfCalls)
+                CSV.write("$filename.csv",dfCalls)
             catch e #catches the error (eg ValueError), stored as variable e here (can be x or y or anything tho)
                 println(e) #println adds a new line to the end of the output vs print
             end
@@ -460,8 +462,8 @@ end
 
 # ACTUAL CODE STARTS
 
-println("start Parse CC pdf")
-global dfBadFile=DataFrame(filename=String[],Title=String[])
+println("start Parse CC pdf") # ok
+global dfBadFile=DataFrame(filename=String[],Title=String[]) # ok
 
 # Overall structure: -> main
 try
