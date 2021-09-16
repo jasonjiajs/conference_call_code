@@ -386,35 +386,26 @@ function parseCalls(filename)
     content, pn = getPageContents(doc_pdf)
     # row=dflist[50,:]
     # if size(dflist)[1]!=1 # if size(dflist)[1]!=1 50 !=1
-        for row in eachrow(dflist)
+    row = eachrow(dflist)[1]
 
-
-
-
-            try
                 #println(row.Title)
                 firmname=row.Title
                 analyst=row.Analyst
                 report_number=row.Report
                 page_size=row.Pages
                 page_n=getFirmPageNumber(content,report_number)
-                if page_n!=1
+
+
+
                     if (analyst=="FDFN.COM") || (isFDFN(doc,page_n+1))
                         call=getFirmCC_t2(doc,page_n,page_n+page_size-1)
                     else
                         # call=getFirmCC_t1(doc_pdf,page_n,page_n+page_size-1)
-                        call=getFirmCC_t1(doc,page_n,page_n+page_size-1)
+                        call=getFirmCC_t1(doc,page_n,page_n+page_size-1) # here's the method error
                     end
                     row[:Call]=call
-                else
-                    global dfBadFile
-                    push!(dfBadFile,[filename,row.Title])
-                    CSV.write("BadList.csv",dfBadFile)
-                end
-            catch e
-                println("Row Error:-",e)
-                row[:Call]=""
-            end
+
+
         end
     #else
     #    row=dflist[1,:]
