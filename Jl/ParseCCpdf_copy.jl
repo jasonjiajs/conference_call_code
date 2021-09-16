@@ -376,17 +376,21 @@ function parseCalls(filename)
     filename="20210825-20210828_1" ### pdDocOpen("20210825-20210828_1.pdf")
     try
     #get list of CC
-    dflist=parseHtmlXlsToDf("$filename.xls")
+    dflist=parseHtmlXlsToDf("20210825-20210828_1.xls")
     dflist[!,:Call].=""
 
     #doc = pdDocOpen("$filename.pdf")
-    doc_pdf = pdDocOpen("$filename.pdf")
-    doc_text=String(read("$filename.txt"))
+    doc_pdf = pdDocOpen("20210825-20210828_1.pdf")
+    doc_text=String(read("20210825-20210828_1.txt"))
     doc=split(doc_text,"\f")
     content, pn = getPageContents(doc_pdf)
     # row=dflist[50,:]
-    if size(dflist)[1]!=1
+    # if size(dflist)[1]!=1 # if size(dflist)[1]!=1 50 !=1
         for row in eachrow(dflist)
+
+
+
+
             try
                 #println(row.Title)
                 firmname=row.Title
@@ -412,23 +416,23 @@ function parseCalls(filename)
                 row[:Call]=""
             end
         end
-    else
-        row=dflist[1,:]
-        try
-            #println(row.Title)
-            analyst=row.Analyst
-            page_size=row.Pages
-            if (analyst=="FDFN.COM") || (isFDFN(doc,2))
-                call=getFirmCC_t2(doc,1,page_size)
-            else
-                call=getFirmCC_t1(doc,1,page_size)
-            end
-                row[:Call]=call
-        catch e
-            println("Row Error:-",e)
-            row[:Call]=""
-        end
-    end
+    #else
+    #    row=dflist[1,:]
+    #    try
+    #        #println(row.Title)
+    #        analyst=row.Analyst
+    #        page_size=row.Pages
+    #        if (analyst=="FDFN.COM") || (isFDFN(doc,2))
+    #            call=getFirmCC_t2(doc,1,page_size)
+    #        else
+    #            call=getFirmCC_t1(doc,1,page_size)
+    #        end
+    #            row[:Call]=call
+    #    catch e
+    #        println("Row Error:-",e)
+    #        row[:Call]=""
+    #    end
+    #end
     pdDocClose(doc_pdf)
     return dflist
 catch e
@@ -442,21 +446,13 @@ end
 
 # ```parse all file from the currrent  ```
 function main()
-    files=readdir() # ok
-    for file in files # ok
-        if file[end-2:end]=="xls" # ok
-            try
-                filename=file[1:end-4] # ok
-                println(file) # ok
-                # println(filename)
-                # println(typeof(filename))
-                @time dfCalls=parseCalls(filename) # @time shows the time it took to run the code
-                CSV.write("$filename.csv",dfCalls)
-            catch e #catches the error (eg ValueError), stored as variable e here (can be x or y or anything tho)
-                println(e) #println adds a new line to the end of the output vs print
-            end
-        end
-    end
+    file="20210825-20210828_1.xls" # ok
+    filename=file[1:end-4] # ok
+    println(file) # ok
+    # println(filename)
+    # println(typeof(filename))
+    @time dfCalls=parseCalls(filename) # @time shows the time it took to run the code
+    CSV.write("$filename.csv",dfCalls)
 end
 
 
