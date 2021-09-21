@@ -15,7 +15,7 @@ using Statistics
 
 ``` read list of firm per pdf documents ```
 function parseHtmlXlsToDf(filename)
-    println(string("parseHtmlXlsToDf: ",filename))
+    print(string("parseHtmlXlsToDf: ", " | "))
     try
         list_html_raw=read(filename,String)
         list_html = parsehtml(String(list_html_raw))
@@ -61,7 +61,7 @@ end
 
 ``` get contents of the pdf documnet```
 function getPageContents(doc)
-    println(string("getPageContents"))
+    print(string("getPageContents", " | "))
     try
     i=1
     content=""
@@ -85,7 +85,7 @@ end
 ``` we use report number, since the firm can have several report for a documents ```
 function getFirmPageNumber(content,report_n::Int)
     println(".")
-    println(string("getFirmPageNumber: ",report_n))
+    print(string("getFirmPageNumber: ",report_n," | "))
     try
     l=findfirst(string(report_n),content)[end]
     e=findnext("-",content,l+70)[1]
@@ -146,7 +146,7 @@ end
     # return page[1:l-1]
 
 function getFirmCC_t3(doc,page_s,page_e)
-    println(string("getFirmCC ",page_s," ",page_e))
+    print(string("getFirmCC: ",page_s,", ",page_e, " | "))
     try
     call=""
     for i=page_s+1:page_e
@@ -214,7 +214,6 @@ end
 
 # ``` Parse file```
 function parseCalls(filename)
-    println("parseCalls")
     try
     #get list of CC
     dflist=parseHtmlXlsToDf("$filename.xls")
@@ -280,6 +279,7 @@ function main()
         if file[end-2:end]=="xls"
             try
                 filename=file[1:end-4]
+                println("")
                 println(file)
                 @time dfCalls=parseCalls(filename)
                 CSV.write("$filename.csv",dfCalls)
