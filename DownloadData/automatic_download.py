@@ -2,8 +2,6 @@
 ########## This code serves to automatic download conference calls from Thomson One ###########
 ########## Output: PDFs, XLSs, and a collection of the number of file records ###########
 
-## Hi! Testing for version control :)
-
 import pynput
 import time
 from pynput import mouse as MS
@@ -19,11 +17,12 @@ import io
 #### open keyboard and mouse Controller ####
 KB_enter = pynput.keyboard.Controller()
 MS_enter = pynput.mouse.Controller()
-time.sleep(5)
-#### save directory (scripts and calls saved separately) #####
-call_dir = r"C:\Users\jasonjia\ConferenceCall\CallScripts3"
-index_dir = r"C:\Users\jasonjia\ConferenceCall\List3"
 
+#### save directory (scripts and calls saved separately) #####
+call_dir = r"C:\Users\jasonjia\ConferenceCall\Output\CallScripts3"
+index_dir = r"C:\Users\jasonjia\ConferenceCall\Output\List3"
+
+print('done')
 #%%
 #---------------------------- Functions -------------------------------------#
 ##### click mouse function ####
@@ -119,7 +118,7 @@ mouse_c_list_2 = [(32+mouse_c_adj[0], 852+mouse_c_adj[1]),
 date_initial = datetime.date(year=2021, month=8, day=5)
 
 ### open file record recorder ###
-record_file = open("C:\\Users\\jasonjia\\ConferenceCall\\file_number.txt", "w", encoding="utf-8", errors="ignore")
+record_file = open("C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\file_number.txt", "w", encoding="utf-8", errors="ignore")
 print("Start date\tEnd date\tNo. Reports", file=record_file)
 
 ### two variables for error catching ####
@@ -134,12 +133,17 @@ error_time = 0
 ### Thomson One -> Screening and Analysis, 'Research' Page.
 ### Leave date untouched, but set the contributer to Refinitiv Streetevents.
 
+
+# Type in contributor - Refinitiv Streetevents
+
 time.sleep(1)
 mouse_click((99+mouse_c_adj[0],626+mouse_c_adj[1]),2) ### contributor
-## type in source - Refinitiv Streetevents
+with KB_enter.pressed(Key.ctrl):
+    key_press('a')
+key_press(Key.delete)
 key_strtype("STREETEVENTS")
-time.sleep(3)
 mouse_click((93+mouse_c_adj[0],669+mouse_c_adj[1]),3)
+
                 
 while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time ###
     ########### This error handler is to deal with damaged pages ################
@@ -240,7 +244,7 @@ while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time #
         mouse_click(mouse_c_list_2[0], 1)
 
 
-         ### get the pdf first ###
+        ### get the pdf first ###
         #### check first whether it is already
         f_file = date_list[2]+'_'+order_num
         f_name = file_name(call_dir, f_file)
@@ -372,7 +376,7 @@ while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time #
         ### dis select the reports
         mouse_click(mouse_c_list_2[7], 1)
         ### next page
-        mouse_click(mouse_c_list_2[8], 5)   
+        mouse_click(mouse_c_list_2[8], 2.5)   
         
         #### reset click_time
         click_time = 0
