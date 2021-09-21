@@ -2,6 +2,7 @@
 # ```Code uses two files: 1) *.XLS file with a list of CC per file and 2) *.txt file, which was converted from pdf file ```
 # ```Code use information from XLS file about type of Anaylist to parse CC in different ways ```
 
+# using Pkg, Pkg.add("XLSX")
 
 using PDFIO
 using CSVFiles
@@ -170,7 +171,6 @@ function getFirmCC_t3(doc,page_s,page_e)
             break
         end
     end
-     call=cutDisclaimer(call)
     return call
 catch e
     println(string(e)[1:50])
@@ -298,8 +298,8 @@ global dfBadFile=DataFrame(filname=String[],Title=String[])
 # Overall structure: -> main
 try
     # Sixun's comment, N/A: cd("..//..//..//..//project//EC_Mercury//final_sup")
-    # cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/CallScripts3")
-    cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Misc/Trial2")
+    cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/CallScripts3")
+    # cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Misc/Trial2")
     @time main()
     CSV.write("BadList.csv",dfBadFile)
     # filename="20030311-20030314_1"
