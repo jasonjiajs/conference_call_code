@@ -235,12 +235,12 @@ end
 function parseCalls(filename)
     try
     #get list of CC
-    dflist=parseHtmlXlsToDf("List3/$filename.xls")
+    dflist=parseHtmlXlsToDf("ListTest/$filename.xls")
     dflist[!,:Call].=""
 
     #doc = pdDocOpen("$filename.pdf")
-    doc_pdf = pdDocOpen("CallScripts/$filename.pdf")
-    doc_text=String(read("CallScripts/$filename.txt"))
+    doc_pdf = pdDocOpen("CallScriptsTest/$filename.pdf")
+    doc_text=String(read("CallScriptsTest/$filename.txt"))
     doc=split(doc_text,"\f")
     content, pn = getPageContents(doc_pdf)
     # row=dflist[50,:]
@@ -293,7 +293,7 @@ end
 
 # ```parse all file from the currrent  ```
 function main()
-    files=readdir()
+    files=readdir("List")
     for file in files
         if file[end-2:end]=="xls"
             try
@@ -301,7 +301,7 @@ function main()
                 println("")
                 println(file)
                 @time dfCalls=parseCalls(filename)
-                CSV.write("$filename.csv",dfCalls)
+                CSV.write("CsvTest/$filename.csv",dfCalls)
             catch e
                 println(e)
             end
@@ -320,14 +320,15 @@ try
     cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Output")
     # cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Misc/Trial2")
     @time main()
-    CSV.write("BadList.csv",dfBadFile)
+    CSV.write("BadListTest.csv",dfBadFile)
     try
-        mkdir("CSV")
+        mkdir("CsvTest")
     catch e
+    end
     # filename="20030311-20030314_1"
     # df=parseCalls(filename)
 catch e
     println(e)
 end
 CSV.write("BadList.csv",dfBadFile)
-println("Finish Start parsing CCs from pdf, txt and xls into csv")
+println("Finish parsing CCs from pdf, txt and xls into csv")
