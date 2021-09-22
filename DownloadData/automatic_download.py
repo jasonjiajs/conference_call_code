@@ -1,8 +1,7 @@
+#%%
 ########## Created by Sixun Tang @02252020 #########
 ########## This code serves to automatic download conference calls from Thomson One ###########
 ########## Output: PDFs, XLSs, and a collection of the number of file records ###########
-
-## Hi! Testing for version control :)
 
 import pynput
 import time
@@ -19,11 +18,12 @@ import io
 #### open keyboard and mouse Controller ####
 KB_enter = pynput.keyboard.Controller()
 MS_enter = pynput.mouse.Controller()
-time.sleep(5)
-#### save directory (scripts and calls saved separately) #####
-call_dir = r"C:\Users\jasonjia\ConferenceCall\CallScripts3"
-index_dir = r"C:\Users\jasonjia\ConferenceCall\List3"
 
+#### save directory (scripts and calls saved separately) #####
+call_dir = r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\CallScripts3"
+index_dir = r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\List3"
+
+print('done')
 #%%
 #---------------------------- Functions -------------------------------------#
 ##### click mouse function ####
@@ -116,10 +116,10 @@ mouse_c_list_2 = [(32+mouse_c_adj[0], 852+mouse_c_adj[1]),
 #%%
 # --------------------------- Main loop start ------------------------------- #
 ### set initial date ###
-date_initial = datetime.date(year=2021, month=8, day=5)
+date_initial = datetime.date(year=2021, month=9, day=22)
 
 ### open file record recorder ###
-record_file = open("C:\\Users\\jasonjia\\ConferenceCall\\file_number.txt", "w", encoding="utf-8", errors="ignore")
+record_file = open("C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\file_number.txt", "w", encoding="utf-8", errors="ignore")
 print("Start date\tEnd date\tNo. Reports", file=record_file)
 
 ### two variables for error catching ####
@@ -134,12 +134,15 @@ error_time = 0
 ### Thomson One -> Screening and Analysis, 'Research' Page.
 ### Leave date untouched, but set the contributer to Refinitiv Streetevents.
 
+
+# Type in contributor - Refinitiv Streetevents
 time.sleep(1)
-mouse_click((99+mouse_c_adj[0],626+mouse_c_adj[1]),2) ### contributor
-## type in source - Refinitiv Streetevents
+mouse_click((302+mouse_c_adj[0],120+mouse_c_adj[1]),1) ### research
+mouse_click((99+mouse_c_adj[0],626+mouse_c_adj[1]),0.5) ### contributor
 key_strtype("STREETEVENTS")
-time.sleep(3)
-mouse_click((93+mouse_c_adj[0],669+mouse_c_adj[1]),3)
+time.sleep(1)
+mouse_click((93+mouse_c_adj[0],669+mouse_c_adj[1]),0.5)
+
                 
 while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time ###
     ########### This error handler is to deal with damaged pages ################
@@ -158,23 +161,23 @@ while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time #
     if click_time==0 and error_time==0:
         date_list = date_string(date_initial,4)
     ##### type in start date, and end date #####
-    print('4-day')
-    mouse_click(mouse_c_list_1[0],0.5)
-    mouse_click(mouse_c_list_1[1],0.5)
-    key_strtype(date_list[0])
-    time.sleep(0.5)
-    mouse_click(mouse_c_list_1[2],0.5)
-    mouse_click(mouse_c_list_1[3],0.5)
-    key_strtype(date_list[1])
-    time.sleep(0.5)
+        print('New 4-day window:', date_list[2])
+        mouse_click(mouse_c_list_1[0],0.5)
+        mouse_click(mouse_c_list_1[1],0.5)
+        key_strtype(date_list[0])
+        time.sleep(0.5)
+        mouse_click(mouse_c_list_1[2],0.5)
+        mouse_click(mouse_c_list_1[3],0.5)
+        key_strtype(date_list[1])
+        time.sleep(0.5)
         
     #### search ####
     key_press(Key.enter) ### search results displayed for the time period
     #### wait for the results to display ####
-    time.sleep(8)
+    time.sleep(3)
     
     # get the number of reports being searched (double click and Ctrl+C)
-    print('number of reports')
+    print('Get number of reports')
     mouse_doublec(mouse_c_list_1[4],0.5)
     ## copy the number
     with KB_enter.pressed(Key.ctrl):
@@ -240,7 +243,7 @@ while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time #
         mouse_click(mouse_c_list_2[0], 1)
 
 
-         ### get the pdf first ###
+        ### get the pdf first ###
         #### check first whether it is already
         f_file = date_list[2]+'_'+order_num
         f_name = file_name(call_dir, f_file)
@@ -250,28 +253,33 @@ while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time #
             file_num2 = file_num1
             print('compare number of files to see if file is downloaded')
             ## i. Click on the View icon
-            mouse_click(mouse_c_list_2[4],8)
+            mouse_click(mouse_c_list_2[4],3)
             ## ii. Click the select and view icon
             mouse_click(mouse_c_list_2[5],1)
-            mouse_click(mouse_c_list_2[6],5) #15
+            mouse_click(mouse_c_list_2[6],6) #15
+            with KB_enter.pressed(Key.cmd):
+                key_press(Key.up)
+            time.sleep(1)            
+            mouse_click((1445,140),0.5) # newly added - for IE's popup
+            mouse_click((1445,180),0.5) # newly added - for IE's popup
+            mouse_click((1445,155),0.5) # newly added - for IE's popup
+            mouse_click((1445,195),0.5) # newly added - for IE's popup
             time.sleep(1)
-            mouse_click((775,300),1) # newly added - for IE's popup
-            mouse_click((775,340),1) # newly added - for IE's popup
+            
             ### start the time calculator before the loop ####
             start_time = time.time()
             
             ## if no new file is downloaded, keep rerunning the process ##
             while file_num2==file_num1:
             ## iii. Wait for the report to come out, type shift + ctrl + s to save
-                with KB_enter.pressed(Key.shift, Key.ctrl):
-                    key_press('s')
+               # with KB_enter.pressed(Key.shift, Key.ctrl):
+               #     key_press('s')
                 print('trying to save file')
                 ## iv. Type the file name
-                time.sleep(3)
                 key_strtype(f_name)
                 time.sleep(0.5)
                 key_press(Key.enter)
-                time.sleep(6)
+                time.sleep(5)
             ## see if there is a new file there, if not, continue to do this loop
                 file_num2 = len(os.listdir(call_dir))
                 ### calculate the end time for each loop
@@ -307,7 +315,7 @@ while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time #
             print('closing the window')
             with KB_enter.pressed(Key.alt):
                 key_press(Key.f4)
-            time.sleep(2)
+            time.sleep(1)
             with KB_enter.pressed(Key.alt):
                 key_press(Key.f4)
 
@@ -329,16 +337,16 @@ while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time #
                 ### different locations of excel icon
                 if report_number>50:
                     time.sleep(1)
-                    mouse_click(mouse_c_list_2[1][0],2)
+                    mouse_click(mouse_c_list_2[1][0],0.5)
                 else:
-                    mouse_click(mouse_c_list_2[1][1],2)
+                    mouse_click(mouse_c_list_2[1][1],0.5)
                 ## ii. Select save annd save as
                 time.sleep(1)
-                mouse_click(mouse_c_list_2[2],2)
-                mouse_click(mouse_c_list_2[3],8)
+                mouse_click(mouse_c_list_2[2],0.5)
+                mouse_click(mouse_c_list_2[3],1)
                 ## iii. Enter the name of the excel and save it
                 key_strtype(f_name)
-                time.sleep(2)
+                time.sleep(0.5)
                 key_press(Key.enter)
                 time.sleep(1)
                 ### cancel and redo
@@ -372,7 +380,7 @@ while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time #
         ### dis select the reports
         mouse_click(mouse_c_list_2[7], 1)
         ### next page
-        mouse_click(mouse_c_list_2[8], 5)   
+        mouse_click(mouse_c_list_2[8], 2.5)   
         
         #### reset click_time
         click_time = 0
@@ -382,3 +390,5 @@ while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time #
 
 record_file.close()
 
+
+# %%

@@ -5,16 +5,11 @@
 import pynput
 import time
 
-
-
-
 ###### we wanna record all the position we need to click and the key we wanna use ########
 position_list = []
 def record_position(p_list,x,y):
     p_list.append((x,y))
     return p_list
-
-
 
 #### key board listener ###
 def on_press(key):
@@ -43,8 +38,6 @@ def on_scroll(x,y,dx,dy):
 
 with pynput.keyboard.Listener(on_press=on_press,on_release=on_release) as klistener:
     klistener.join()
-    
-
 
 
 def mouse_click(mouse,position,delay):
