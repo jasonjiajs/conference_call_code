@@ -13,6 +13,7 @@ using Cascadia
 using Dates
 import Gumbo.text
 using Statistics
+using Test
 
 ``` read list of firm per pdf documents ```
 function parseHtmlXlsToDf(filename)
@@ -49,7 +50,7 @@ function getPage(doc::Vector,page_n)
 end
 
 function getPage(doc,page_n)
-    print(string(page_n,"-"))
+    print(string(page_n,"--"))
     try
         page = pdDocGetPage(doc, page_n)
         io = IOBuffer()
@@ -127,11 +128,14 @@ end
 
 function cutBottom(page)
     # println("cutBottom")
+    page=replace(page,"\n\n\n\n\n"=>"")
+    page=replace(page,"\n\n\n\n"=>"")
+    page=replace(page,"\n\n\n"=>"\n\n")
     try
-        if !isnothing(findfirst("\n\n\n\nrefinitiv streetevents",lowercase(page[prevind(page, lastindex(page),700):end])))
-            l=findfirst("\n\n\n\nrefinitiv streetevents",lowercase(page[prevind(page, lastindex(page),700):end]))[1]
-        elseif !isnothing(findfirst("www.refinitiv.com",lowercase(page[prevind(page, lastindex(page),700):end])))
-            l=findfirst("www.refinitiv.com",lowercase(page[prevind(page, lastindex(page),700):end]))[1]
+        if !isnothing(findfirst(r"\d{1,3}\n{0,}refinitiv streetevents \|",lowercase(page[prevind(page, lastindex(page),700):end])))
+            l=findfirst(r"\d{1,3}\n{0,}refinitiv streetevents \|",lowercase(page[prevind(page, lastindex(page),700):end]))[1]
+        # elseif !isnothing(findfirst(r"REFINITIV STREETEVENTS \|",uppercase(page[prevind(page, lastindex(page),700):end])))
+        #    l=findfirst(r"REFINITIV STREETEVENTS \|",uppercase(page[prevind(page, lastindex(page),700):end]))[1]
         else
             l=0
         end
@@ -158,9 +162,10 @@ end
                 l=lastindex(page)+1
         end
         return page[1:l-1]
-    catch e
-        println(string(e)[1:50])
-    end
+        catch e
+            println(string(e)[1:50])
+        end
+
     end
 
 
@@ -293,7 +298,7 @@ end
 
 # ```parse all file from the currrent  ```
 function main()
-    files=readdir("List")
+    files=readdir("ListTest")
     for file in files
         if file[end-2:end]=="xls"
             try
@@ -314,6 +319,7 @@ end
 println("Start parsing CCs from pdf, txt and xls into csv")
 global dfBadFile=DataFrame(filename=String[],Title=String[])
 
+
 # Overall structure: -> main
 try
     # Sixun's comment, N/A: cd("..//..//..//..//project//EC_Mercury//final_sup")
@@ -323,12 +329,17 @@ try
     CSV.write("BadListTest.csv",dfBadFile)
     try
         mkdir("CsvTest")
-    catch e
+    catch errorcsvtest
     end
     # filename="20030311-20030314_1"
     # df=parseCalls(filename)
-catch e
-    println(e)
+catch error
+    println(error)
 end
 CSV.write("BadList.csv",dfBadFile)
 println("Finish parsing CCs from pdf, txt and xls into csv")
+
+# test
+
+
+# @test
