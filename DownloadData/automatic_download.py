@@ -116,7 +116,7 @@ mouse_c_list_2 = [(32+mouse_c_adj[0], 852+mouse_c_adj[1]),
 #%%
 # --------------------------- Main loop start ------------------------------- #
 ### set initial date ###
-date_initial = datetime.date(year=2021, month=8, day=13)
+date_initial = datetime.date(year=2021, month=9, day=22)
 
 ### open file record recorder ###
 record_file = open("C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\file_number.txt", "w", encoding="utf-8", errors="ignore")

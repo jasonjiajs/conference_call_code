@@ -146,6 +146,24 @@ end
 
     # return page[1:l-1]
 
+    function cutDisclaimer(page)
+        try
+        if !isnothing(findfirst("DISCLAIMER\n",page))
+                l=findfirst("DISCLAIMER\n",page)[1]
+        elseif  !isnothing(findfirst("DISCLAIMER:",page))
+                l=findfirst("DISCLAIMER:",page)[1]
+        elseif  !isnothing(findfirst("all products and services provided by fdfn",lowercase(page)))
+                l=findfirst("all products and services provided by fdfn",lowercase(page))[1]
+        else
+                l=lastindex(page)+1
+        end
+        return page[1:l-1]
+    catch e
+        println(string(e)[1:50])
+    end
+    end
+
+
 function getFirmCC_t3(doc,page_s,page_e)
     print(string("getFirmCC: ",page_s,", ",page_e, " | "))
     try
@@ -171,6 +189,7 @@ function getFirmCC_t3(doc,page_s,page_e)
             break
         end
     end
+    call=cutDisclaimer(call)
     return call
 catch e
     println(string(e)[1:50])
@@ -216,12 +235,12 @@ end
 function parseCalls(filename)
     try
     #get list of CC
-    dflist=parseHtmlXlsToDf("$filename.xls")
+    dflist=parseHtmlXlsToDf("List3/$filename.xls")
     dflist[!,:Call].=""
 
     #doc = pdDocOpen("$filename.pdf")
-    doc_pdf = pdDocOpen("$filename.pdf")
-    doc_text=String(read("$filename.txt"))
+    doc_pdf = pdDocOpen("CallScripts/$filename.pdf")
+    doc_text=String(read("CallScripts/$filename.txt"))
     doc=split(doc_text,"\f")
     content, pn = getPageContents(doc_pdf)
     # row=dflist[50,:]
@@ -292,20 +311,23 @@ end
 
 
 ## START OF CODE
-println("Start Parse CC pdf")
-global dfBadFile=DataFrame(filname=String[],Title=String[])
+println("Start parsing CCs from pdf, txt and xls into csv")
+global dfBadFile=DataFrame(filename=String[],Title=String[])
 
 # Overall structure: -> main
 try
     # Sixun's comment, N/A: cd("..//..//..//..//project//EC_Mercury//final_sup")
-    cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/CallScripts3")
+    cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Output")
     # cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Misc/Trial2")
     @time main()
     CSV.write("BadList.csv",dfBadFile)
+    try
+        mkdir("CSV")
+    catch e
     # filename="20030311-20030314_1"
     # df=parseCalls(filename)
 catch e
     println(e)
 end
 CSV.write("BadList.csv",dfBadFile)
-println("Finish Parse CC pdf")
+println("Finish Start parsing CCs from pdf, txt and xls into csv")
