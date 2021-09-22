@@ -128,8 +128,8 @@ end
 
 function cutBottom(page)
     # println("cutBottom")
-    page=replace(page,"\n\n\n\n\n"=>"")
-    page=replace(page,"\n\n\n\n"=>"")
+    page=replace(page,"\n\n\n\n\n"=>"\n")
+    page=replace(page,"\n\n\n\n"=>"\n")
     page=replace(page,"\n\n\n"=>"\n\n")
     try
         if !isnothing(findfirst(r"\d{1,3}\n{0,}refinitiv streetevents \|",lowercase(page[prevind(page, lastindex(page),700):end])))
