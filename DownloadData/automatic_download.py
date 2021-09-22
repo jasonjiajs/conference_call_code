@@ -20,8 +20,8 @@ KB_enter = pynput.keyboard.Controller()
 MS_enter = pynput.mouse.Controller()
 
 #### save directory (scripts and calls saved separately) #####
-call_dir = r"C:\Users\jasonjia\ConferenceCall\Output\CallScripts3"
-index_dir = r"C:\Users\jasonjia\ConferenceCall\Output\List3"
+call_dir = r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\CallScripts3"
+index_dir = r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\List3"
 
 print('done')
 #%%
@@ -116,7 +116,7 @@ mouse_c_list_2 = [(32+mouse_c_adj[0], 852+mouse_c_adj[1]),
 #%%
 # --------------------------- Main loop start ------------------------------- #
 ### set initial date ###
-date_initial = datetime.date(year=2021, month=8, day=5)
+date_initial = datetime.date(year=2021, month=8, day=13)
 
 ### open file record recorder ###
 record_file = open("C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\file_number.txt", "w", encoding="utf-8", errors="ignore")
@@ -136,15 +136,11 @@ error_time = 0
 
 
 # Type in contributor - Refinitiv Streetevents
-
 time.sleep(1)
+mouse_click((302+mouse_c_adj[0],120+mouse_c_adj[1]),1) ### research
 mouse_click((99+mouse_c_adj[0],626+mouse_c_adj[1]),0.5) ### contributor
-with KB_enter.pressed(Key.ctrl):
-    key_press('a')
-key_press(Key.delete)
-time.sleep(0.5)
 key_strtype("STREETEVENTS")
-time.sleep(0.5)
+time.sleep(1)
 mouse_click((93+mouse_c_adj[0],669+mouse_c_adj[1]),0.5)
 
                 
@@ -257,17 +253,17 @@ while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time #
             file_num2 = file_num1
             print('compare number of files to see if file is downloaded')
             ## i. Click on the View icon
-            mouse_click(mouse_c_list_2[4],4)
+            mouse_click(mouse_c_list_2[4],3)
             ## ii. Click the select and view icon
             mouse_click(mouse_c_list_2[5],1)
-            mouse_click(mouse_c_list_2[6],8) #15
+            mouse_click(mouse_c_list_2[6],6) #15
             with KB_enter.pressed(Key.cmd):
                 key_press(Key.up)
             time.sleep(1)            
             mouse_click((1445,140),0.5) # newly added - for IE's popup
-            mouse_click((1445,175),0.5) # newly added - for IE's popup
-            mouse_click((1445,150),0.5) # newly added - for IE's popup
-            mouse_click((1445,185),0.5) # newly added - for IE's popup
+            mouse_click((1445,180),0.5) # newly added - for IE's popup
+            mouse_click((1445,155),0.5) # newly added - for IE's popup
+            mouse_click((1445,195),0.5) # newly added - for IE's popup
             time.sleep(1)
             
             ### start the time calculator before the loop ####
@@ -319,7 +315,7 @@ while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time #
             print('closing the window')
             with KB_enter.pressed(Key.alt):
                 key_press(Key.f4)
-            time.sleep()
+            time.sleep(1)
             with KB_enter.pressed(Key.alt):
                 key_press(Key.f4)
 
