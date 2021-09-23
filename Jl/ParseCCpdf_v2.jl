@@ -240,12 +240,15 @@ end
 function parseCalls(filename)
     try
     #get list of CC
-    dflist=parseHtmlXlsToDf("ListTest/$filename.xls")
+    dflist=parseHtmlXlsToDf("Xls/$filename.xls")
+    #dflist=parseHtmlXlsToDf("XlsTest/$filename.xls")
     dflist[!,:Call].=""
 
     #doc = pdDocOpen("$filename.pdf")
-    doc_pdf = pdDocOpen("CallScriptsTest/$filename.pdf")
-    doc_text=String(read("CallScriptsTest/$filename.txt"))
+    doc_pdf = pdDocOpen("Pdf/$filename.pdf")
+    doc_text=String(read("Txt/$filename.txt"))
+    #doc_pdf = pdDocOpen("PdfTest/$filename.pdf")
+    #doc_text=String(read("TxtTest/$filename.txt"))
     doc=split(doc_text,"\f")
     content, pn = getPageContents(doc_pdf)
     # row=dflist[50,:]
@@ -298,7 +301,8 @@ end
 
 # ```parse all file from the currrent  ```
 function main()
-    files=readdir("ListTest")
+    files=readdir("Xls")
+    # files=readdir("XlsTest")
     for file in files
         if file[end-2:end]=="xls"
             try
@@ -306,7 +310,8 @@ function main()
                 println("")
                 println(file)
                 @time dfCalls=parseCalls(filename)
-                CSV.write("CsvTest/$filename.csv",dfCalls)
+                CSV.write("Csv/$filename.csv",dfCalls)
+                #CSV.write("CsvTest/$filename.csv",dfCalls)
             catch e
                 println(e)
             end
@@ -326,10 +331,12 @@ try
     cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Output")
     # cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Misc/Trial2")
     @time main()
-    CSV.write("BadListTest.csv",dfBadFile)
+    CSV.write("BadList.csv",dfBadFile)
+    #CSV.write("BadListTest.csv",dfBadFile)
     try
-        mkdir("CsvTest")
-    catch errorcsvtest
+        mkdir("Csv")
+        #mkdir("CsvTest")
+    catch errorcsv
     end
     # filename="20030311-20030314_1"
     # df=parseCalls(filename)

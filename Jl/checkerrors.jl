@@ -22,8 +22,9 @@ function errorxls(file)
     CSV.write("Errorxlsfiles.csv",dfErrorXls)
 end
 
-cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/List3")
+cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/Xls")
 files=readdir()
+
 dfErrorXls=DataFrame(filename=String[],error=String[])
 
 for file in files

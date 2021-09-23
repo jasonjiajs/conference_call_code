@@ -20,8 +20,8 @@ KB_enter = pynput.keyboard.Controller()
 MS_enter = pynput.mouse.Controller()
 
 #### save directory (scripts and calls saved separately) #####
-call_dir = r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\CallScripts3"
-index_dir = r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\List3"
+call_dir = r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\Pdf" # Previously known as CallScripts3
+index_dir = r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\Xls" # Previously known as List3
 
 print('done')
 #%%
