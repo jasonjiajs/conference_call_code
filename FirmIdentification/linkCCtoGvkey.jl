@@ -7,7 +7,8 @@ using StringDistances
 # ```     for unmatched firm's name, string distance comparison is using. ```
 
 
-function getTicker(str) #``` parse tiker ```
+# Ticker not used here
+function getTicker(str) #``` parse ticker ```
     try
         # f=findfirst(" - ",str)[1]
         f=findfirst(" ",str)[1]
@@ -37,12 +38,12 @@ function deleteCorpWords(fname) #``` delete common words```
                         ]
 
     fname = string(" ",fname," ")
-    fname=replace(fname,r"[0-9]"=>" ")
+    fname=replace(fname,r"[0-9]"=>" ") #replace digits with spaces
     for w in words
-        fname=replace(fname,Regex("\\b$w\\b") => " ")
+        fname=replace(fname,Regex("\\b$w\\b") => " ") #replace each hit word with a space
     end
 
-    return strip(fname)
+    return strip(fname) #removes front and back spaces only
 end
 
 
