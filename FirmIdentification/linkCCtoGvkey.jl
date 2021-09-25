@@ -96,7 +96,7 @@ function getGVKey_ticker(ticker)
     end
 end
 
-function GuesNameTicker!(dfCC) #lookf through set of company names by tikers. (some tickers has several names) ```
+function GuesNameTicker!(dfCC) #lookf through set of company names by tickers. (some tickers has several names) ```
     global cash_dict
     # dfCC[!,:prob].=1.
     # dfCC[!,:gues_by_dticker].=0
@@ -180,13 +180,10 @@ end
 function MergeGvkey!(dfCC) #""" create the main gvkey based on three keys: hassan, compustat, tickers """
     dfCC[!,:gvkey].=0
     for r in eachrow(dfCC)
-        if !((r.gvkey_t.==0) .& (r.gvkey_h.==0) .& (r.gvkey_c.==0))
+        if (r.gvkey_h.==0) .& (r.gvkey_c.==0)
             r.gvkey=r.gvkey_c
             if r.gvkey==0
                 r.gvkey=r.gvkey_h
-                if r.gvkey==0
-                    r.gvkey=r.gvkey_t
-                end
             end
         end
     end
@@ -195,16 +192,14 @@ end
 function  matchFile(filename)
     #read Call csv file
     try
-        dfCC=CSV.read("$filename.csv",copycols=true)
+        dfCC=CSV.read("$filename.csv",DataFrame,copycols=true)
 
         #parse ticker from SubTitile
-        dfCC[!,:ticker]=getTicker.(dfCC.Subtitle)
+        # dfCC[!,:ticker]=getTicker.(dfCC.Subtitle)
         #match three sources gvkeys
-        dfCC[!,:gvkey_t].= getGVKey_ticker.(dfCC[:,:ticker])
+        # dfCC[!,:gvkey_t].= getGVKey_ticker.(dfCC[:,:ticker])
         dfCC[!,:gvkey_h]=getGVkeyH.(dfCC.Title)
         dfCC[!,:gvkey_c]=getGVkeyC.(dfCC.Title)
-
-
 
         #Merge into one main gvkey
         MergeGvkey!(dfCC)
@@ -213,11 +208,14 @@ function  matchFile(filename)
         dfCC[!,:gues_by_dticker].=0
         dfCC[!,:gues_name].=""
 
-        GuesNameTicker!(dfCC)
+        # GuesNameTicker!(dfCC)
         GuesName!(dfCC)
         #println(dfCC[:,[:gvkey_c,:gvkey_h,:gvkey_t,:gvkey,:prob,:Title,:gues_name]])
 
-        dfCC=join(dfCC,dfCompGvkeyUniqu[:,[:gvkey,:countryid,:country]], on = :gvkey, kind = :inner)
+        dfCC=join(dfCC,dfCompGvkeyUniqu[:,[:gvkey,:countryid]], on = :gvkey, kind = :inner)
+        # inner joining data frames using join is deprecated,
+        # use `innerjoin(df1, df2, on=gvkey, makeunique=false, validate=(false, false))` instead
+        # innerjoin(dfCC, dfCompGvkeyUniqu[:,[:gvkey,:countryid]], on=gvkey, makeunique=false, validate=(false, false))
         dfCC[!,:filename].=filename
         select!(dfCC,Not(:Call))
         return dfCC
@@ -251,37 +249,39 @@ println("start linking CC to GVKEY")
 
 # """ SET Current Folder """
 # cd("..//..//..//..//project//EC_Mercury")
-
+# C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output
 #
 # """Prepare dictionaries and variables"""
-    dfSV_hassan=CSV.read("G:\\My Drive\\Booth\\Political_Firms\\Data\\EPU\\FirmSVkey.csv")
-    dfComp=CSV.read("G:\\My Drive\\Booth\\Political_Firms\\Data\\SAS\\compustat_company.csv",copycols=true)
-    dfComp_byhand=CSV.read("G:\\My Drive\\Booth\\Political_Firms\\Data\\SAS\\compustat_company_byhand.csv")
-    append!(dfComp,dfComp_byhand)
-    dfCompGvkeyUniqu=unique(dfComp,:gvkey)
-    dfCompT=dropmissing(dfComp,:tickersymbol) #drop companies without tickers
-    gvkey_dict_h = Dict(prepareName(row.company_name) => row.gvkey  for row in eachrow(dfSV_hassan))
-    gvkey_dict_c = Dict(prepareName(row.companyname) => row.gvkey  for row in eachrow(dfComp))
-    tickers=unique(dfCompT.tickersymbol)
-    ticker_gvkey_uniq=Dict()
-    for t in tickers #create dictionary with tickers, that are unique
-        gvk=dfCompT[dfCompT.tickersymbol.==t,:].gvkey
-        size(gvk)[1]==1 ? push!(ticker_gvkey_uniq,t=>gvk[1]) : nothing
-    end
+dfSV_hassan=CSV.read("C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\HassanFirmSVkey.csv",DataFrame)
 
-    firm_names_h=[k for k in keys(gvkey_dict_h)]
-    firm_names_c=[k for k in keys(gvkey_dict_c)]
-    firm_names=vcat(firm_names_h,firm_names_c)
+dfComp=CSV.read("C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\compustat_company.csv", DataFrame) #Initially had copycols=true
+# dfComp_byhand=CSV.read("C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\compustat_company_byhand.csv")
+# append!(dfComp,dfComp_byhand)
 
-    global cash_dict = Dict() # cash is already matched firms name
+dfCompGvkeyUniqu=unique(dfComp,:gvkey)
+#dfCompT=dropmissing(dfComp,:tickersymbol) #drop companies without tickers
+gvkey_dict_h = Dict(prepareName(row.company_name) => row.gvkey  for row in eachrow(dfSV_hassan))
+gvkey_dict_c = Dict(prepareName(row.companyname) => row.gvkey  for row in eachrow(dfComp))
+#tickers=unique(dfCompT.tickersymbol)
+ticker_gvkey_uniq=Dict()
+#for t in tickers #create dictionary with tickers, that are unique
+#    gvk=dfCompT[dfCompT.tickersymbol.==t,:].gvkey
+#    size(gvk)[1]==1 ? push!(ticker_gvkey_uniq,t=>gvk[1]) : nothing
+#end
+
+firm_names_h=[k for k in keys(gvkey_dict_h)]
+firm_names_c=[k for k in keys(gvkey_dict_c)]
+firm_names=vcat(firm_names_h,firm_names_c)
+
+global cash_dict = Dict() # cash is already matched firms name
 # """ ************************************************************************ """
 
-
+cd("C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\Csv")
 #
 # """ main code """
 # cd("C:\\CC2010")
-for i in 2001:1:2010
-     @time DoFolder(2010)
+for i in 2020:1:2021
+ @time DoFolder(i)
 end
 
 # @time dfList=DoFolder()
