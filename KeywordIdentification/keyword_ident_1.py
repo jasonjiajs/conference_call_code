@@ -10,8 +10,8 @@ import sys
 import re
 
 
-csv_dir = sys.argv[1]
-target_dir = sys.argv[2]
+csv_dir = "C:\\Users\\jasonjia\\\Dropbox\\ConferenceCall\\Output" # initially was sys.argv[1]
+target_dir = "C:\\Users\\jasonjia\\\Dropbox\\ConferenceCall\\Output" # initially was sys.argv[2]
 
 #%%
 #####　add any keywords in the text file ####
@@ -127,13 +127,16 @@ def identify_phrase(conf_call,key_ident,addi=False):
 '''
 # %%
 ### read data now ####   
-### csv_dir is passed in by the submit scrpt file ####
+### csv_dir is passed in by the submit script file ####
 csv_list = os.listdir(csv_dir)
 
 #%% 
 ##### form a raw file containing which file contains which keyword
 ##### if a call contains several keywords, it will appear more than once ####
 total_data = pd.DataFrame({"Date":[], "Report":[], "Keywords":[], "Cri1":[], "File":[]})
+
+#%% 
+
 ###"Cri2":[], "Cri3":[],"Cri4":[], "File":[]})
 for each_csv in csv_list:
     if "CC_List" in each_csv:
