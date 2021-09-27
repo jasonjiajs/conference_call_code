@@ -35,7 +35,7 @@ module load python/booth/3.6/3.6.12
 #--------------------------
 # run code
 
-cd "/project/kh_mercury_1/CriCount"
+cd "/project/kh_mercury_1/CriCount2"
 
-srun python3 example_pre.py /project/kh_mercury_1/WorkTemp/csv1 /project/kh_mercury_1/CriCount/group1
+srun python3 example_pre.py /project/kh_mercury_1/WorkTemp/csv1 /project/kh_mercury_1/CriCount2/group1
 
