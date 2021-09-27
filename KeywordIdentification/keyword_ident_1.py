@@ -10,7 +10,7 @@ import sys
 import re
 
 
-csv_dir = "C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csv" # initially was sys.argv[1]
+csv_dir = "C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csvtest" # initially was sys.argv[1]
 target_dir = "C:/Users/jasonjia/Dropbox/ConferenceCall/Output/KeywordIdentification" # initially was sys.argv[2]
 
 #%%
@@ -170,3 +170,5 @@ os.chdir(target_dir)
 total_data.to_csv("FR5.csv", index =None)
 
 
+
+# %%

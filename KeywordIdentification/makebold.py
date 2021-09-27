@@ -43,7 +43,7 @@ for row_val in range(1,raw_data.nrows):
         w1.write(row_val//500+1,0,row_val//500+1)
         w1.write(row_val//500+1,1,row_val)
         if row_val//500 + 1>1:
-            w1.write(row_val//500,2,row_val-1)
+            w1.write(row_val//500,2,row_val-1)//7
         #%%% write title 
         for row_val_1 in range(2):
             for col_val_1 in range(title_file.ncols):
