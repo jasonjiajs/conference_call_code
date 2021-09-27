@@ -35,7 +35,7 @@ save `para', replace
 **** merge with other sources ***
 * import delimited "K:\CallCsv\CC_ListTotal.csv", case(preserve) clear 
 import delimited "C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\group1\CC_List2020.csv", case(preserve) clear 
-keep Title Subtitle Date Report ticker gvkey_t gvkey_h gvkey_c gvkey prob gues_by_dticker gues_name countryid country 
+keep Title Subtitle Date Report gvkey_h gvkey_c gvkey prob gues_by_dticker gues_name countryid country 
 
 tempfile cc1
 save `cc1', replace
@@ -43,7 +43,7 @@ save `cc1', replace
 ***** merge with other sources *** 
 * import delimited "K:\NewConfCall\csv\CC_List.csv", case(preserve) clear 
 import delimited "C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\group1\CC_List2021.csv", case(preserve) clear 
-keep Title Subtitle Date Report ticker gvkey_t gvkey_h gvkey_c gvkey prob gues_by_dticker gues_name countryid country 
+keep Title Subtitle Date Report gvkey_h gvkey_c gvkey prob gues_by_dticker gues_name countryid country 
 duplicates drop
 
 
@@ -66,8 +66,8 @@ drop _merge
 sort gvkey Date gues_name Title
 
 order Keywords Paragraph Date gvkey Title Subtitle
-order Report, after(ticker)
+order Report, after(countryid)
 
-export excel using "K:\CriCount\cric1_newtotal.xlsx", firstrow(variables)
+export excel using "C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\cric1_newtotal.xlsx", firstrow(variables)
 
 
