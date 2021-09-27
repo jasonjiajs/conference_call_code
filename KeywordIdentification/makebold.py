@@ -39,7 +39,7 @@ for row_val in range(1,raw_data.max_row):
         if row_val//500>0:
             final_data.close()
         final_data = xlsxwriter.Workbook(r"Entry files/"+ str(row_val//500+1) + ".xlsx")
-        bold_1 = final_data.add_format({"bold":True})
+        bold_1 = final_data.add_format({"bold":True}) # the bold "format"
         worksheet = final_data.add_worksheet()
         w1.write(row_val//500+1,0,row_val//500+1)
         w1.write(row_val//500+1,1,row_val)
@@ -48,7 +48,7 @@ for row_val in range(1,raw_data.max_row):
         #%%% write title 
         for row_val_1 in range(2):
             for col_val_1 in range(title_file.max_column):
-                worksheet.write(row_val_1,col_val_1,title_file.cell(row_val_1+1,col_val_1+1).value,bold_1)
+                worksheet.write(row_val_1,col_val_1,title_file.cell(row_val_1+1,col_val_1+1).value,bold_1) # bolding of titles - not that important
     keyw = raw_data.cell(row_val+1,0+1).value
     text = raw_data.cell(row_val+1,1+1).value
     in_list_key = []
