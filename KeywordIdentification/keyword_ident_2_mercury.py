@@ -9,11 +9,11 @@ from nltk.tokenize import wordpunct_tokenize
 import re
 
 # %%
-# os.chdir(r"/project/kh_mercury_1/CriCount")
-os.chdir("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/KeywordIdentification") # initially was sys.argv[1]
+os.chdir(r"/project/kh_mercury_1/CriCount")
+# os.chdir("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/KeywordIdentification") # initially was sys.argv[1]
 
 #%%
-for i in range(1,52): # groups 1 to 51
+for i in range(1,11): # groups 1 to 10
     file_name = "group" + str(i) + "/" + "FR5.csv"
     try:
         raw_data = pd.read_csv(file_name)
@@ -174,11 +174,11 @@ def save_paragraph(keyword,call_script,check_len):
 #%%
 samples_call.index = [t for t in range(samples_call.shape[0])]
 #### the csv text raw ####
-#csv_dir1 = r"/project/kh_mercury_1/CallCsv"
-#csv_dir2 = r"/project/kh_mercury_1/NewConfCall/csv"
+csv_dir1 = r"/project/kh_mercury_1/CallCsv"
+csv_dir2 = r"/project/kh_mercury_1/NewConfCall/csv"
 
-csv_dir1 = r"C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csvtest"
-csv_dir2 = r"C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csvtest"
+#csv_dir1 = r"C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csvtest"
+#csv_dir2 = r"C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csvtest"
 
 para_example = []
 name = []
