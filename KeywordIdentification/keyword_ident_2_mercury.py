@@ -193,12 +193,12 @@ for i in range(samples_call.shape[0]):
     filepathfound = False
     while filepathfound == False:
         for i in range(1,11):
-            csv_dir_filepath = "/project/kh_mercury_1/CriCount2/group" + str(i)
+            csv_dir_filepath = "/project/kh_mercury_1/CriCount2/group" + str(i) + "/" + file_name
             filepathfound = os.path.exists(csv_dir_filepath)
-    try:
+    if filepathfound == True:
         check_data = pd.read_csv(csv_dir_filepath + "/" + file_name)
-    except FileNotFoundError:
-        check_data = pd.read_csv(csv_dir_filepath + "/" + file_name)
+    #except FileNotFoundError:
+    #    check_data = pd.read_csv(csv_dir_filepath + "/" + file_name)
     call_script = check_data[check_data["Report"]==report_num]["Call"].values[0]
     para_example.append(save_paragraph(keyw,call_script,check_len))
     name.append(check_data[check_data["Report"]==report_num]["Title"].values[0])

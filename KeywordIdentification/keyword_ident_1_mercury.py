@@ -177,4 +177,5 @@ for i in range(1,11):
 #### target_dir is the corresponding group folder in the output folder, which is also passed in the submit script ###
     os.chdir(target_dir_group)
     #### save a information file ###
-    total_data.to_csv("FR5.csv", index=None)
+    if total_data.shape[0]>1:
+        total_data.to_csv("FR5.csv", index=None)
