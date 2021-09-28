@@ -10,12 +10,13 @@ import sys
 import re
 
 
-csv_dir = sys.argv[1]
-target_dir = sys.argv[2]
+csv_dir = "C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csvtest" # initially was sys.argv[1]
+target_dir = "C:/Users/jasonjia/Dropbox/ConferenceCall/Output/KeywordIdentification" # initially was sys.argv[2]
 
 #%%
 #####　add any keywords in the text file ####
-with open("keyterms.txt", "r", encoding="utf-8", errors="ignore") as f1:
+with open("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/KeywordIdentification/keyterms.txt", "r", encoding="utf-8", errors="ignore") as f1:
+
     key_set = set(f1.read().splitlines())
 
 keyw_list = list(key_set) 
@@ -127,17 +128,20 @@ def identify_phrase(conf_call,key_ident,addi=False):
 '''
 # %%
 ### read data now ####   
-### csv_dir is passed in by the submit scrpt file ####
+### csv_dir is passed in by the submit script file ####
 csv_list = os.listdir(csv_dir)
 
 #%% 
 ##### form a raw file containing which file contains which keyword
 ##### if a call contains several keywords, it will appear more than once ####
 total_data = pd.DataFrame({"Date":[], "Report":[], "Keywords":[], "Cri1":[], "File":[]})
+
+#%% 
+
 ###"Cri2":[], "Cri3":[],"Cri4":[], "File":[]})
 for each_csv in csv_list:
-    if "CC_List" in each_csv:
-        continue
+    if "CC_List" in each_csv: # don't run code if the document is CC_List. Run if it's not - i.e. if it's the processed csv file actually containing the call.
+        continue #to check for next file in csv_list
     file_csv = csv_dir + "/" + each_csv
     print(file_csv)
     data_frame = pd.read_csv(file_csv)
@@ -166,3 +170,5 @@ os.chdir(target_dir)
 total_data.to_csv("FR5.csv", index =None)
 
 
+
+# %%

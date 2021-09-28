@@ -2,6 +2,8 @@
 
 #%%
 import csv
+import nltk
+nltk.download('punkt')
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize import wordpunct_tokenize
 import os
@@ -10,12 +12,16 @@ import sys
 import re
 
 
-csv_dir = "C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csvtest" # initially was sys.argv[1]
-target_dir = "C:/Users/jasonjia/Dropbox/ConferenceCall/Output/KeywordIdentification" # initially was sys.argv[2]
+csv_dir = "/project/kh_mercury_1/CriCount2/" 
+
+#"/project/kh_mercury_1/CriCount2/" # initially was sys.argv[1]
+target_dir = "/project/kh_mercury_1/CriCount2/" 
+
+#"/project/kh_mercury_1/CriCount2/" # initially was sys.argv[2]
 
 #%%
 #####　add any keywords in the text file ####
-with open("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/KeywordIdentification/keyterms.txt", "r", encoding="utf-8", errors="ignore") as f1:
+with open("keyterms.txt", "r", encoding="utf-8", errors="ignore") as f1:
 
     key_set = set(f1.read().splitlines())
 
@@ -140,7 +146,7 @@ total_data = pd.DataFrame({"Date":[], "Report":[], "Keywords":[], "Cri1":[], "Fi
 
 ###"Cri2":[], "Cri3":[],"Cri4":[], "File":[]})
 for each_csv in csv_list:
-    if "CC_List" in each_csv: # don't run code if the document is CC_List. Run if it's not - i.e. if it's the processed csv file actually containing the call.
+    if ("CC_List" in each_csv) | (each_csv[-4:]!=".csv") : # don't run code if the document is CC_List. Run if it's not - i.e. if it's the processed csv file actually containing the call.
         continue #to check for next file in csv_list
     file_csv = csv_dir + "/" + each_csv
     print(file_csv)
@@ -167,7 +173,7 @@ os.chdir(target_dir)
 
 
 #### save a information file ###
-total_data.to_csv("FR5.csv", index =None)
+total_data.to_csv("FR5.csv", index=None)
 
 
 
