@@ -18,7 +18,7 @@ for i in range(1,11): # groups 1 to 10
     try:
         raw_data = pd.read_csv(file_name)
     except FileNotFoundError:
-        print("%s does not exits"%(file_name))
+        print("%s does not exist"%(file_name))
     if "total_data1" in vars():
         total_data1 = pd.concat([total_data1, raw_data], axis=0)
     else:
@@ -190,13 +190,12 @@ for i in range(samples_call.shape[0]):
     file_name = samples_call.loc[i]["File"]
     report_num = samples_call.loc[i]["Report"]
     check_len = int(samples_call.loc[i]["Type"].replace("Cri",""))
-    filepathfound = False
-    while filepathfound == False:
-        for i in range(1,11):
-            csv_dir_filepath = "/project/kh_mercury_1/CriCount2/group" + str(i) + "/" + file_name
-            filepathfound = os.path.exists(csv_dir_filepath)
-    if filepathfound == True:
-        check_data = pd.read_csv(csv_dir_filepath + "/" + file_name)
+    for i in range(1,11):
+        filepathfound = False
+        csv_dir_filepath = "/project/kh_mercury_1/CriCount2/group" + str(i) + "/" + file_name
+        filepathfound = os.path.exists(csv_dir_filepath)
+        if filepathfound == True:
+            check_data = pd.read_csv(csv_dir_filepath)
     #except FileNotFoundError:
     #    check_data = pd.read_csv(csv_dir_filepath + "/" + file_name)
     call_script = check_data[check_data["Report"]==report_num]["Call"].values[0]
