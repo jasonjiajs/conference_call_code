@@ -180,6 +180,8 @@ csv_dir2 = r"/project/kh_mercury_1/CriCount2"
 #csv_dir1 = r"C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csvtest"
 #csv_dir2 = r"C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csvtest"
 
+
+ 
 para_example = []
 name = []
 for i in range(samples_call.shape[0]):
@@ -188,10 +190,15 @@ for i in range(samples_call.shape[0]):
     file_name = samples_call.loc[i]["File"]
     report_num = samples_call.loc[i]["Report"]
     check_len = int(samples_call.loc[i]["Type"].replace("Cri",""))
+    filepathfound = False
+    while filepathfound == False:
+        for i in range(1,11):
+            csv_dir_filepath = "/project/kh_mercury_1/CriCount2/group" + str(i)
+            filepathfound = os.path.exists(csv_dir_filepath)
     try:
-        check_data = pd.read_csv(csv_dir1 + "/" + file_name)
+        check_data = pd.read_csv(csv_dir_filepath + "/" + file_name)
     except FileNotFoundError:
-        check_data = pd.read_csv(csv_dir2 + "/" + file_name)
+        check_data = pd.read_csv(csv_dir_filepath + "/" + file_name)
     call_script = check_data[check_data["Report"]==report_num]["Call"].values[0]
     para_example.append(save_paragraph(keyw,call_script,check_len))
     name.append(check_data[check_data["Report"]==report_num]["Title"].values[0])

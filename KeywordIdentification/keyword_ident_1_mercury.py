@@ -134,10 +134,6 @@ def identify_phrase(conf_call,key_ident,addi=False):
                             return True
     return False
 '''
-#%% 
-##### form a raw file containing which file contains which keyword
-##### if a call contains several keywords, it will appear more than once ####
-total_data = pd.DataFrame({"Date":[], "Report":[], "Keywords":[], "Cri1":[], "File":[]})
 
 
 # %%
@@ -150,6 +146,10 @@ for i in range(1,11):
     print(csv_dir_group)
     os.chdir(csv_dir_group)
     csv_list = os.listdir(csv_dir_group)
+ 
+    ##### form a raw file containing which file contains which keyword
+    ##### if a call contains several keywords, it will appear more than once ####
+    total_data = pd.DataFrame({"Date":[], "Report":[], "Keywords":[], "Cri1":[], "File":[]})
 
 ###"Cri2":[], "Cri3":[],"Cri4":[], "File":[]})
     for each_csv in csv_list:
@@ -174,7 +174,6 @@ for i in range(1,11):
             ###| (temp_data["Cri2"]==True) | (temp_data["Cri3"]==True) | (temp_data["Cri4"]==True)]
             total_data = pd.concat([total_data, temp_data], axis=0)
 
-# %%
 #### target_dir is the corresponding group folder in the output folder, which is also passed in the submit script ###
     os.chdir(target_dir_group)
     #### save a information file ###
