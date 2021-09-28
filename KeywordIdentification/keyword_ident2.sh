@@ -13,12 +13,12 @@
 #SBATCH --mem-per-cpu=20G
 #SBATCH --cores-per-socket=2
 #SBATCH --time=5-00:00:00
-#SBATCH --output=cric1.out
+#SBATCH --output=keywordident2.out
 
 #---------------------
 # Job specific name
 
-#SBATCH --job-name=cric1
+#SBATCH --job-name=keywordident2
 
 #-----------------------
 # useful variables
@@ -30,12 +30,13 @@ echo "Num Cores: $SLURM_JOB_CPUS_PER_NODE"
 #------------------------
 # Load python
 
-module load python/booth/3.6/3.6.12
+module load python/booth/3.8/3.8.5
 
 #--------------------------
 # run code
 
-cd "/project/kh_mercury_1/CriCount"
+cd "/project/kh_mercury_1/CriCount2"
 
-srun python3 example_pre.py /project/kh_mercury_1/WorkTemp/csv1 /project/kh_mercury_1/CriCount/group1
+srun python3 keyword_ident_2_mercury.py 
+# /project/kh_mercury_1/WorkTemp/csv1 /project/kh_mercury_1/CriCount2/group1
 
