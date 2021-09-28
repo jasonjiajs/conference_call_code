@@ -19,6 +19,8 @@ target_dir = "/project/kh_mercury_1/CriCount2/"
 
 #"/project/kh_mercury_1/CriCount2/" # initially was sys.argv[2]
 
+
+
 #%%
 #####　add any keywords in the text file ####
 with open("keyterms.txt", "r", encoding="utf-8", errors="ignore") as f1:
@@ -132,49 +134,48 @@ def identify_phrase(conf_call,key_ident,addi=False):
                             return True
     return False
 '''
-# %%
-### read data now ####   
-### csv_dir is passed in by the submit script file ####
-csv_list = os.listdir(csv_dir)
-
 #%% 
 ##### form a raw file containing which file contains which keyword
 ##### if a call contains several keywords, it will appear more than once ####
 total_data = pd.DataFrame({"Date":[], "Report":[], "Keywords":[], "Cri1":[], "File":[]})
 
-#%% 
+
+# %%
+### read data now ####   
+### csv_dir is passed in by the submit script file ####
+for i in range(1,11):
+    foldername = "group" + str(i)
+    csv_dir_group = csv_dir + foldername
+    target_dir_group = target_dir + foldername
+    print(csv_dir_group)
+    os.chdir(csv_dir_group)
+    csv_list = os.listdir(csv_dir_group)
 
 ###"Cri2":[], "Cri3":[],"Cri4":[], "File":[]})
-for each_csv in csv_list:
-    if ("CC_List" in each_csv) | (each_csv[-4:]!=".csv") : # don't run code if the document is CC_List. Run if it's not - i.e. if it's the processed csv file actually containing the call.
-        continue #to check for next file in csv_list
-    file_csv = csv_dir + "/" + each_csv
-    print(file_csv)
-    data_frame = pd.read_csv(file_csv)
-    data_frame = data_frame[["Date","Report","Call"]]
-    for each_key in keyw_list:
-        temp_data = data_frame[["Date","Report"]]
-        if isinstance(each_key,list):
-            temp_data["Keywords"] = each_key[0] + "/" + each_key[1]
-        else:
-            temp_data["Keywords"] = each_key
-        temp_data["Cri1"] = data_frame.apply(lambda x: identify_total(x.Call,0,each_key,False), axis=1)
-        ##temp_data["Cri2"] = data_frame.apply(lambda x: identify_total(x.Call,0, each_key,True), axis=1)
-        ##temp_data["Cri3"] = data_frame.apply(lambda x: identify_phrase(x.Call,each_key, False), axis=1)
-        ##temp_data["Cri4"] = data_frame.apply(lambda x: identify_phrase(x.Call,each_key, True), axis=1)
-        temp_data["File"] = each_csv
-        temp_data = temp_data.loc[(temp_data["Cri1"]==True)]
-        ###| (temp_data["Cri2"]==True) | (temp_data["Cri3"]==True) | (temp_data["Cri4"]==True)]
-        total_data = pd.concat([total_data, temp_data], axis=0)
+    for each_csv in csv_list:
+        if ("CC_List" in each_csv) | (each_csv[-4:]!=".csv") | (each_csv[-7:]=="FR5.csv"): # don't run code if the document is CC_List. Run if it's not - i.e. if it's the processed csv file actually containing the call.
+            continue #to check for next file in csv_list
+        file_csv = csv_dir_group + "/" + each_csv
+        print(file_csv)
+        data_frame = pd.read_csv(file_csv)
+        data_frame = data_frame[["Date","Report","Call"]]
+        for each_key in keyw_list:
+            temp_data = data_frame[["Date","Report"]]
+            if isinstance(each_key,list):
+                temp_data["Keywords"] = each_key[0] + "/" + each_key[1]
+            else:
+                temp_data["Keywords"] = each_key
+            temp_data["Cri1"] = data_frame.apply(lambda x: identify_total(x.Call,0,each_key,False), axis=1)
+            ##temp_data["Cri2"] = data_frame.apply(lambda x: identify_total(x.Call,0, each_key,True), axis=1)
+            ##temp_data["Cri3"] = data_frame.apply(lambda x: identify_phrase(x.Call,each_key, False), axis=1)
+            ##temp_data["Cri4"] = data_frame.apply(lambda x: identify_phrase(x.Call,each_key, True), axis=1)
+            temp_data["File"] = each_csv
+            temp_data = temp_data.loc[(temp_data["Cri1"]==True)]
+            ###| (temp_data["Cri2"]==True) | (temp_data["Cri3"]==True) | (temp_data["Cri4"]==True)]
+            total_data = pd.concat([total_data, temp_data], axis=0)
 
 # %%
 #### target_dir is the corresponding group folder in the output folder, which is also passed in the submit script ###
-os.chdir(target_dir)
-
-
-#### save a information file ###
-total_data.to_csv("FR5.csv", index=None)
-
-
-
-# %%
+    os.chdir(target_dir_group)
+    #### save a information file ###
+    total_data.to_csv("FR5.csv", index=None)

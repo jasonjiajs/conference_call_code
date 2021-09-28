@@ -38,7 +38,7 @@ for row_val in range(1,raw_data.max_row):
     if row_val%500==1:
         if row_val//500>0:
             final_data.close()
-        final_data = xlsxwriter.Workbook(r"Entry files/"+ str(row_val//500+1) + ".xlsx")
+        final_data = xlsxwriter.Workbook(r"entry_files/"+ str(row_val//500+1) + ".xlsx")
         bold_1 = final_data.add_format({"bold":True}) # the bold "format"
         worksheet = final_data.add_worksheet()
         w1.write(row_val//500+1,0,row_val//500+1)
