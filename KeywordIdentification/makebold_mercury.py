@@ -6,8 +6,8 @@ import openpyxl
 import xlsxwriter
 import re
 
-#%% This wasn't in the original code...
-os.chdir("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/KeywordIdentification")
+#%% This wasn't in the original code...since the shell script is in the same folder as cric1_newtotal.xlsx.
+# os.chdir("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/KeywordIdentification")
 
 #%%%
 raw_data = openpyxl.load_workbook(r"cric1_newtotal.xlsx")

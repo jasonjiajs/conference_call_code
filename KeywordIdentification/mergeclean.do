@@ -34,7 +34,7 @@ save `para', replace
 
 **** merge with other sources ***
 * import delimited "K:\CallCsv\CC_ListTotal.csv", case(preserve) clear 
-import delimited "C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\group1\CC_List2020.csv", case(preserve) clear 
+import delimited "C:\Users\jasonjia\Dropbox\ConferenceCall\Output\ConferenceCall\CC_List\CC_List2020.csv", case(preserve) clear 
 keep Title Subtitle Date Report gvkey_h gvkey_c gvkey prob gues_by_dticker gues_name countryid country 
 
 tempfile cc1
@@ -42,7 +42,7 @@ save `cc1', replace
 
 ***** merge with other sources *** 
 * import delimited "K:\NewConfCall\csv\CC_List.csv", case(preserve) clear 
-import delimited "C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\group1\CC_List2021.csv", case(preserve) clear 
+import delimited "C:\Users\jasonjia\Dropbox\ConferenceCall\Output\ConferenceCall\CC_List\CC_List2021.csv", case(preserve) clear 
 keep Title Subtitle Date Report gvkey_h gvkey_c gvkey prob gues_by_dticker gues_name countryid country 
 duplicates drop
 
