@@ -35,7 +35,7 @@ w1.write(0,1,"Starting Row")
 w1.write(0,2,"Ending Row")
 w1.write(0,3,"Name of RA")
 
-dict_title = {0:2, 2:6, 3:7, 4:8, 5:9, 7:44, 15:45}
+dict_title = {0:2, 2:6, 3:7, 4:8, 5:9, 12:44, 15:45} #key = col from entry mask, value = col from cric1_newtotal
 
 col_width = [13.29, 14.43, 30.43,  8.29,  8.29, 84.29, 13.57, 13.71, 61.57,    35,
              12.29, 11.43, 11.43, 13.43, 13.29, 10.71, 11.86, 10.86, 12.86, 18.29, 
@@ -92,7 +92,8 @@ for row_val in range(1,raw_data.max_row):
         #%%% write title 
         for row_val_1 in range(2):
             for col_val_1 in range(title_file.max_column):
-                worksheet.write(row_val_1,col_val_1,title_file.cell(row_val_1+1,col_val_1+1).value,bold_1) # bolding of titles - not that important
+                worksheet.write(row_val_1,col_val_1,title_file.cell(row_val_1+1,col_val_1+1).value,bold_1) # write out the titles
+
     keyw = raw_data.cell(row_val+1,0+1).value
     text = raw_data.cell(row_val+1,1+1).value
     in_list_key = []
