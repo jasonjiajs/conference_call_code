@@ -10,7 +10,7 @@ import re
 os.chdir("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/KeywordIdentification")
 
 #%%%
-raw_data = openpyxl.load_workbook(r"cric1_newtotal.xlsx")
+raw_data = openpyxl.load_workbook(r"cric1_newtotal_countryadded_interestrateattheback.xlsx")
 raw_data = raw_data[raw_data.sheetnames[0]] # choose first sheet of the workbook 
 # (there's only one sheet but we want a sheet object)
 
@@ -35,7 +35,7 @@ w1.write(0,1,"Starting Row")
 w1.write(0,2,"Ending Row")
 w1.write(0,3,"Name of RA")
 
-dict_title = {0:2, 2:6, 3:7, 4:8, 5:9, 12:44, 15:45} #key = col from entry mask, value = col from cric1_newtotal
+dict_title = {0:2, 2:6, 3:7, 4:8, 5:9, 13:44, 12:45} #key = col from entry mask, value = col from cric1_newtotal
 
 col_width = [13.29, 14.43, 30.43,  8.29,  8.29, 84.29, 13.57, 13.71, 61.57,    35,
              12.29, 11.43, 11.43, 13.43, 13.29, 10.71, 11.86, 10.86, 12.86, 18.29, 
@@ -124,4 +124,10 @@ for row_val in range(1,raw_data.max_row):
 
 
 overview_file.close()
+# %%
+
+# %%
+
+# %%
+
 # %%
