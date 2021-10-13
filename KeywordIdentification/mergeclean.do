@@ -51,7 +51,8 @@ tempfile cc2
 save `cc2', replace
 
 use `cc1', clear
-merge 1:1 Report using `cc2'  /* 1 merged, choose the older one*/
+/* Merge on ReportID, stacking the CCs. 1 merged, choose the older one*/
+merge 1:1 Report using `cc2'  
 
 drop _merge
 

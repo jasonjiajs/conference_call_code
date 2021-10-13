@@ -8,7 +8,7 @@ from pathlib import Path
 
 inputfolder = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Dates and Titles Missing\Filezilla")
 outputfolder = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Dates and Titles Missing")
-outputfile = "xlsfiles_combined.xlsx"
+outputfile = "xlshtmlfiles_combined.xlsx"
 outputpath = Path(outputfolder / outputfile)
 
 table = pd.DataFrame()
@@ -21,7 +21,7 @@ for file in inputfolder.iterdir():
         table = table.append(chunktable)    
 
 writer = pd.ExcelWriter(outputpath)
-table.to_excel(writer, 'xlsfiles_combined')
+table.to_excel(writer, 'files_combined')
 writer.save()
 
 
