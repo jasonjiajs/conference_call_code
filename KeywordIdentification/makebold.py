@@ -5,14 +5,16 @@ from operator import truediv
 import openpyxl
 import xlsxwriter
 import re
+import os
 
 #%% This wasn't in the original code...
-os.chdir("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/KeywordIdentification")
+os.chdir(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification")
 
 #%%%
-raw_data = openpyxl.load_workbook(r"cric1_newtotal_countryadded_interestrateattheback.xlsx")
+raw_data = openpyxl.load_workbook(r"cric1_newtotal_datetitlesubtitleadded_countriesadded.xlsx")
 raw_data = raw_data[raw_data.sheetnames[0]] # choose first sheet of the workbook 
 # (there's only one sheet but we want a sheet object)
+# cric1_newtotal_countryadded_interestrateattheback
 
 #%%
 row = 0 
@@ -36,6 +38,7 @@ w1.write(0,2,"Ending Row")
 w1.write(0,3,"Name of RA")
 
 dict_title = {0:2, 2:6, 3:7, 4:8, 5:9, 13:44, 12:45} #key = col from entry mask, value = col from cric1_newtotal
+# note that the cols are after countries are added manually
 
 col_width = [13.29, 14.43, 30.43,  8.29,  8.29, 84.29, 13.57, 13.71, 61.57,    35,
              12.29, 11.43, 11.43, 13.43, 13.29, 10.71, 11.86, 10.86, 12.86, 18.29, 

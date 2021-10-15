@@ -9,11 +9,12 @@ from nltk.tokenize import wordpunct_tokenize
 import re
 
 # %%
-os.chdir(r"/project/kh_mercury_1/CriCount2")
+os.chdir(r"/project/kh_mercury_1/CriCount")
 # os.chdir("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/KeywordIdentification") # initially was sys.argv[1]
 
+numberofgroups = 50
 #%%
-for i in range(1,11): # groups 1 to 10
+for i in range(1,numberofgroups + 1): # groups 1 to 50
     file_name = "group" + str(i) + "/" + "FR5.csv"
     try:
         raw_data = pd.read_csv(file_name)
@@ -174,8 +175,8 @@ def save_paragraph(keyword,call_script,check_len):
 #%%
 samples_call.index = [t for t in range(samples_call.shape[0])]
 #### the csv text raw ####
-csv_dir1 = r"/project/kh_mercury_1/CriCount2"
-csv_dir2 = r"/project/kh_mercury_1/CriCount2"
+csv_dir1 = r"/project/kh_mercury_1/ConferenceCallData/CsvScripts"
+csv_dir2 = r"/project/kh_mercury_1/CriCount"
 
 #csv_dir1 = r"C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csvtest"
 #csv_dir2 = r"C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csvtest"
@@ -192,12 +193,21 @@ for i in range(samples_call.shape[0]):
     file_name = samples_call.loc[i]["File"]
     report_num = samples_call.loc[i]["Report"]
     check_len = int(samples_call.loc[i]["Type"].replace("Cri",""))
-    for i in range(1,11):
-        filepathfound = False
-        csv_dir_filepath = "/project/kh_mercury_1/CriCount2/group" + str(i) + "/" + file_name
-        filepathfound = os.path.exists(csv_dir_filepath)
-        if filepathfound == True:
+    
+    filepathfound = False
+    csv_dir_filepath = csv_dir1 + r"/" + file_name
+    filepathfound = os.path.exists(csv_dir_filepath)
+    if filepathfound == True:
             check_data = pd.read_csv(csv_dir_filepath)
+    
+    
+    #for i in range(1,numberofgroups + 1):
+    #    filepathfound = False
+    #    csv_dir_filepath = "/project/kh_mercury_1/CriCount/group" + str(i) + "/" + file_name
+    #    filepathfound = os.path.exists(csv_dir_filepath)
+    #    if filepathfound == True:
+    #        check_data = pd.read_csv(csv_dir_filepath)
+    
     #except FileNotFoundError:
     #    check_data = pd.read_csv(csv_dir_filepath + "/" + file_name)
     call_script = check_data[check_data["Report"]==report_num]["Call"].values[0]
