@@ -26,7 +26,7 @@ duplicates drop Paragraph, force
 tab Keywords
 
 **** now merge with other information ****
-keep Keywords Paragraph Date Title Subtitle Report File 
+keep Keywords Paragraph Report File 
 
 tempfile para
 save `para', replace
@@ -35,7 +35,7 @@ save `para', replace
 **** merge with other sources ***
 * import delimited "K:\CallCsv\CC_ListTotal.csv", case(preserve) clear 
 import delimited "C:\Users\jasonjia\Dropbox\ConferenceCall\Output\ConferenceCall\CC_List_sixun\CC_List_2001-2021.csv", case(preserve) clear 
-keep Report gvkey_h gvkey_c gvkey prob gues_by_dticker gues_name countryid country 
+keep Report Date Title Subtitle gvkey_h gvkey_c gvkey prob gues_by_dticker gues_name countryid country 
 duplicates drop
 duplicates drop Report, force
 

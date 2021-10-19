@@ -9,28 +9,31 @@ import os
 
 #%% This wasn't in the original code...
 os.chdir(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification")
+# C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification
 
 #%%%
-raw_data = openpyxl.load_workbook(r"cric1_newtotal_datetitlesubtitleadded_countriesadded.xlsx")
+raw_data = openpyxl.load_workbook(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\cric1_newtotal\Sixun\cric1_newtotal_sixun_new.xlsx")
 raw_data = raw_data[raw_data.sheetnames[0]] # choose first sheet of the workbook 
 # (there's only one sheet but we want a sheet object)
 # cric1_newtotal_countryadded_interestrateattheback
+# cric1_newtotal_datetitlesubtitleadded_countriesadded
+# cric1_newtotal_sixun_new
 
 #%%
 row = 0 
 col = 0
-with open("keyterms.txt", "r", encoding="utf-8", errors="ignore") as f1:
+with open(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\keyterms\keyterms.txt", "r", encoding="utf-8", errors="ignore") as f1:
     key_set = set(f1.read().splitlines())
 keyw_list = list(key_set) 
 keyw_list = [t.lower() for t in keyw_list]
 
 
 #%%% title
-title_file = openpyxl.load_workbook(r"Entry mask.xlsx")
+title_file = openpyxl.load_workbook(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entrymask\Entry mask.xlsx")
 title_file = title_file[title_file.sheetnames[0]]
 
 #%%% overview
-overview_file = xlsxwriter.Workbook("Paragraph Record.xlsx")
+overview_file = xlsxwriter.Workbook(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\Paragraph Record\Paragraph Record_sixun.xlsx")
 w1 = overview_file.add_worksheet()
 w1.write(0,0,"File Name")
 w1.write(0,1,"Starting Row")

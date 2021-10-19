@@ -16,11 +16,12 @@ outputfolder = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIde
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files_combined\From Jason's reports
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files_combined\From Sixun's reports
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files_combined
-outputfile = "entryfiles_combined_jason.xlsx"
+outputfile = "entryfiles_combined_sixun.xlsx"
 outputpath = Path(outputfolder / outputfile)
 
 table = pd.DataFrame()
-columnstouse = ["Report", "Keywords", "Date", "Title", "Subtitle"]
+# columnstouse = ["Report", "Keywords", "Date", "Title", "Subtitle"]
+columnstouse = ["country", "Keywords", "Date", "Title", "Subtitle"]
 
 for file in inputfolder.iterdir(): 
     if '.xlsx' in file.name:
@@ -30,7 +31,8 @@ for file in inputfolder.iterdir():
         else:
             chunktable = pd.read_excel(file, header=1, usecols=columnstouse)
         table = table.append(chunktable)    
-        
+
+table = table.rename(columns = {'country':'Report'})    
 table = table.sort_values(by=["Report", "Keywords"])
 # table['Date'].isna().sum() #counts number of missing dates in Sixun's reorts - 3787 (correct, checked excel manually).
 # table = table.dropna(subset=['Date']) # Use this to drop missing dates
