@@ -1,3 +1,4 @@
+from os import replace
 import pandas as pd
 from pathlib import Path
 
@@ -6,10 +7,13 @@ from pathlib import Path
 # Combine all the .xlsx entry files.
 # Save into an actual excel file, in .xlsx format.
 
-inputfolder = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\ConferenceCall\CC_List_sixun")
-outputfolder = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\ConferenceCall\CC_List_sixun")
+# inputfolder = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\ConferenceCall\CC_List_sixun")
+# outputfolder = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\ConferenceCall\CC_List_sixun")
+inputfolder = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\ConferenceCall\CC_List")
+outputfolder = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\ConferenceCall\CC_List")
 
-outputfile = "CC_List_2011-2021.csv"
+# outputfile = "CC_List_2011-2021.csv"
+outputfile = "CC_List_2020-2021.csv"
 outputpath = Path(outputfolder / outputfile)
 
 table = pd.DataFrame()
