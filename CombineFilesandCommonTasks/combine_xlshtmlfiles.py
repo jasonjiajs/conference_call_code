@@ -6,10 +6,14 @@ from pathlib import Path
 # Combine all the "xls" files.
 # Save into an actual excel file, in .xlsx format.
 
-inputfolder = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Titles Still Missing in v3")
+inputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\Not Part of Processing Pipeline\Checkreportidstallywithtitles")
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Dates and Titles Missing\Filezilla
-outputfolder = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Titles Still Missing in v3")
+# C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Titles Still Missing in v3
+# C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\Not Part of Processing Pipeline\Checkreportidstallywithtitles
+outputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\Not Part of Processing Pipeline\Checkreportidstallywithtitles")
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Dates and Titles Missing\Filezilla
+# C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Titles Still Missing in v3
+# C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\Not Part of Processing Pipeline\Checkreportidstallywithtitles
 outputfile = "xlshtmlfiles_combined.xlsx"
 outputpath = Path(outputfolder / outputfile)
 
