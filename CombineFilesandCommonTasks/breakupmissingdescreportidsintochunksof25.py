@@ -2,7 +2,8 @@ import pandas as pd
 from pathlib import Path
 import numpy as np
 
-inputpath = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\ConferenceCall\ExtractDescriptioninFrontPage\missingfrontpagedescriptions.xlsx")
+inputpath = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\breakupreportidsintochunksof25.xlsx")
+# C:\Users\jasonjia\Dropbox\ConferenceCall\Output\ConferenceCall\ExtractDescriptioninFrontPage\missingfrontpagedescriptions.xlsx
 df = pd.read_excel(inputpath, header=None)
 
 maxnumberofsearches = 25
