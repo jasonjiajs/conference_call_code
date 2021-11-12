@@ -1,7 +1,8 @@
-/* please change the directory if you are running the code on the server*/
+* please change the directory if you are running the code on the server*
 
 * import excel "K:\CriCount\TotalCircnew.xlsx", sheet("Sheet1") firstrow clear
-import excel "C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\TotalCircnew\Jason\TotalCircnew_subtitlesadded.xlsx", sheet("Sheet1") firstrow clear
+import excel "C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\TotalCircnew\TotalCircNew_Small_No_IR.xlsx", sheet("Sheet1") firstrow clear
+* "C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\TotalCircnew\Jason\TotalCircnew_subtitlesadded.xlsx", sheet("Sheet1") firstrow clear
 drop if Keywords == "capm" & !ustrregexm(Paragraph,"[ \,\.\?\;\[\-\(]capm[ \,\.\?\;\]\-\)]",1)
 drop if Keywords == "irr" & !ustrregexm(Paragraph,"[ \,\.\?\;\[\-\(]irr[ \,\.\?\;\]\-\)]",1)
 drop if Keywords == "occ" & !ustrregexm(Paragraph,"[ \,\.\?\;\[\-\(]occ[ \,\.\?\;\]\-\)]",1)
@@ -33,7 +34,7 @@ save `para', replace
 
 **** merge with other sources ***
 * import delimited "K:\CallCsv\CC_ListTotal.csv", case(preserve) clear 
-import delimited "C:\Users\jasonjia\Dropbox\ConferenceCall\Output\ConferenceCall\CC_List\CC_List_2020-2021.csv", case(preserve) clear 
+import delimited "C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\ConferenceCall\CC_List_sixun\CC_List_2001-2021.csv", case(preserve) clear 
 keep Title Subtitle Date Report gvkey_h gvkey_c gvkey prob gues_by_dticker gues_name countryid country 
 duplicates drop
 

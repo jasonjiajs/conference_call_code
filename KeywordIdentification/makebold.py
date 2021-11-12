@@ -8,11 +8,12 @@ import re
 import os
 
 #%% This wasn't in the original code...
-os.chdir(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification")
+os.chdir(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification")
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification
 
 #%%%
-raw_data = openpyxl.load_workbook(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\cric1_newtotal\Sixun\cric1_newtotal_sixun_new.xlsx")
+raw_data = openpyxl.load_workbook(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\cric1_newtotal\cric1_newtotal_prithvi.xlsx")
+#r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\cric1_newtotal\Sixun\cric1_newtotal_sixun_new.xlsx
 raw_data = raw_data[raw_data.sheetnames[0]] # choose first sheet of the workbook 
 # (there's only one sheet but we want a sheet object)
 # cric1_newtotal_countryadded_interestrateattheback
@@ -22,25 +23,25 @@ raw_data = raw_data[raw_data.sheetnames[0]] # choose first sheet of the workbook
 #%%
 row = 0 
 col = 0
-with open(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\keyterms\keyterms.txt", "r", encoding="utf-8", errors="ignore") as f1:
+with open(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\keyterms\keyterms.txt", "r", encoding="utf-8", errors="ignore") as f1:
     key_set = set(f1.read().splitlines())
 keyw_list = list(key_set) 
 keyw_list = [t.lower() for t in keyw_list]
 
 
 #%%% title
-title_file = openpyxl.load_workbook(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entrymask\Entry mask.xlsx")
+title_file = openpyxl.load_workbook(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entrymask\Entry mask.xlsx")
 title_file = title_file[title_file.sheetnames[0]]
 
 #%%% overview
-overview_file = xlsxwriter.Workbook(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\Paragraph Record\Paragraph Record_sixun.xlsx")
+overview_file = xlsxwriter.Workbook(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\Paragraph Record\Paragraph Record_prithvi.xlsx")
 w1 = overview_file.add_worksheet()
 w1.write(0,0,"File Name")
 w1.write(0,1,"Starting Row")
 w1.write(0,2,"Ending Row")
 w1.write(0,3,"Name of RA")
 
-dict_title = {0:2, 2:6, 3:7, 4:8, 5:9, 13:44, 12:45} #key = col from entry mask, value = col from cric1_newtotal
+dict_title = {0:2, 2:6, 3:7, 4:8, 5:9, 13:44, 12:44} #key = col from entry mask, value = col from cric1_newtotal
 # note that the cols are after countries are added manually
 
 col_width = [13.29, 14.43, 30.43,  8.29,  8.29, 84.29, 13.57, 13.71, 61.57,    35,
@@ -94,8 +95,7 @@ for row_val in range(1,raw_data.max_row):
         w1.write(row_val//500+1,0,row_val//500+1)
         w1.write(row_val//500+1,1,row_val)
         if row_val//500 + 1>1:
-            w1.write(row_val//500,2,row_val-1)//7
-        #%%% write title 
+            w1.write(row_val//500,2,row_val-1)//7 
         for row_val_1 in range(2):
             for col_val_1 in range(title_file.max_column):
                 worksheet.write(row_val_1,col_val_1,title_file.cell(row_val_1+1,col_val_1+1).value,bold_1) # write out the titles
