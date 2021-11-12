@@ -6,22 +6,22 @@ from pathlib import Path
 # Combine all the .xlsx entry files.
 # Save into an actual excel file, in .xlsx format.
 
-inputfolder = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files")
+inputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entry_files\Sixun\v2 - titlesubtitleadded")
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Dates and Titles Missing\Filezilla
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files\From Jason's Reports
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files\From Sixun's Reports
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files
-outputfolder = Path(r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files_combined")
+outputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entry_files_combined\sixun")
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Dates and Titles Missing
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files_combined\From Jason's reports
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files_combined\From Sixun's reports
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files_combined
-outputfile = "entryfiles_combined_sixun.xlsx"
+outputfile = "entryfiles_combined_sixun_v3withparagraphs.xlsx"
 outputpath = Path(outputfolder / outputfile)
 
 table = pd.DataFrame()
 # columnstouse = ["Report", "Keywords", "Date", "Title", "Subtitle"]
-columnstouse = ["country", "Keywords", "Date", "Title", "Subtitle"]
+columnstouse = ["country", "Keywords", "Date", "Title", "Subtitle", "Paragraph"]
 
 for file in inputfolder.iterdir(): 
     if '.xlsx' in file.name:

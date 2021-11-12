@@ -7,14 +7,33 @@ import random
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize import wordpunct_tokenize
 import re
+from pathlib import Path
 
 # %%
-os.chdir(r"/project/kh_mercury_1/CriCount")
-# os.chdir("C:/Users/jasonjia/Dropbox/ConferenceCall/Output/KeywordIdentification") # initially was sys.argv[1]
 
-numberofgroups = 50
+homepath = str(Path.home())
+print("The home path detected is {}.".format(homepath))
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+if r"C:\Users" in homepath:
+    windows = True
+    print("Detected Windows home path - using Jason's Dropbox folders")
+    os.chdir(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\Test Set of 50 Group Folders")
+    csv_dir1 = r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\ConferenceCall\Csv"
+    keyterms_filepath = r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\keyterms\keyterms.txt"
+    
+else:
+    windows = False
+    print("Assuming Mercury home path - using Mercury folders")
+    os.chdir(r"/project/kh_mercury_1/CriCount") # initially was sys.argv[1]
+    csv_dir1 = r"/project/kh_mercury_1/ConferenceCallData/CsvScripts"
+    keyterms_filepath = "keyterms.txt"
+    # csv_dir2 = r"/project/kh_mercury_1/CriCount"
+
+numberofgroups = 1
+
 #%%
-for i in range(1,numberofgroups + 1): # groups 1 to 50
+for i in range(1, numberofgroups + 1): # groups 1 to 50 (or any number you choose for testing)
     file_name = "group" + str(i) + "/" + "FR5.csv"
     try:
         raw_data = pd.read_csv(file_name)
@@ -25,11 +44,9 @@ for i in range(1,numberofgroups + 1): # groups 1 to 50
     else:
         total_data1 = raw_data
 
-
-
 # %%
 ### reopen keywords ###
-with open("keyterms.txt", "r", encoding="utf-8", errors="ignore") as f1:
+with open(keyterms_filepath, "r", encoding="utf-8", errors="ignore") as f1:
     key_set = set(f1.read().splitlines())
 
 keyw_list = list(key_set) 
@@ -46,12 +63,13 @@ for each_key in keyw_list:
         samples_call = pd.concat([samples_call,temp_data], axis=0)
 
 # %%
-def keyw_iden(keywords,sent):
+### checks if a keyword / a list of keywords appear in x.
+def keyw_iden(keywords,sent): 
     try:
         if isinstance(keywords,list):
             for each_keyword in keywords:
                 if each_keyword in sent.replace("\n"," ").lower():
-                    return True
+                    return True ### ????????? this doesn't make sense
         else:
             if keywords in sent.replace("\n"," ").lower():
                     return True
@@ -101,10 +119,10 @@ def num_contain(sent):
     return False'''
 
 def identify_cost(check_sent, keys_ident, behind=False):
-    if keyw_iden(keys_ident, check_sent):  ### a sentence contains a key word 
+    if keyw_iden(keys_ident, check_sent):  ### if a sentence contains a key word 
         if behind==True:
-            check_sent_part = check_sent.replace("\n"," ").lower().split(keys_ident)[1]
-            if num_contain(check_sent_part):
+            check_sent_part = check_sent.replace("\n"," ").lower().split(keys_ident)[1] # split a string, where the keys_ident becomes the separator, and take the 2nd string (the string "behind").
+            if num_contain(check_sent_part): #if the string part contains a number (?)
                 return True
             else:
                 return False
@@ -148,20 +166,20 @@ def save_paragraph(keyword,call_script,check_len):
         if check_len == 1:
             if identify_cost(check_sent,keyword,False):
                 iden_status = True
-        elif check_len == 2:
-            if identify_cost(check_sent,keyword,True):
-                iden_status = True            
-        elif check_len == 3:
-            if identify_phrase(check_sent, keyword, False):
-                iden_status = True
-        elif check_len == 4:
-            if identify_phrase(check_sent, keyword, True):
-                iden_status = True
+        #elif check_len == 2:
+        #    if identify_cost(check_sent,keyword,True):
+        #        iden_status = True            
+        #elif check_len == 3:
+        #    if identify_phrase(check_sent, keyword, False):
+        #        iden_status = True
+        #elif check_len == 4:
+        #    if identify_phrase(check_sent, keyword, True):
+        #        iden_status = True
     
         if iden_status:
             for w in range(len(paragraph_list)):
                 if check_sent in paragraph_list[w]:
-                    if w!=len(paragraph_list)-1:
+                    if w != len(paragraph_list)-1:
                         return paragraph_list[w].replace("\n"," ") + " " + paragraph_list[w+1].replace("\n"," ")
                     else:
                         return paragraph_list[w].replace("\n"," ")
@@ -175,14 +193,7 @@ def save_paragraph(keyword,call_script,check_len):
 #%%
 samples_call.index = [t for t in range(samples_call.shape[0])]
 #### the csv text raw ####
-csv_dir1 = r"/project/kh_mercury_1/ConferenceCallData/CsvScripts"
-csv_dir2 = r"/project/kh_mercury_1/CriCount"
 
-#csv_dir1 = r"C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csvtest"
-#csv_dir2 = r"C:/Users/jasonjia/Dropbox/ConferenceCall/Output/ConferenceCall/Csvtest"
-
-
- 
 para_example = []
 name = []
 subtitle = []
@@ -200,7 +211,6 @@ for i in range(samples_call.shape[0]):
     if filepathfound == True:
             check_data = pd.read_csv(csv_dir_filepath)
     
-    
     #for i in range(1,numberofgroups + 1):
     #    filepathfound = False
     #    csv_dir_filepath = "/project/kh_mercury_1/CriCount/group" + str(i) + "/" + file_name
@@ -211,8 +221,8 @@ for i in range(samples_call.shape[0]):
     #except FileNotFoundError:
     #    check_data = pd.read_csv(csv_dir_filepath + "/" + file_name)
     call_script = check_data[check_data["Report"]==report_num]["Call"].values[0]
-    
-    para_example.append(save_paragraph(keyw,call_script,check_len))
+    paragraph = save_paragraph(keyw,call_script,check_len)
+    para_example.append(paragraph)
     name.append(check_data[check_data["Report"]==report_num]["Title"].values[0])
     subtitle.append(check_data[check_data["Report"]==report_num]["Subtitle"].values[0])
 
@@ -223,6 +233,3 @@ samples_call["Paragraph"] = para_example
 # %%
 ### save output ####
 samples_call.to_excel("TotalCircnew.xlsx", index=None)
-
-
-# %%

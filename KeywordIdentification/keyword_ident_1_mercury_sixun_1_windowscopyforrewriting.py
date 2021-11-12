@@ -10,14 +10,27 @@ import os
 import pandas as pd
 import sys
 import re
+from pathlib import Path
 
+homepath = str(Path.home())
+print("The home path detected is {}.".format(homepath))
 
-csv_dir = "/project/kh_mercury_1/CriCount/" 
-
-#"/project/kh_mercury_1/CriCount2/" # initially was sys.argv[1]
-target_dir = "/project/kh_mercury_1/CriCount/" 
-
-#"/project/kh_mercury_1/CriCount2/" # initially was sys.argv[2]
+if r"C:\Users\jasonjia" in homepath:
+    windows = True
+    print("Detected Windows home path - using Jason's Dropbox folders")
+    csv_dir = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\Test Set of 50 Group Folders") 
+    target_dir = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\Test Set of 50 Group Folders")
+    os.chdir(Path(r'C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Code\KeywordIdentification'))
+    
+else:
+    windows = False
+    print("Assuming Mercury home path - using Mercury folders")
+    csv_dir = Path("/project/kh_mercury_1/CriCount/") 
+    #"/project/kh_mercury_1/CriCount2/"
+    # initially was sys.argv[1]
+    target_dir = Path("/project/kh_mercury_1/CriCount/")  
+    #"/project/kh_mercury_1/CriCount2/"
+    # initially was sys.argv[2]
 
 
 
@@ -107,7 +120,10 @@ def identify_total(conf_call, check_len, keys_ident, behind=False):
 '''
 #### identify subsequent phrases ####
 extra_list1 = ["is", "was", "are", "were", "has been"]
-extra_list2 = ["increase to","increased to", "increases to","decrease to","decreased to", "decreases to","decrease from", "increase from","achieve","reach","decreases from", "increases from","decreased from","increased from","achieves","reaches","achieved","reached"]
+extra_list2 = ["increase to", "increased to", "increases to", "decrease to", "decreased to", 
+               "decreases to","decrease from", "increase from", "achieve", "reach", 
+               "decreases from", "increases from", "decreased from", "increased from",
+               "achieves", "reaches", "achieved", "reached"]
 
 #### def subsequent part (things from the list + percentage) ####
 def identify_phrase(conf_call,key_ident,addi=False):
@@ -133,17 +149,19 @@ def identify_phrase(conf_call,key_ident,addi=False):
                         if check_part2[0] == " " and num_iden(key_num):
                             return True
     return False
-'''
 
+'''
 
 # %%
 ### read data now ####   
 ### csv_dir is passed in by the submit script file ####
-numberofgroups = 50
-for i in range(7, 11):
+firstgroup = 1
+lastgroup = 1 #50
+
+for i in range(firstgroup, lastgroup + 1):
     foldername = "group" + str(i)
-    csv_dir_group = csv_dir + foldername
-    target_dir_group = target_dir + foldername
+    csv_dir_group = Path(csv_dir / foldername)
+    target_dir_group = Path(target_dir / foldername)
     print(csv_dir_group)
     os.chdir(csv_dir_group)
     csv_list = os.listdir(csv_dir_group)
@@ -156,7 +174,7 @@ for i in range(7, 11):
     for each_csv in csv_list:
         if ("CC_List" in each_csv) | (each_csv[-4:]!=".csv") | (each_csv[-7:]=="FR5.csv"): # don't run code if the document is CC_List. Run if it's not - i.e. if it's the processed csv file actually containing the call.
             continue #to check for next file in csv_list
-        file_csv = csv_dir_group + "/" + each_csv
+        file_csv = Path(csv_dir_group / each_csv)
         print(file_csv)
         data_frame = pd.read_csv(file_csv)
         data_frame = data_frame[["Date","Report","Call"]]
@@ -167,9 +185,9 @@ for i in range(7, 11):
             else:
                 temp_data["Keywords"] = each_key
             temp_data["Cri1"] = data_frame.apply(lambda x: identify_total(x.Call,0,each_key,False), axis=1)
-            ##temp_data["Cri2"] = data_frame.apply(lambda x: identify_total(x.Call,0, each_key,True), axis=1)
-            ##temp_data["Cri3"] = data_frame.apply(lambda x: identify_phrase(x.Call,each_key, False), axis=1)
-            ##temp_data["Cri4"] = data_frame.apply(lambda x: identify_phrase(x.Call,each_key, True), axis=1)
+            #temp_data["Cri2"] = data_frame.apply(lambda x: identify_total(x.Call,0, each_key,True), axis=1)
+            #temp_data["Cri3"] = data_frame.apply(lambda x: identify_phrase(x.Call,each_key, False), axis=1)
+            #temp_data["Cri4"] = data_frame.apply(lambda x: identify_phrase(x.Call,each_key, True), axis=1)
             temp_data["File"] = each_csv
             temp_data = temp_data.loc[(temp_data["Cri1"]==True)]
             ###| (temp_data["Cri2"]==True) | (temp_data["Cri3"]==True) | (temp_data["Cri4"]==True)]
