@@ -21,7 +21,7 @@ outputpath = Path(outputfolder / outputfile)
 
 table = pd.DataFrame()
 # columnstouse = ["Report", "Keywords", "Date", "Title", "Subtitle"]
-columnstouse = ["country", "Keywords", "Date", "Title", "Subtitle", "Paragraph"]
+columnstouse = ["country", "Keywords", "Date", "Title", "Subtitle", "Paragraph", "gvkey"]
 
 for file in inputfolder.iterdir(): 
     if '.xlsx' in file.name:

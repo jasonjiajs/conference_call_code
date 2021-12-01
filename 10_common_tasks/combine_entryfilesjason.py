@@ -6,14 +6,18 @@ from pathlib import Path
 # Combine all the .xlsx entry files.
 # Save into an actual excel file, in .xlsx format.
 
-inputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\ConferenceCalls_2020-2021_v2")
-outputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entry_files_combined\jason")
+#inputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\ConferenceCalls_2020-2021_v2")
+#outputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entry_files_combined\jason")
 
-outputfile = "entryfiles_combined_jason_v2withparagraphs.xlsx"
+#inputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entry_files\Sixun\v0 - originalfrommercury")
+#outputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entry_files_combined\sixun")
+#outputfile = "entryfiles_combined_jason_v2withparagraphs.xlsx"
+#outputfile = "entryfiles_combined_sixun_v0_withparagraphs.xlsx"
+
 outputpath = Path(outputfolder / outputfile)
 
 table = pd.DataFrame()
-columnstouse = ["Report", "Keywords", "Date", "Title", "Subtitle", "Paragraph"]
+columnstouse = ["Report", "Keywords", "Date", "Title", "Subtitle", "Paragraph", "gvkey"]
 
 for file in inputfolder.iterdir(): 
     if '.xlsx' in file.name:

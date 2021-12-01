@@ -20,8 +20,8 @@ KB_enter = pynput.keyboard.Controller()
 MS_enter = pynput.mouse.Controller()
 time.sleep(5)
 #### save directory (scripts and calls saved separately) #####
-call_dir = r"C:\Users\jasonjia\ConferenceCall\CallScripts3SpecifiedReportNumbers"
-index_dir = r"C:\Users\jasonjia\ConferenceCall\List3SpecifiedReportNumbers"
+call_dir = r"C:\Users\jasonjia\Projects\ConferenceCall\Output\ConferenceCall\CallScripts3SpecifiedReportNumbers"
+index_dir = r"C:\Users\jasonjia\Projects\ConferenceCall\Output\ConferenceCall\List3SpecifiedReportNumbers"
 
 #%%
 #---------------------------- Functions -------------------------------------#

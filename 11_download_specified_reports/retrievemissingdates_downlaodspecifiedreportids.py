@@ -19,8 +19,10 @@ import pandas as pd
 
 # 1. load the excel file and get the report numbers
 
-inputfolder = "C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\RetrieveMissingDates"
-inputfile = "paragraph_datemissing.xlsx"
+inputfolder = r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entry_files_combined\sixunandjason\v5\missingtitles"
+# "C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\RetrieveMissingDates"
+inputfile = "reportidswithmissingtitles_betweenv5combinedandthenewone.xlsx"
+# "paragraph_datemissing.xlsx"
 
 df = pd.read_excel(inputfolder + "\\" + inputfile)
 
@@ -90,8 +92,8 @@ time.sleep(1)
 mouse_click((302+mouse_c_adj[0],120+mouse_c_adj[1]),2) ### research
 
 # Where you'll be saving your excel files
-outputfolder = "C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\RetrieveMissingDates"
-
+outputfolder = r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entry_files_combined\sixunandjason\v5\missingtitles"
+# "C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\RetrieveMissingDates"
 for i in range(numberofsearchterms):
     outputfile = 'chunk_' + str(i) 
 # Type in contributor - Refinitiv Streetevents
@@ -128,13 +130,14 @@ for i in range(numberofsearchterms):
 # What a terrible thing for Thomson One to pull off...
 
 table = pd.DataFrame()
-
+colstouse = ['Date','Report #', 'Title', 'Subtitle']
+# ['Date','Report #']
 os.chdir(outputfolder)
 for i in range(numberofsearchterms): #for file_i in os.listdir(outputfolder):
     file_i = 'chunk_' + str(i) + '.xls'
     print(file_i)
     chunktable = pd.read_html(file_i)[0]
-    chunktable = chunktable[['Date','Report #']]
+    chunktable = chunktable[colstouse]
     table = table.append(chunktable)
 
 matchingtable = reportid.merge(table, how='inner', left_on='report', right_on='Report #')
@@ -148,13 +151,15 @@ print('The original excel file with missing dates has {a} missing entries. '\
       .format(a=len(reportid), b=len(reportid.drop_duplicates()), c=len(matchingtable)))
 
 # finaltable['Date'].dtypes # 'O' = string (I think)
+# convert date to same format as in .xls
 matchingtable['Date'] = pd.to_datetime(matchingtable['Date'], infer_datetime_format = True)
 matchingtable['Date'] = matchingtable['Date'].dt.strftime('%Y-%m-%d')
 
+# merge based on the sequence of report IDs provided
 finaltable = reportid.merge(matchingtable, how='left', on='report')
 
 writer = pd.ExcelWriter(inputfolder + "\\" + 'output.xlsx')
-finaltable.to_excel(writer, 'finaltable')
+finaltable.to_excel(writer, 'finaltable', index=False)
 writer.save()
 
 

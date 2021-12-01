@@ -1,5 +1,6 @@
 import pandas as pd
 from pathlib import Path
+import argparse
 
 def make_paragraphrecord(n_entries, filepath=None, save_df=True, return_df=False):
     div, mod = divmod(n_entries, 500)
@@ -28,9 +29,23 @@ def make_paragraphrecord(n_entries, filepath=None, save_df=True, return_df=False
             return
         df.to_excel(Path(filepath), index=False)
     if return_df == True:
+        print(df)
         return df
 
 # Tests
 # df1 = make_paragraphrecord(21334, save_df=False, return_df=True)
 # df2 = make_paragraphrecord(123, save_df=False, return_df=True)
 # make_paragraphrecord(87654, r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\Paragraph Record\paragraphrecord_test.xlsx")
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='make paragraph_record')
+    parser.add_argument('n_entries', help='total number of entries / paragraphs', type=int)
+    parser.add_argument('-f', '--outputfilepath', help='.xlsx filepath for where you want to save the output (default paragraphrecord_fromterminal.xlsx)', default="paragraphrecord_fromterminal.xlsx")
+    parser.add_argument('-s', '--save_df', help='whether to save the df (default true)', default=True)
+    parser.add_argument('-r', '--return_df', help='whether to return the df (default false)', default=False)
+
+    args = parser.parse_args()
+    save_df =  False if args.save_df == "False" else True
+    return_df = True if args.return_df == "True" else False
+    make_paragraphrecord(args.n_entries, args.outputfilepath, save_df, return_df)
+
+
