@@ -1,0 +1,13 @@
+Job ID: 8594997
+Job User: jasonjia
+Num Cores: 1
+
+Input folder: /project/kh_mercury_1/conference_call/output/01_download_cc/01.1_pdf_test1
+Output folder: /project/kh_mercury_1/conference_call/output/02_process_cc/02.1_txt_test1
+
+/project/kh_mercury_1/conference_call/output/02_process_cc/02.1_txt_test1/20211001-20211004_1.txt
+/project/kh_mercury_1/conference_call/output/02_process_cc/02.1_txt_test1/20211005-20211008_1.txt
+/project/kh_mercury_1/conference_call/output/02_process_cc/02.1_txt_test1/20211005-20211008_2.txt
+/project/kh_mercury_1/conference_call/output/02_process_cc/02.1_txt_test1/20211005-20211008_3.txt
+/project/kh_mercury_1/conference_call/output/02_process_cc/02.1_txt_test1/20211005-20211008_4.txt
+done!
