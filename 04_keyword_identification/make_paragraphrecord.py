@@ -40,8 +40,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='make paragraph_record')
     parser.add_argument('n_entries', help='total number of entries / paragraphs', type=int)
     parser.add_argument('-f', '--outputfilepath', help='.xlsx filepath for where you want to save the output (default paragraphrecord_fromterminal.xlsx)', default="paragraphrecord_fromterminal.xlsx")
-    parser.add_argument('-s', '--save_df', help='whether to save the df (default true)', default=True)
-    parser.add_argument('-r', '--return_df', help='whether to return the df (default false)', default=False)
+    parser.add_argument('-s', '--save_df', help='whether to save the df (default True); True or False', default=True)
+    parser.add_argument('-r', '--return_df', help='whether to return the df (default False); True or False', default=False)
 
     args = parser.parse_args()
     save_df =  False if args.save_df == "False" else True
