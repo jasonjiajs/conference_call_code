@@ -1,0 +1,11 @@
+Job ID: 8594995
+Job User: jasonjia
+Num Cores: 1
+
+Argument 1 (SLURM): 100
+Argument 2 (SLURM): 200
+
+Argument 1 (Python): 100
+Argument 2 (Python): 200
+
+Arguments successfully passed from: SLURM command line -> .sh script -> Python command line -> .py script!
