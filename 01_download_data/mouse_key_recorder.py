@@ -42,7 +42,7 @@ with pynput.keyboard.Listener(on_press=on_press,on_release=on_release) as kliste
 
 def mouse_click(mouse,position,delay):
     mouse.position = position
-    mouse.click(Button.left,1)
+    mouse.click(pynput.mouse.Button.left,1)
     time.sleep(delay)
 
 

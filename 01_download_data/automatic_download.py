@@ -11,19 +11,53 @@ from pynput.keyboard import Key
 import datetime
 from datetime import timedelta
 import pyperclip
-import os
 import numpy as np
 import io
+import sys
+import argparse
+import os
+from pathlib import Path
+
+# Go to the ".../conference_call/code" folder to import toolkit
+print(Path.cwd())
+
+while Path.cwd().name != "code":
+    os.chdir("..")
+    print(Path.cwd())
+
+sys.path.insert(0, str(Path.cwd()))
+import toolkit
+proj_dir = toolkit.import_proj_dir()
+#print(proj_dir)
 
 #### open keyboard and mouse Controller ####
 KB_enter = pynput.keyboard.Controller()
 MS_enter = pynput.mouse.Controller()
 
-#### save directory (scripts and calls saved separately) #####
-call_dir = r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\Pdf" # Previously known as CallScripts3
-index_dir = r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\Xls" # Previously known as List3
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Download conference calls from Thomson One, with date range = start_date - end_date. Code starts downloading most recent reports, and ends off with oldest reports, in sets of 4 days (i.e. code downloads backwards from end_date to start_date). Code will go past the start date if the number of days is not a multiple of 4. Enter 7 arguments, in the order listed below.')
+    parser.add_argument('suffix', help="suffix indicating a particular data pull, e.g. if the folder is '01.1_pdf_2', the suffix is '2'; quotation marks around the string is optional.", type=str)
+    parser.add_argument('start_year', help="start date of pull - year (e.g. 2021)", type=int)
+    parser.add_argument('start_month', help="start date of pull - month (e.g. 1)", type=int)
+    parser.add_argument('start_day', help="start date of pull - day (e.g. 1)", type=int)
+    parser.add_argument('end_year', help="end date of pull - year (e.g. 2021)", type=int)
+    parser.add_argument('end_month', help="end date of pull - month (e.g. 1)", type=int)
+    parser.add_argument('end_day', help="end date of pull - day (e.g. 1)", type=int)
+    args = parser.parse_args()
+    suffix = args.suffix
 
-print('done')
+#### save directory (scripts and calls saved separately) #####
+print("Data pull used:", suffix)
+call_dir = toolkit.get_folder("l3_pdf", suffix) # pdf files
+index_dir = toolkit.get_folder("l3_xls", suffix) # xls files   
+
+### set initial and end date ###
+date_initial = datetime.date(year=args.end_year, month=args.end_month, day=args.end_day) + timedelta(days=1)  # +1 day because code will always -1 day.
+date_end = datetime.date(year=args.start_year, month=args.start_month, day=args.start_day)
+
+print(date_initial)
+print(date_end)
+
 #%%
 #---------------------------- Functions -------------------------------------#
 ##### click mouse function ####
@@ -54,7 +88,7 @@ def date_string(date_start, time_delta):
     return ['{0:02d}/{1:02d}/{2:02d}'.format(date_begin.month,date_begin.day,date_begin.year%100), '{0:02d}/{1:02d}/{2:02d}'.format(date_end.month,date_end.day,date_end.year%100), '{0}{1:02d}{2:02d}-{3}{4:02d}{5:02d}'.format(date_begin.year,date_begin.month,date_begin.day,date_end.year,date_end.month,date_end.day )]
 ##### generate ideal file name #####
 def file_name(directory, name):
-    return directory+'\\'+name
+    return str(directory)+'\\'+name
 ##### check if file is downloaded ####
 def existing_file(directory, name, exten_name):
     full_name = name + exten_name
@@ -104,7 +138,7 @@ mouse_c_list_2 = [(32+mouse_c_adj[0], 852+mouse_c_adj[1]),
                   (1315+mouse_c_adj[0]-185, 1019+mouse_c_adj[1]-165),
                   (1348+mouse_c_adj[0]-185, 992+mouse_c_adj[1]-155), 
                   (56+mouse_c_adj[0], 819+mouse_c_adj[1]), 
-                  (557+mouse_c_adj[0]-190, 321+mouse_c_adj[1]-70), 
+                  (557+mouse_c_adj[0]-190, 315+mouse_c_adj[1]-70), 
                   (554+mouse_c_adj[0]-190, 764+mouse_c_adj[1]-70), 
                   (32+mouse_c_adj[0], 852+mouse_c_adj[1]), 
                   (1854+mouse_c_adj[0]-380, 786+mouse_c_adj[1])]
@@ -115,28 +149,27 @@ mouse_c_list_2 = [(32+mouse_c_adj[0], 852+mouse_c_adj[1]),
 
 #%%
 # --------------------------- Main loop start ------------------------------- #
-### set initial date ###
-date_initial = datetime.date(year=2021, month=9, day=22)
 
 ### open file record recorder ###
-record_file = open("C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\file_number.txt", "w", encoding="utf-8", errors="ignore")
+
+record_file_path = Path(proj_dir["l2_download_cc"] / Path("checks") / Path("file_number.txt"))
+print(record_file_path)
+record_file = open(record_file_path, "w", encoding="utf-8", errors="ignore")
 print("Start date\tEnd date\tNo. Reports", file=record_file)
 
 ### two variables for error catching ####
 click_time = 0
 error_time = 0
 
-
 #%%
 ########### Main Loop ####################
-
 ### Note: Before you run the code, start from the 
 ### Thomson One -> Screening and Analysis, 'Research' Page.
 ### Leave date untouched, but set the contributer to Refinitiv Streetevents.
 
-
 # Type in contributor - Refinitiv Streetevents
-time.sleep(1)
+print("Autoclicker starting in 3 seconds!")
+time.sleep(3)
 mouse_click((302+mouse_c_adj[0],120+mouse_c_adj[1]),1) ### research
 mouse_click((99+mouse_c_adj[0],626+mouse_c_adj[1]),0.5) ### contributor
 key_strtype("STREETEVENTS")
@@ -144,7 +177,7 @@ time.sleep(1)
 mouse_click((93+mouse_c_adj[0],669+mouse_c_adj[1]),0.5)
 
                 
-while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time ###
+while date_initial > date_end:   ### end time ###
     ########### This error handler is to deal with damaged pages ################
     if error_time >= 500 and click_time>=0:
         if error_time >= 700:
@@ -260,10 +293,11 @@ while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time #
             with KB_enter.pressed(Key.cmd):
                 key_press(Key.up)
             time.sleep(1)            
-            mouse_click((1445,140),0.5) # newly added - for IE's popup
-            mouse_click((1445,180),0.5) # newly added - for IE's popup
-            mouse_click((1445,155),0.5) # newly added - for IE's popup
-            mouse_click((1445,195),0.5) # newly added - for IE's popup
+            mouse_click((1470,140),1) # newly added - for IE's popup
+            #1445?
+            mouse_click((1470,180),1) # newly added - for IE's popup
+            mouse_click((1470,155),1) # newly added - for IE's popup
+            mouse_click((1470,195),1) # newly added - for IE's popup
             time.sleep(1)
             
             ### start the time calculator before the loop ####
@@ -389,6 +423,3 @@ while date_initial > datetime.date(year=2020, month=9, day=30):   ### end time #
 
 
 record_file.close()
-
-
-# %%
