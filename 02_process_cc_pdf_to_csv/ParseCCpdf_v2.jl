@@ -240,13 +240,13 @@ end
 function parseCalls(filename)
     try
     #get list of CC
-    dflist=parseHtmlXlsToDf("Xls/$filename.xls")
+    dflist=parseHtmlXlsToDf("01_download_cc/01.1_xls_2/$filename.xls")
     #dflist=parseHtmlXlsToDf("XlsTest/$filename.xls")
     dflist[!,:Call].=""
 
     #doc = pdDocOpen("$filename.pdf")
-    doc_pdf = pdDocOpen("Pdf/$filename.pdf")
-    doc_text=String(read("Txt/$filename.txt"))
+    doc_pdf = pdDocOpen("01_download_cc/01.1_pdf_2/$filename.pdf")
+    doc_text=String(read("02_process_cc/02.1_txt_2/$filename.txt"))
     #doc_pdf = pdDocOpen("PdfTest/$filename.pdf")
     #doc_text=String(read("TxtTest/$filename.txt"))
     doc=split(doc_text,"\f")
@@ -301,7 +301,7 @@ end
 
 # ```parse all file from the currrent  ```
 function main()
-    files=readdir("Xls")
+    files=readdir("01_download_cc/01.1_xls_2")
     # files=readdir("XlsTest")
     for file in files
         if file[end-2:end]=="xls"
@@ -310,7 +310,7 @@ function main()
                 println("")
                 println(file)
                 @time dfCalls=parseCalls(filename)
-                CSV.write("Csv/$filename.csv",dfCalls)
+                CSV.write("02_process_cc/$filename.csv",dfCalls)
                 #CSV.write("CsvTest/$filename.csv",dfCalls)
             catch e
                 println(e)
@@ -328,7 +328,7 @@ global dfBadFile=DataFrame(filename=String[],Title=String[])
 # Overall structure: -> main
 try
     # Sixun's comment, N/A: cd("..//..//..//..//project//EC_Mercury//final_sup")
-    cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Output")
+    cd("C:/Users/jasonjia/Dropbox/Projects/conference_call/output")
     # cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Misc/Trial2")
     @time main()
     CSV.write("BadList.csv",dfBadFile)

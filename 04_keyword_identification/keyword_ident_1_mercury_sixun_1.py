@@ -12,12 +12,14 @@ import sys
 import re
 
 
-csv_dir = "/project/kh_mercury_1/CriCount/" 
-
-#"/project/kh_mercury_1/CriCount2/" # initially was sys.argv[1]
-target_dir = "/project/kh_mercury_1/CriCount/" 
-
-#"/project/kh_mercury_1/CriCount2/" # initially was sys.argv[2]
+csv_dir = "/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.3_groups_2_20210928" 
+# "/project/kh_mercury_1/CriCount/" 
+# "/project/kh_mercury_1/CriCount2/" 
+# initially was sys.argv[1]
+target_dir = "/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.3_groups_2_20210928" 
+# "/project/kh_mercury_1/CriCount/" 
+# "/project/kh_mercury_1/CriCount2/" 
+# # initially was sys.argv[2]
 
 
 

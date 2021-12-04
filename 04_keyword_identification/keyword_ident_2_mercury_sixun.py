@@ -18,9 +18,9 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 if r"C:\Users" in homepath:
     windows = True
     print("Detected Windows home path - using Jason's Dropbox folders")
-    os.chdir(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\Test Set of 50 Group Folders")
-    csv_dir1 = r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\ConferenceCall\Csv"
-    keyterms_filepath = r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\keyterms\keyterms.txt"
+    os.chdir(r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_keyword_identification\Test Set of 50 Group Folders")
+    csv_dir1 = r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\02_process_cc\02.2_csv_2"
+    keyterms_filepath = r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_keyword_identification\04.2_reference_files\keyterms.txt"
     
 else:
     windows = False
