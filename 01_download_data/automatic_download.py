@@ -48,8 +48,8 @@ if __name__ == '__main__':
 
 #### save directory (scripts and calls saved separately) #####
 print("Data pull used:", suffix)
-call_dir = toolkit.get_folder("l3_pdf", suffix) # pdf files
-index_dir = toolkit.get_folder("l3_xls", suffix) # xls files   
+call_dir = proj_dir[toolkit.add_suffix("l3_pdf", suffix)] # pdf files
+index_dir = proj_dir[toolkit.add_suffix("l3_xls", suffix)] # xls files   
 
 ### set initial and end date ###
 date_initial = datetime.date(year=args.end_year, month=args.end_month, day=args.end_day) + timedelta(days=1)  # +1 day because code will always -1 day.
