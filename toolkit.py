@@ -18,12 +18,6 @@ def import_proj_dir():
         
     return proj_dir
 
-def get_folder(root, suffix):
-    proj_dir = import_proj_dir()
-    key = root + '_' + suffix
-    if not(key in proj_dir.keys()):
-        print("Key '{}' does not exist in proj_dir. No folder retrieved.".format(key))
-        return;
-    
-    folderpath = Path(proj_dir[key])        
-    return folderpath
+def add_suffix(root, suffix):
+    key = root + '_' + suffix      
+    return key
