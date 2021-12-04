@@ -25,21 +25,54 @@
 echo "Job ID: $SLURM_JOB_ID"
 echo "Job User: $SLURM_JOB_USER"
 echo "Num Cores: $SLURM_JOB_CPUS_PER_NODE"
+printf "\n"
 
 #------------------------
-# change directory
+# echo inputted command-line arguments
 
-cd "/project/kh_mercury_1/ConferenceCallData/RawScripts3"
-# cd "/project/kh_mercury_1/ConfCall20201024-20210405/CallScripts"
-# cd "/project/kh_mercury_1/ConferenceCallData/RawScripts_pdftotext_container2"
+echo "Input folder: $1"
+echo "Output folder: $2"
+printf "\n"
+
+#------------------------
+# change directory to input folder
+
+cd $1
 
 #--------------------------
-# for every pdf in the file, use pdftotext to tranfer to text files
+# for every pdf in the file, use pdftotext to tranfer to .txt files, and
+# save to output folder
 
-for file_name in *.pdf
+for f in *.pdf
 do
-	pdftotext -layout $file_name
+	outputfilepath=$2"/${f%.*}.txt"
+	echo $outputfilepath
+	pdftotext -layout "$f" "$outputfilepath"
 done
+echo done!
 
 #--------------------------
 
+# Below: The code to do it by running it directly on the terminal, without submitting a job via SLURM.
+
+#--------------------------
+
+# read -p "Input folder - download_cc/pdf (no quotation marks): " inputfolder
+# read -p "Output folder - process_cc/txt (no quotation marks): " outputfolder
+
+#--------------------------
+
+# cd $inputfolder
+
+#--------------------------
+
+# for every pdf in the file, use pdftotext to tranfer to .txt files, and
+# save to output folder
+
+#for f in *.pdf
+#do
+#	outputfilepath=$outputfolder"/${f%.*}.txt"
+#	echo $outputfilepath
+#	pdftotext -layout "$f" "$outputfilepath"
+#done
+#echo done!
