@@ -240,13 +240,13 @@ end
 function parseCalls(filename)
     try
     #get list of CC
-    dflist=parseHtmlXlsToDf("01_download_cc/01.1_xls_2/$filename.xls")
+    dflist=parseHtmlXlsToDf("01_download_cc/01.1_xls_test1/$filename.xls")
     #dflist=parseHtmlXlsToDf("XlsTest/$filename.xls")
     dflist[!,:Call].=""
 
     #doc = pdDocOpen("$filename.pdf")
-    doc_pdf = pdDocOpen("01_download_cc/01.1_pdf_2/$filename.pdf")
-    doc_text=String(read("02_process_cc/02.1_txt_2/$filename.txt"))
+    doc_pdf = pdDocOpen("01_download_cc/01.1_pdf_test1/$filename.pdf")
+    doc_text=String(read("02_process_cc/02.1_txt_test1/$filename.txt"))
     #doc_pdf = pdDocOpen("PdfTest/$filename.pdf")
     #doc_text=String(read("TxtTest/$filename.txt"))
     doc=split(doc_text,"\f")
@@ -268,7 +268,7 @@ function parseCalls(filename)
                 else
                     global dfBadFile
                     push!(dfBadFile,[filename,row.Title])
-                    CSV.write("BadList.csv",dfBadFile)
+                    CSV.write("02_process_cc/checks/BadList.csv",dfBadFile)
                 end
             catch e
                 println("Row Error:-",e)
@@ -301,7 +301,7 @@ end
 
 # ```parse all file from the currrent  ```
 function main()
-    files=readdir("01_download_cc/01.1_xls_2")
+    files=readdir("01_download_cc/01.1_xls_test1")
     # files=readdir("XlsTest")
     for file in files
         if file[end-2:end]=="xls"
@@ -310,7 +310,7 @@ function main()
                 println("")
                 println(file)
                 @time dfCalls=parseCalls(filename)
-                CSV.write("02_process_cc/$filename.csv",dfCalls)
+                CSV.write("02_process_cc/02.2_csv_test1/$filename.csv",dfCalls)
                 #CSV.write("CsvTest/$filename.csv",dfCalls)
             catch e
                 println(e)
@@ -331,7 +331,7 @@ try
     cd("C:/Users/jasonjia/Dropbox/Projects/conference_call/output")
     # cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Misc/Trial2")
     @time main()
-    CSV.write("BadList.csv",dfBadFile)
+    CSV.write("02_process_cc/checks/BadList.csv",dfBadFile)
     #CSV.write("BadListTest.csv",dfBadFile)
     try
         mkdir("Csv")
@@ -343,10 +343,7 @@ try
 catch error
     println(error)
 end
-CSV.write("BadList.csv",dfBadFile)
-println("Finish parsing CCs from pdf, txt and xls into csv")
-
-# test
-
+CSV.write("02_process_cc/checks/BadList.csv",dfBadFile)
+println("Finished parsing CCs from pdf, txt and xls into csv")
 
 # @test
