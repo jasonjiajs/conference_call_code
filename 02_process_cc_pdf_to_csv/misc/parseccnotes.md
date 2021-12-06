@@ -49,3 +49,10 @@ function parseCalls(filename)
 function main()
 
 getpage: get page from the document
+
+
+``` Other comments ```
+Areas for improvement for the .jl script:
+- folder directory -> retrieve from dictionary
+- command line arguments (suffix)
+- turn it into python?
