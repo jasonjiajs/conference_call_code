@@ -34,6 +34,7 @@ proj_dir = toolkit.import_proj_dir()
 KB_enter = pynput.keyboard.Controller()
 MS_enter = pynput.mouse.Controller()
 
+# Read in command-line arguments
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Download conference calls from Thomson One, with date range = start_date - end_date. Code starts downloading most recent reports, and ends off with oldest reports, in sets of 4 days (i.e. code downloads backwards from end_date to start_date). Code will go past the start date if the number of days is not a multiple of 4. Enter 7 arguments, in the order listed below.')
     parser.add_argument('suffix', help="suffix indicating a particular data pull, e.g. if the folder is '01.1_pdf_2', the suffix is '2'; quotation marks around the string is optional.", type=str)
