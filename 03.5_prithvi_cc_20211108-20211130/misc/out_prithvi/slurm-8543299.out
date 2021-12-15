@@ -1,0 +1,19 @@
+==========================================
+SLURM_JOB_ID = 8543299
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn34
+==========================================
+Job ID: 8543299
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "convertTotalCircNew_to_Cric1newtotal.py", line 4, in <module>
+    df = pd.read_excel(path, engine = "openyxl")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 858, in __init__
+    raise ValueError(f"Unknown engine: {engine}")
+ValueError: Unknown engine: openyxl
+srun: error: mcn34: task 0: Exited with exit code 1

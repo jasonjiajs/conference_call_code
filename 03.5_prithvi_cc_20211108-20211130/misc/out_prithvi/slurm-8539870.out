@@ -1,0 +1,17 @@
+==========================================
+SLURM_JOB_ID = 8539870
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn34
+==========================================
+Job ID: 8539870
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "fuzzyMatchCC.py", line 53, in <module>
+    main()
+  File "fuzzyMatchCC.py", line 30, in main
+    entity_df = dd.from_pandas(entity_df)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/io/io.py", line 208, in from_pandas
+    raise ValueError("Exactly one of npartitions and chunksize must be specified.")
+ValueError: Exactly one of npartitions and chunksize must be specified.
+srun: error: mcn34: task 0: Exited with exit code 1

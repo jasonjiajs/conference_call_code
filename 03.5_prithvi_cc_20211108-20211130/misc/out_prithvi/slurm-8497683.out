@@ -1,0 +1,19 @@
+==========================================
+SLURM_JOB_ID = 8497683
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn25
+==========================================
+Job ID: 8497683
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "CriCount/CC_identify_keywords.py", line 67, in <module>
+    main()
+  File "CriCount/CC_identify_keywords.py", line 52, in main
+    temp = alt_keywords_from_one_call(row, keywords, clean = False)
+  File "CriCount/CC_identify_keywords.py", line 23, in alt_keywords_from_one_call
+    paras_list = re.split(r"\n\s*\n+", call)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/re.py", line 212, in split
+    return _compile(pattern, flags).split(string, maxsplit)
+TypeError: expected string or bytes-like object
+srun: error: mcn25: task 0: Exited with exit code 1

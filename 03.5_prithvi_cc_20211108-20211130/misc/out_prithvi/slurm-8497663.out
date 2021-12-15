@@ -1,0 +1,15 @@
+==========================================
+SLURM_JOB_ID = 8497663
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn27
+==========================================
+Job ID: 8497663
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "CriCount/CC_identify_keywords.py", line 66, in <module>
+    main()
+  File "CriCount/CC_identify_keywords.py", line 63, in main
+    unclean_df.to_csv("CriCound/Identified_Keywords/group1/{}".format(file))
+NameError: name 'unclean_df' is not defined
+srun: error: mcn27: task 0: Exited with exit code 1

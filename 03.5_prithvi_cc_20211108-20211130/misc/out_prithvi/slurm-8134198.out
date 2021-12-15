@@ -1,0 +1,21 @@
+==========================================
+SLURM_JOB_ID = 8134198
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn46
+==========================================
+Job ID: 8134198
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "DirectSearch/updatedDS/possibleNamesDS.py", line 41, in <module>
+    main(sys.argv[1], sys.argv[2])
+  File "DirectSearch/updatedDS/possibleNamesDS.py", line 38, in main
+    news_df.to_csv("PossibleNamesTrialDS.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/generic.py", line 3170, in to_csv
+    formatter.save()
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/formats/csvs.py", line 190, in save
+    compression=dict(self.compression_args, method=self.compression),
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/common.py", line 493, in get_handle
+    f = open(path_or_buf, mode, encoding=encoding, errors=errors, newline="")
+IsADirectoryError: [Errno 21] Is a directory: 'PossibleNamesTrialDS.csv'
+srun: error: mcn46: task 0: Exited with exit code 1

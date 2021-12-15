@@ -1,0 +1,15 @@
+==========================================
+SLURM_JOB_ID = 8554901
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn34
+==========================================
+Job ID: 8554901
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "nameMatching.py", line 144, in <module>
+    main()
+  File "nameMatching.py", line 94, in main
+    keyword_df_clean = dd.from_pandas(keyword_df_clean, npartitions = 100)
+NameError: name 'dd' is not defined
+srun: error: mcn34: task 0: Exited with exit code 1

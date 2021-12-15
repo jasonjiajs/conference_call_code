@@ -1,0 +1,19 @@
+==========================================
+SLURM_JOB_ID = 8539188
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn34
+==========================================
+Job ID: 8539188
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "concatenateOutputs.py", line 35, in <module>
+    main()
+  File "concatenateOutputs.py", line 31, in main
+    master_df.to_excel("Full_Master_Keywords.xlsx")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/generic.py", line 2032, in to_excel
+    engine=engine,
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/formats/excel.py", line 723, in write
+    f"This sheet is too large! Your sheet size is: {num_rows}, {num_cols} "
+ValueError: This sheet is too large! Your sheet size is: 1330268, 17 Max sheet size is: 1048576, 16384
+srun: error: mcn34: task 0: Exited with exit code 1

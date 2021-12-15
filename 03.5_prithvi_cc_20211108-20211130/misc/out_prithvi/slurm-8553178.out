@@ -1,0 +1,25 @@
+==========================================
+SLURM_JOB_ID = 8553178
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn09
+==========================================
+Job ID: 8553178
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "nameMatching.py", line 101, in <module>
+    main()
+  File "nameMatching.py", line 90, in main
+    results = keyword_df_clean.apply(lambda x: process.extractOne(x, hassan_choices, scorer = fuzz.ratio), meta = "str").to_frame()
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/frame.py", line 7552, in apply
+    return op.get_result()
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/apply.py", line 185, in get_result
+    return self.apply_standard()
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/apply.py", line 276, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/apply.py", line 305, in apply_series_generator
+    results[i] = self.f(v)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/apply.py", line 114, in f
+    return func(x, *args, **kwds)
+TypeError: <lambda>() got an unexpected keyword argument 'meta'
+srun: error: mcn09: task 0: Exited with exit code 1

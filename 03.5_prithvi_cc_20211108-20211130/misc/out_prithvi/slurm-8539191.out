@@ -1,0 +1,50 @@
+==========================================
+SLURM_JOB_ID = 8539191
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn34
+==========================================
+Job ID: 8539191
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/thrift_structures.py", line 52, in write_thrift
+    thrift.write(pout)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/parquet_thrift/parquet/ttypes.py", line 2646, in write
+    oprot.writeI32(self.uncompressed_page_size)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/thrift/protocol/TCompactProtocol.py", line 42, in nested
+    return func(self, *args, **kwargs)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/thrift/protocol/TCompactProtocol.py", line 271, in writeI32
+    self.__writeVarint(makeZigZag(i32, 32))
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/thrift/protocol/TCompactProtocol.py", line 52, in makeZigZag
+    checkIntegerLimits(n, bits)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/thrift/protocol/TProtocol.py", line 420, in checkIntegerLimits
+    "i32 requires -2147483648 <= number <= 2147483647")
+thrift.protocol.TProtocol.TProtocolException: i32 requires -2147483648 <= number <= 2147483647
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "concatenateOutputs.py", line 35, in <module>
+    main()
+  File "concatenateOutputs.py", line 32, in main
+    master_df.to_parquet("Full_Master_Keywords.parquet.gzip", compression = "gzip")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/util/_decorators.py", line 199, in wrapper
+    return func(*args, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/frame.py", line 2372, in to_parquet
+    **kwargs,
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parquet.py", line 276, in to_parquet
+    **kwargs,
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parquet.py", line 199, in write
+    **kwargs,
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/writer.py", line 957, in write
+    compression, open_with, has_nulls, append)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/writer.py", line 791, in write_simple
+    compression=compression)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/writer.py", line 657, in make_row_group
+    compression=comp)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/writer.py", line 555, in write_column
+    write_thrift(f, ph)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/thrift_structures.py", line 61, in write_thrift
+    variables = frame[0].tb_frame.f_locals
+IndexError: list index out of range
+srun: error: mcn34: task 0: Exited with exit code 1

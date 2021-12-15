@@ -1,0 +1,17 @@
+==========================================
+SLURM_JOB_ID = 8504287
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn53
+==========================================
+Job ID: 8504287
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "CriCount/updated_CC_identify_keywords.py", line 106, in <module>
+    main()
+  File "CriCount/updated_CC_identify_keywords.py", line 89, in main
+    temp = alt_keywords_from_one_call(row, keywords, clean = False, lower = True)
+  File "CriCount/updated_CC_identify_keywords.py", line 30, in alt_keywords_from_one_call
+    for para_2 in already_done_df["Paragraph"]:
+NameError: name 'already_done_df' is not defined
+srun: error: mcn53: task 0: Exited with exit code 1

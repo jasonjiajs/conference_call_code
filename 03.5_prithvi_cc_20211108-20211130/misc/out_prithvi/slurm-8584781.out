@@ -1,0 +1,19 @@
+==========================================
+SLURM_JOB_ID = 8584781
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn53
+==========================================
+Job ID: 8584781
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "updatedDirectSearch.py", line 38, in <module>
+    #final_df = dd.concat(dfs_list)
+  File "updatedDirectSearch.py", line 35, in main
+    
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/generic.py", line 2032, in to_excel
+    engine=engine,
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/formats/excel.py", line 723, in write
+    f"This sheet is too large! Your sheet size is: {num_rows}, {num_cols} "
+ValueError: This sheet is too large! Your sheet size is: 1245056, 16 Max sheet size is: 1048576, 16384
+srun: error: mcn53: task 0: Exited with exit code 1

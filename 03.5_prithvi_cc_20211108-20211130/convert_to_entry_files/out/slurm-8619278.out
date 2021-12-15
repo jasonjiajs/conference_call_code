@@ -1,0 +1,12 @@
+Job ID: 8619278
+Job User: jasonjia
+Num Cores: 16
+
+convertTotalCircNew_to_Cric1newtotal.py: done!
+
+    MaxRSS    Elapsed     ReqMem  Timelimit 
+---------- ---------- ---------- ---------- 
+             00:00:04       16Gc 1-20:00:00 
+             00:00:04       16Gc            
+             00:00:04       16Gc            
+         0   00:00:04       16Gc            

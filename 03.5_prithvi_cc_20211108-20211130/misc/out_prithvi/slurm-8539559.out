@@ -1,0 +1,11 @@
+==========================================
+SLURM_JOB_ID = 8539559
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn32
+==========================================
+Job ID: 8539559
+Job User: pspahwa
+Num Cores: 16
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=8539559.0 cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+srun: error: mcn32: task 0: Out Of Memory
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=8539559.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.

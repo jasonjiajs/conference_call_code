@@ -1,0 +1,17 @@
+==========================================
+SLURM_JOB_ID = 8525797
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn02
+==========================================
+Job ID: 8525797
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "optimizedGetNewEntries (1).py", line 53, in <module>
+    main()
+  File "optimizedGetNewEntries (1).py", line 45, in main
+    if check_n_prev_and_next(para_1, para_2, keyword_1, n = 5):
+  File "optimizedGetNewEntries (1).py", line 12, in check_n_prev_and_next
+    start = p1.index(k)
+ValueError: substring not found
+srun: error: mcn02: task 0: Exited with exit code 1

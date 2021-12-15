@@ -1,0 +1,29 @@
+==========================================
+SLURM_JOB_ID = 8522963
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn06
+==========================================
+Job ID: 8522963
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "optimizedGetNewEntries.py", line 56, in <module>
+    main()
+  File "optimizedGetNewEntries.py", line 37, in main
+    already_done_df = pd.read_excel("entryfiles_combined_v5_withparagraphs.xlsx")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 22, in __init__
+    super().__init__(filepath_or_buffer)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 353, in __init__
+    self.book = self.load_workbook(filepath_or_buffer)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 37, in load_workbook
+    return open_workbook(filepath_or_buffer)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/xlrd/__init__.py", line 170, in open_workbook
+    raise XLRDError(FILE_FORMAT_DESCRIPTIONS[file_format]+'; not supported')
+xlrd.biffh.XLRDError: Excel xlsx file; not supported
+srun: error: mcn06: task 0: Exited with exit code 1
