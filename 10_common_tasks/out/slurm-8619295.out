@@ -1,0 +1,14 @@
+Job ID: 8619295
+Job User: jasonjia
+Num Cores: 16
+
+Python file to run: /project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/convert_to_entry_files/convertCric1newtotal_to_entryfilescombined.py
+
+/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/convert_to_entry_files/convertCric1newtotal_to_entryfilescombined.py: done!
+
+    MaxRSS    Elapsed     ReqMem  Timelimit 
+---------- ---------- ---------- ---------- 
+             00:00:04       16Gc 1-20:00:00 
+             00:00:04       16Gc            
+             00:00:04       16Gc            
+      184K   00:00:04       16Gc            
