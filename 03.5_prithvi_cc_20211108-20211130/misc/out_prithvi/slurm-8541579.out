@@ -1,0 +1,15 @@
+==========================================
+SLURM_JOB_ID = 8541579
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn09
+==========================================
+Job ID: 8541579
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "fuzzyMatchCC.py", line 63, in <module>
+    main()
+  File "fuzzyMatchCC.py", line 39, in main
+    entity_df = dd.from_pandas(entity_df, npartitions = 100, assume_missing = True)
+TypeError: from_pandas() got an unexpected keyword argument 'assume_missing'
+srun: error: mcn09: task 0: Exited with exit code 1

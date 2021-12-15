@@ -15,9 +15,16 @@
 #SBATCH --time=0-10:00:00
 
 #---------------------
-# Job specific name
+# Job specific name (helps organize and track progress of jobs)
 
-#SBATCH --job-name=read_arg
+#SBATCH --job-name=read_arg # user-defined job name
+#SBATCH -o out/slurm-%j.out # location and name of out file
+
+#---------------------------------------------------------------------------------
+# Email settings
+
+#SBATCH --mail-type=END,FAIL     # mail events (can use any combination of the following: ALL, NONE, BEGIN, END, FAIL)
+#SBATCH --mail-user=jason.jia@chicagobooth.edu 
 
 #-----------------------
 # useful variables

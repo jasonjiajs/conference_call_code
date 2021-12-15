@@ -1,0 +1,10 @@
+==========================================
+SLURM_JOB_ID = 8539025
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn30
+==========================================
+Job ID: 8539025
+Job User: pspahwa
+Num Cores: 16
+/apps/python/3.6/3.6.12/bin/python3: can't open file 'CriCount/CC_identify_keywords.py': [Errno 2] No such file or directory
+srun: error: mcn30: task 0: Exited with exit code 2

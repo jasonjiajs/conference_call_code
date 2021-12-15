@@ -1,0 +1,43 @@
+"==========================================
+SLURM_JOB_ID = 8498906
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn31
+==========================================
+Job ID: 8498906
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/writer.py", line 252, in convert
+    out = array_encode_utf8(data)
+  File "fastparquet/speedups.pyx", line 50, in fastparquet.speedups.array_encode_utf8
+TypeError: bad argument type for built-in operation
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "CriCount/CC_identify_keywords.py", line 93, in <module>
+    main()
+  File "CriCount/CC_identify_keywords.py", line 89, in main
+    unclean_data.to_parquet(output_fp, compression = "gzip")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/util/_decorators.py", line 199, in wrapper
+    return func(*args, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/frame.py", line 2372, in to_parquet
+    **kwargs,
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parquet.py", line 276, in to_parquet
+    **kwargs,
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parquet.py", line 199, in write
+    **kwargs,
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/writer.py", line 957, in write
+    compression, open_with, has_nulls, append)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/writer.py", line 791, in write_simple
+    compression=compression)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/writer.py", line 657, in make_row_group
+    compression=comp)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/writer.py", line 535, in write_column
+    repetition_data, definition_data, encode[encoding](data, selement), 8 * b'\x00'
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/writer.py", line 347, in encode_plain
+    out = convert(data, se)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/writer.py", line 279, in convert
+    '%s' % (data.name, ct, e))
+ValueError: Error converting column "ExtractedNumbers" to bytes using encoding UTF8. Original error: bad argument type for built-in operation
+srun: error: mcn31: task 0: Exited with exit code 1

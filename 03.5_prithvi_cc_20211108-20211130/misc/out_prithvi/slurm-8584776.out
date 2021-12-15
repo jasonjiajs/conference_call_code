@@ -1,0 +1,23 @@
+==========================================
+SLURM_JOB_ID = 8584776
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn53
+==========================================
+Job ID: 8584776
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "updatedDirectSearch.py", line 35, in <module>
+    main()
+  File "updatedDirectSearch.py", line 26, in main
+    news_df = dd.read_csv(news_fp)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/io/csv.py", line 664, in read
+    **kwargs,
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/io/csv.py", line 495, in read_pandas
+    **(storage_options or {}),
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/bytes/core.py", line 125, in read_bytes
+    size = fs.info(path)["size"]
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fsspec/implementations/local.py", line 78, in info
+    out = os.stat(path, follow_symlinks=False)
+FileNotFoundError: [Errno 2] No such file or directory: '/project/kh_mercury_1/NF_UNews.RTRS.201812.0214.csv'
+srun: error: mcn53: task 0: Exited with exit code 1

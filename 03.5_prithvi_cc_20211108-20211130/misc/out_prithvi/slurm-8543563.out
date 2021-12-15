@@ -1,0 +1,13 @@
+==========================================
+SLURM_JOB_ID = 8543563
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn09
+==========================================
+Job ID: 8543563
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "newmakebold.py", line 6, in <module>
+    import xlsxwriter
+ModuleNotFoundError: No module named 'xlsxwriter'
+srun: error: mcn09: task 0: Exited with exit code 1

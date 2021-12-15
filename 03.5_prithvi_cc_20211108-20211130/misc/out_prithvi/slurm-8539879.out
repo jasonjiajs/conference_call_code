@@ -1,0 +1,19 @@
+==========================================
+SLURM_JOB_ID = 8539879
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn09
+==========================================
+Job ID: 8539879
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "fuzzyMatchCC.py", line 53, in <module>
+    main()
+  File "fuzzyMatchCC.py", line 41, in main
+    entity_df["Name"], entity_df["Ticker"], entity_df["Other Information"] = names, tickers, miscs
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/core.py", line 3735, in __setitem__
+    df = self.assign(**{key: value})
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/core.py", line 3995, in assign
+    "{0}".format(typename(type(v)))
+TypeError: Column assignment doesn't support type list
+srun: error: mcn09: task 0: Exited with exit code 1

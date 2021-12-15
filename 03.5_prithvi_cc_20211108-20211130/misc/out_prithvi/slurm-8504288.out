@@ -1,0 +1,19 @@
+==========================================
+SLURM_JOB_ID = 8504288
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn53
+==========================================
+Job ID: 8504288
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "CriCount/updated_CC_identify_keywords.py", line 106, in <module>
+    main()
+  File "CriCount/updated_CC_identify_keywords.py", line 89, in main
+    temp = alt_keywords_from_one_call(row, keywords, already_done_df, clean = False, lower = True)
+  File "CriCount/updated_CC_identify_keywords.py", line 31, in alt_keywords_from_one_call
+    if check_n_prev_and_next(para, para_2, keyword, 5):
+  File "CriCount/updated_CC_identify_keywords.py", line 62, in check_n_prev_and_next
+    start = p1.index(k)
+ValueError: substring not found
+srun: error: mcn53: task 0: Exited with exit code 1

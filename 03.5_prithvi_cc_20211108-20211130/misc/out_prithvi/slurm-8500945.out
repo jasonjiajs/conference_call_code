@@ -1,0 +1,24 @@
+==========================================
+SLURM_JOB_ID = 8500945
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn32
+==========================================
+Job ID: 8500945
+Job User: pspahwa
+Num Cores: 16
+group1/20020726-20020729_2.csv
+Traceback (most recent call last):
+  File "concatenateOutputs.py", line 35, in <module>
+    main()
+  File "concatenateOutputs.py", line 29, in main
+    df = pd.read_parquet(file_fp)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parquet.py", line 317, in read_parquet
+    return impl.read(path, columns=columns, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parquet.py", line 210, in read
+    parquet_file = self.api.ParquetFile(path)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/api.py", line 131, in __init__
+    self._parse_header(f, verify)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/api.py", line 179, in _parse_header
+    f.seek(-(head_size + 8), 2)
+OSError: [Errno 22] Invalid argument
+srun: error: mcn32: task 0: Exited with exit code 1

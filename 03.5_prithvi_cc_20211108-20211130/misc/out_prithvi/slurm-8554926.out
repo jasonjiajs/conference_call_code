@@ -1,0 +1,17 @@
+==========================================
+SLURM_JOB_ID = 8554926
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn34
+==========================================
+Job ID: 8554926
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "nameMatching.py", line 145, in <module>
+    main()
+  File "nameMatching.py", line 101, in main
+    hassan_cleaned_names = [i[0] for i in results]
+  File "nameMatching.py", line 101, in <listcomp>
+    hassan_cleaned_names = [i[0] for i in results]
+TypeError: 'int' object is not subscriptable
+srun: error: mcn34: task 0: Exited with exit code 1

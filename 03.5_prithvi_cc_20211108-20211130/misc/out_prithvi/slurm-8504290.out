@@ -1,0 +1,11 @@
+==========================================
+SLURM_JOB_ID = 8504290
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn07
+==========================================
+Job ID: 8504290
+Job User: pspahwa
+Num Cores: 16
+slurmstepd: error: *** JOB 8504290 ON mcn07 CANCELLED AT 2021-11-10T17:04:02 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 8504290.0 ON mcn07 CANCELLED AT 2021-11-10T17:04:02 DUE TO TIME LIMIT ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

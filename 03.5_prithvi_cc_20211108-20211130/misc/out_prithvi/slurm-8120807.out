@@ -1,0 +1,11 @@
+==========================================
+SLURM_JOB_ID = 8120807
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn26
+==========================================
+Job ID: 8120807
+Job User: pspahwa
+Num Cores: 16
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 8120807 ON mcn26 CANCELLED AT 2021-10-20T16:23:16 ***
+slurmstepd: error: *** STEP 8120807.0 ON mcn26 CANCELLED AT 2021-10-20T16:23:16 ***

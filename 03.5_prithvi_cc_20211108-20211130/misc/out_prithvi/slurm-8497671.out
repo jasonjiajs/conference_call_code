@@ -1,0 +1,15 @@
+==========================================
+SLURM_JOB_ID = 8497671
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn26
+==========================================
+Job ID: 8497671
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "CriCount/CC_identify_keywords.py", line 67, in <module>
+    main()
+  File "CriCount/CC_identify_keywords.py", line 62, in main
+    output_fp = "{]/{}".format(outdir, file)
+ValueError: unexpected '{' in field name
+srun: error: mcn26: task 0: Exited with exit code 1

@@ -1,0 +1,13 @@
+==========================================
+SLURM_JOB_ID = 8543596
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn09
+==========================================
+Job ID: 8543596
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "newmakebold.py", line 62, in <module>
+    os.mkdir(cur_file_name)
+FileNotFoundError: [Errno 2] No such file or directory: '2nd_entry_files/1.xlsx'
+srun: error: mcn09: task 0: Exited with exit code 1
