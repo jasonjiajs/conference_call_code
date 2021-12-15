@@ -1,0 +1,11 @@
+==========================================
+SLURM_JOB_ID = 8555246
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn58
+==========================================
+Job ID: 8555246
+Job User: pspahwa
+Num Cores: 16
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 8555246 ON mcn58 CANCELLED AT 2021-11-15T13:01:52 ***
+slurmstepd: error: *** STEP 8555246.0 ON mcn58 CANCELLED AT 2021-11-15T13:01:52 ***

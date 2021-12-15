@@ -1,0 +1,15 @@
+==========================================
+SLURM_JOB_ID = 8118285
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn01
+==========================================
+Job ID: 8118285
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "DirectSearch/updatedDS/possibleNamesDS.py", line 37, in <module>
+    main(sys.argv[1], sys.argv[2])
+  File "DirectSearch/updatedDS/possibleNamesDS.py", line 30, in main
+    all_company_lists = df["Possible Names"]
+NameError: name 'df' is not defined
+srun: error: mcn01: task 0: Exited with exit code 1

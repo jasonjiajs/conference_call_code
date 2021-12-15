@@ -1,0 +1,107 @@
+==========================================
+SLURM_JOB_ID = 8118780
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn01
+==========================================
+Job ID: 8118780
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "DirectSearch/updatedDS/possibleNamesDS.py", line 37, in <module>
+    main(sys.argv[1], sys.argv[2])
+  File "DirectSearch/updatedDS/possibleNamesDS.py", line 32, in main
+    news_df = news_df.compute(scheduler = "processes")
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/base.py", line 283, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/base.py", line 565, in compute
+    results = schedule(dsk, keys, **kwargs)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/multiprocessing.py", line 230, in get
+    **kwargs
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/local.py", line 487, in get_async
+    raise_exception(exc, tb)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/multiprocessing.py", line 120, in reraise
+    raise exc
+dask.multiprocessing.ValueError: Mismatched dtypes found in `pd.read_csv`/`pd.read_table`.
+
++------------+--------+----------+
+| Column     | Found  | Expected |
++------------+--------+----------+
+| Check      | object | float64  |
+| OtherName4 | object | float64  |
++------------+--------+----------+
+
+The following columns also raised exceptions on conversion:
+
+- Check
+  ValueError("could not convert string to float: '1;2'",)
+- OtherName4
+  ValueError("could not convert string to float: 'WalMart'",)
+
+Usually this is due to dask's dtype inference failing, and
+*may* be fixed by specifying dtypes manually by adding:
+
+dtype={'Check': 'object',
+       'OtherName4': 'object'}
+
+to the call to `read_csv`/`read_table`.
+
+Traceback
+---------
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/local.py", line 222, in execute_task
+    result = _execute_task(task, data)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/core.py", line 121, in _execute_task
+    return func(*(_execute_task(a, cache) for a in args))
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/optimization.py", line 963, in __call__
+    return core.get(self.dsk, self.outkey, dict(zip(self.inkeys, args)))
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/core.py", line 151, in get
+    result = _execute_task(task, cache)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/core.py", line 121, in _execute_task
+    return func(*(_execute_task(a, cache) for a in args))
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/core.py", line 121, in <genexpr>
+    return func(*(_execute_task(a, cache) for a in args))
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/core.py", line 121, in _execute_task
+    return func(*(_execute_task(a, cache) for a in args))
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/utils.py", line 35, in apply
+    return func(*args, **kwargs)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/core.py", line 5487, in apply_and_enforce
+    df = func(*args, **kwargs)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/utils.py", line 901, in __call__
+    return getattr(obj, self.method)(*args, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/frame.py", line 7552, in apply
+    return op.get_result()
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/apply.py", line 185, in get_result
+    return self.apply_standard()
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/apply.py", line 276, in apply_standard
+    results, res_index = self.apply_series_generator()
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/apply.py", line 305, in apply_series_generator
+    results[i] = self.f(v)
+  File "DirectSearch/updatedDS/possibleNamesDS.py", line 31, in <lambda>
+    news_df["Firms Mentioned"] = news_df.apply(lambda x: find_firms_associated_with_news(x, all_company_lists), meta = "str", axis = 1)
+  File "DirectSearch/updatedDS/possibleNamesDS.py", line 17, in find_firms_associated_with_news
+    for company_list in all_company_lists:
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/core.py", line 3060, in __iter__
+    s = self.get_partition(i).compute()
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/base.py", line 283, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/base.py", line 565, in compute
+    results = schedule(dsk, keys, **kwargs)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/threaded.py", line 84, in get
+    **kwargs
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/local.py", line 487, in get_async
+    raise_exception(exc, tb)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/local.py", line 317, in reraise
+    raise exc
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/local.py", line 222, in execute_task
+    result = _execute_task(task, data)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/core.py", line 121, in _execute_task
+    return func(*(_execute_task(a, cache) for a in args))
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/core.py", line 121, in <genexpr>
+    return func(*(_execute_task(a, cache) for a in args))
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/core.py", line 121, in _execute_task
+    return func(*(_execute_task(a, cache) for a in args))
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/io/csv.py", line 156, in pandas_read_text
+    coerce_dtypes(df, dtypes)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/io/csv.py", line 260, in coerce_dtypes
+    raise ValueError(msg)
+
+srun: error: mcn01: task 0: Exited with exit code 1

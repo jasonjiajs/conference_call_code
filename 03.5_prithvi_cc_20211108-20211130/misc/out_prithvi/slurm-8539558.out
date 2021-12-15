@@ -1,0 +1,27 @@
+==========================================
+SLURM_JOB_ID = 8539558
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn32
+==========================================
+Job ID: 8539558
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "optimizedGetNewEntries (1).py", line 56, in <module>
+    main()
+  File "optimizedGetNewEntries (1).py", line 34, in main
+    our_df = pd.read_parquet("Full_Master_Keywords.csv").reset_index(drop = True)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parquet.py", line 317, in read_parquet
+    return impl.read(path, columns=columns, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parquet.py", line 210, in read
+    parquet_file = self.api.ParquetFile(path)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/api.py", line 131, in __init__
+    self._parse_header(f, verify)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/api.py", line 190, in _parse_header
+    self._set_attrs()
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/api.py", line 200, in _set_attrs
+    self.schema = schema.SchemaHelper(self._schema)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/schema.py", line 82, in __init__
+    self.root = schema_elements[0]
+TypeError: 'NoneType' object is not subscriptable
+srun: error: mcn32: task 0: Exited with exit code 1

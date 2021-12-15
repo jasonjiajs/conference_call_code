@@ -1,0 +1,8 @@
+==========================================
+SLURM_JOB_ID = 8135042
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn05
+==========================================
+Job ID: 8135042
+Job User: pspahwa
+Num Cores: 16

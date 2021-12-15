@@ -1,0 +1,15 @@
+==========================================
+SLURM_JOB_ID = 8553177
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn09
+==========================================
+Job ID: 8553177
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "nameMatching.py", line 101, in <module>
+    main()
+  File "nameMatching.py", line 86, in main
+    keyword_df = dd.from_pandas(keyword_df, npartition = 100)
+TypeError: from_pandas() got an unexpected keyword argument 'npartition'
+srun: error: mcn09: task 0: Exited with exit code 1

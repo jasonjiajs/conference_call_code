@@ -1,0 +1,23 @@
+==========================================
+SLURM_JOB_ID = 8539184
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn02
+==========================================
+Job ID: 8539184
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "optimizedGetNewEntries (1).py", line 56, in <module>
+    main()
+  File "optimizedGetNewEntries (1).py", line 34, in main
+    our_df = pd.read_parquet("Full_Master_Keywords.parquet.gzip").reset_index(drop = True)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parquet.py", line 317, in read_parquet
+    return impl.read(path, columns=columns, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parquet.py", line 210, in read
+    parquet_file = self.api.ParquetFile(path)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/api.py", line 131, in __init__
+    self._parse_header(f, verify)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/fastparquet/api.py", line 180, in _parse_header
+    data = f.read(head_size)
+ValueError: read length must be positive or -1
+srun: error: mcn02: task 0: Exited with exit code 1

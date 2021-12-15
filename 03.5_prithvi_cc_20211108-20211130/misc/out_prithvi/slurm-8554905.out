@@ -1,0 +1,18 @@
+==========================================
+SLURM_JOB_ID = 8554905
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn34
+==========================================
+Job ID: 8554905
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "nameMatching.py", line 145, in <module>
+    main()
+  File "nameMatching.py", line 99, in main
+    results = keyword_df_clean.apply(lambda x: process.extractOne(x, hassan_choices, scorer = fuzz.ratio), meta = "str").to_frame()
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/core.py", line 4497, in apply
+    raise NotImplementedError(msg)
+NotImplementedError: dd.DataFrame.apply only supports axis=1
+  Try: df.apply(func, axis=1)
+srun: error: mcn34: task 0: Exited with exit code 1

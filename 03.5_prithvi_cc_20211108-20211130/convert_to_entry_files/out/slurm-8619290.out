@@ -1,0 +1,14 @@
+Job ID: 8619290
+Job User: jasonjia
+Num Cores: 16
+
+Python file to run: convertCric1newtotal_to_entryfilescombined.py
+
+convertCric1newtotal_to_entryfilescombined.py: done!
+
+    MaxRSS    Elapsed     ReqMem  Timelimit 
+---------- ---------- ---------- ---------- 
+             00:00:04       16Gc 1-20:00:00 
+             00:00:04       16Gc            
+             00:00:04       16Gc            
+         0   00:00:04       16Gc            

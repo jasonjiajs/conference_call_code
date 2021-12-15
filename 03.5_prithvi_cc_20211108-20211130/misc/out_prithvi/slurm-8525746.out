@@ -1,0 +1,10 @@
+==========================================
+SLURM_JOB_ID = 8525746
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn02
+==========================================
+Job ID: 8525746
+Job User: pspahwa
+Num Cores: 16
+/apps/python/3.6/3.6.12/bin/python3: can't open file 'optimizedGetNewEntries.py (1)': [Errno 2] No such file or directory
+srun: error: mcn02: task 0: Exited with exit code 2

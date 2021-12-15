@@ -1,0 +1,8 @@
+==========================================
+SLURM_JOB_ID = 8497658
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn24
+==========================================
+Job ID: 8497658
+Job User: pspahwa
+Num Cores: 16

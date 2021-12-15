@@ -1,0 +1,28 @@
+==========================================
+SLURM_JOB_ID = 8543605
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn09
+==========================================
+Job ID: 8543605
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 324, in close
+    self._store_workbook()
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 659, in _store_workbook
+    raise e
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 657, in _store_workbook
+    allowZip64=self.allow_zip64)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/zipfile.py", line 1113, in __init__
+    self.fp = io.open(file, filemode)
+IsADirectoryError: [Errno 21] Is a directory: '2nd_entry_files/1.xlsx'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "newmakebold.py", line 58, in <module>
+    final_data.close()
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/xlsxwriter/workbook.py", line 326, in close
+    raise FileCreateError(e)
+xlsxwriter.exceptions.FileCreateError: [Errno 21] Is a directory: '2nd_entry_files/1.xlsx'
+srun: error: mcn09: task 0: Exited with exit code 1

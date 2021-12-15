@@ -1,0 +1,23 @@
+==========================================
+SLURM_JOB_ID = 8541268
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn09
+==========================================
+Job ID: 8541268
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "fuzzyMatchCC.py", line 53, in <module>
+    main()
+  File "fuzzyMatchCC.py", line 42, in main
+    entity_df["Cleansed_Name"] = entity_df.apply(lambda x: tickerBrackets(x["Name"], x["Ticker"]), axis = 1, meta = pd.Series)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/core.py", line 4505, in apply
+    return map_partitions(M.apply, self, func, args=args, meta=meta, **kwds)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/core.py", line 5387, in map_partitions
+    meta = make_meta(meta, index=meta_index)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/utils.py", line 513, in __call__
+    return meth(arg, *args, **kwargs)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/utils.py", line 371, in make_meta_object
+    raise TypeError("Don't know how to create metadata from {0}".format(x))
+TypeError: Don't know how to create metadata from <class 'pandas.core.series.Series'>
+srun: error: mcn09: task 0: Exited with exit code 1

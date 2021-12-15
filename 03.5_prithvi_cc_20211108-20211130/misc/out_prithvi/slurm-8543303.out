@@ -1,0 +1,8 @@
+==========================================
+SLURM_JOB_ID = 8543303
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn34
+==========================================
+Job ID: 8543303
+Job User: pspahwa
+Num Cores: 16

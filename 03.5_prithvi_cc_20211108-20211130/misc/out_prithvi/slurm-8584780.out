@@ -1,0 +1,17 @@
+==========================================
+SLURM_JOB_ID = 8584780
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn53
+==========================================
+Job ID: 8584780
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "updatedDirectSearch.py", line 37, in <module>
+    main()
+  File "updatedDirectSearch.py", line 34, in main
+    final_df.to_excel("2018_Updated_UDS.xlsx", index = False)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/core.py", line 3763, in __getattr__
+    raise AttributeError("'DataFrame' object has no attribute %r" % key)
+AttributeError: 'DataFrame' object has no attribute 'to_excel'
+srun: error: mcn53: task 0: Exited with exit code 1

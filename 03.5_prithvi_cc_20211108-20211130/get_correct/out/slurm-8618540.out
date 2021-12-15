@@ -1,0 +1,9 @@
+Job ID: 8618540
+Job User: jasonjia
+Num Cores: 1
+getCorrect.py:42: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  final_df["List_Keywords"] = final_df["Para"].apply(lambda x: list(set((para_dict[x])[0])))

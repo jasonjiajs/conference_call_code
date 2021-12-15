@@ -1,0 +1,19 @@
+==========================================
+SLURM_JOB_ID = 8541248
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn09
+==========================================
+Job ID: 8541248
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "fuzzyMatchCC.py", line 53, in <module>
+    main()
+  File "fuzzyMatchCC.py", line 42, in main
+    entity_df["Cleansed_Name"] = entity_df.apply(lambda x: tickerBrackets(x["Name"], x["Ticker"]), axis = 1, meta = entity_df)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/core.py", line 3735, in __setitem__
+    df = self.assign(**{key: value})
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/core.py", line 3995, in assign
+    "{0}".format(typename(type(v)))
+TypeError: Column assignment doesn't support type dask.dataframe.core.DataFrame
+srun: error: mcn09: task 0: Exited with exit code 1

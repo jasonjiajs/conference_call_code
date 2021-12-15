@@ -1,0 +1,32 @@
+==========================================
+SLURM_JOB_ID = 8539820
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn34
+==========================================
+Job ID: 8539820
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "fuzzyMatchCC.py", line 52, in <module>
+    main()
+  File "fuzzyMatchCC.py", line 29, in main
+    entity_df = dd.read_csv("Full_New_Not_Done.csv", blocksize=None)
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/io/csv.py", line 664, in read
+    **kwargs,
+  File "/home/pspahwa/.local/lib/python3.6/site-packages/dask/dataframe/io/csv.py", line 532, in read_pandas
+    head = reader(BytesIO(b_sample), **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 460, in _read
+    data = parser.read(nrows)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1198, in read
+    ret = self._engine.read(nrows)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2157, in read
+    data = self._reader.read(nrows)
+  File "pandas/_libs/parsers.pyx", line 847, in pandas._libs.parsers.TextReader.read
+  File "pandas/_libs/parsers.pyx", line 862, in pandas._libs.parsers.TextReader._read_low_memory
+  File "pandas/_libs/parsers.pyx", line 918, in pandas._libs.parsers.TextReader._read_rows
+  File "pandas/_libs/parsers.pyx", line 905, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "pandas/_libs/parsers.pyx", line 2042, in pandas._libs.parsers.raise_parser_error
+pandas.errors.ParserError: Error tokenizing data. C error: EOF inside string starting at row 6
+srun: error: mcn34: task 0: Exited with exit code 1

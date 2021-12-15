@@ -1,0 +1,15 @@
+==========================================
+SLURM_JOB_ID = 8554931
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn34
+==========================================
+Job ID: 8554931
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "nameMatching.py", line 145, in <module>
+    main()
+  File "nameMatching.py", line 106, in main
+    gvkey, name = get_gvkey_and_name(hassan_clean_df, c_name, True)
+NameError: name 'hassan_clean_df' is not defined
+srun: error: mcn34: task 0: Exited with exit code 1

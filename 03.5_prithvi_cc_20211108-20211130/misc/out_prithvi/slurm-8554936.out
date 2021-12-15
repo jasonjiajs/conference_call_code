@@ -1,0 +1,23 @@
+==========================================
+SLURM_JOB_ID = 8554936
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/CriCount
+SLURM_JOB_NODELIST = mcn34
+==========================================
+Job ID: 8554936
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "nameMatching.py", line 145, in <module>
+    main()
+  File "nameMatching.py", line 132, in main
+    keyword_df_clean["Hassan_Closest_Match_Fullname"] = hassan_names
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/frame.py", line 3044, in __setitem__
+    self._set_item(key, value)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/frame.py", line 3120, in _set_item
+    value = self._sanitize_column(key, value)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/frame.py", line 3768, in _sanitize_column
+    value = sanitize_index(value, self.index)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/internals/construction.py", line 748, in sanitize_index
+    "Length of values "
+ValueError: Length of values (61636) does not match length of index (30818)
+srun: error: mcn34: task 0: Exited with exit code 1

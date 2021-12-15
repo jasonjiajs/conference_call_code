@@ -1,0 +1,21 @@
+==========================================
+SLURM_JOB_ID = 8497670
+SLURM_SUBMIT_DIR = /project/kh_mercury_1
+SLURM_JOB_NODELIST = mcn27
+==========================================
+Job ID: 8497670
+Job User: pspahwa
+Num Cores: 16
+Traceback (most recent call last):
+  File "CriCount/CC_identify_keywords.py", line 66, in <module>
+    main()
+  File "CriCount/CC_identify_keywords.py", line 62, in main
+    unclean_data.to_csv(output_fp)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/core/generic.py", line 3170, in to_csv
+    formatter.save()
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/formats/csvs.py", line 190, in save
+    compression=dict(self.compression_args, method=self.compression),
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/common.py", line 493, in get_handle
+    f = open(path_or_buf, mode, encoding=encoding, errors=errors, newline="")
+FileNotFoundError: [Errno 2] No such file or directory: 'CriCount/Identified_Keywords/CriCount/group2/20021022-20021025_22.csv'
+srun: error: mcn27: task 0: Exited with exit code 1
