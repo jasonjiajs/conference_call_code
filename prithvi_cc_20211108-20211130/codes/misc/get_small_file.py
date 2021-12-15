@@ -13,7 +13,7 @@ def main():
     t2.to_csv("New_Small_CC_HassanMerge.csv")
     
     t3 = pd.read_csv("Full_New_Not_Done.csv")
-    3 = t3[t3["Keyword"] != "interest rate"]
+    t3 = t3[t3["Keyword"] != "interest rate"]
     t3.to_csv("No_IR.csv")
     t3.iloc[:1000].to_csv("Small_No_IR.csv")
 

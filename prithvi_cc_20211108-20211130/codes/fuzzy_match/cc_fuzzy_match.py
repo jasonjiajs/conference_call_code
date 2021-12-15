@@ -13,23 +13,20 @@ df = df.rename({"Keyword": "Keywords", "Para": "Paragraph"}, axis = 1)
 columns = ["Keywords", "Paragraph", "Date", "Title", "Subtitle", "Report"]
 edf = pd.read_excel("entryfiles_combined_v5_withparagraphs.xlsx")
 
-
-'''
-compustat_df = pd.read_csv("/project/kh_mercury_1/conference_call/output/03_firm_identification/03.3_compustat_processed_2/iqcompany_mergedwithgvkeyandcountry.csv")
+compustat_df = pd.read_csv("/project/kh_mercury_1/conference_call/output/03_firm_identification/03.3_compustat_processed_2/ciqcompany_mergedwithgvkeyandcountry.csv")
 compustat_df = compustat_df[compustat_df["gvkey"].notnull()]
 compustat_df
 
 new_df = df[columns].rename({"final_gvkey": "gvkey", "final_country": "country"}, axis = 1)
 new_df
-'''
 
-'''
+
 df = pd.read_csv("Filtered_Ordered_Amended_Correct_No_IR.csv")
 df = df.rename({"Keyword": "Keywords", "Para": "Paragraph"}, axis = 1)
 columns = ["Keywords", "Paragraph", "Date", "Title", "Subtitle", "Report"]
-edf = pd.read_excel("entryfiles_combined_v5_withparagraphs_andgvkey.xlsx")
-edf
-'''
+#edf = pd.read_excel("entryfiles_combined_v5_withparagraphs_andgvkey.xlsx")
+#edf
+
 '''
 edf_merge = edf.merge(compustat_df.drop_duplicates("gvkey"), on = "gvkey", how = "left")
 edf_merge = edf_merge[["Keywords", "Paragraph", "Date", "Title", "Subtitle", "Report", "gvkey", "companyname", "country"]]

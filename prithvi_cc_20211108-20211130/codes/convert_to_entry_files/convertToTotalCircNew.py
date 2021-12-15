@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import pandas as pd
 from pathlib import Path
-path = Path(r"Filtered_Ordered_Amended_Correct_No_IR.csv")
+path = Path(r"/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/Filtered_Ordered_Amended_Correct_No_IR.csv")
 df = pd.read_csv(path)
 df = df[["Keyword", "Date", "Report", "File", "Title", "Para", "Subtitle"]]
 df = df.rename(columns = {'Keyword':'Keywords','Para':'Paragraph'})
