@@ -31,6 +31,7 @@
 echo "Job ID: $SLURM_JOB_ID"
 echo "Job User: $SLURM_JOB_USER"
 echo "Num Cores: $SLURM_JOB_CPUS_PER_NODE"
+printf "\n"
 
 #---------------------------------------------------------------------------------
 # Load necessary modules for the job
@@ -40,6 +41,11 @@ module load python/booth/3.6/3.6.12
 #---------------------------------------------------------------------------------
 # Commands to execute below...
 
-srun python3 "convertTotalCircNew_to_Cric1newtotal.py" "$SLURM_ARRAY_TASK_ID" 
+srun python3 convertTotalCircNew_to_Cric1newtotal.py "$SLURM_ARRAY_TASK_ID" 
+
+#--------------------------
+# print information about completed job
 
 echo convertTotalCircNew_to_Cric1newtotal.py: done!
+printf "\n"
+sacct -j $SLURM_JOB_ID --format=MaxRSS,elapsed,reqmem,timelimit
