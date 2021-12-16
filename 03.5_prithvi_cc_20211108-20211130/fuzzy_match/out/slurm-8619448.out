@@ -1,0 +1,2252 @@
+Job ID: 8619448
+Job User: jasonjia
+Num Cores: 16
+
+Python file to run: cc_fuzzy_match.py
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 104, in <module>
+    df = pd.read_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/full_conf_calls_compustat_match.xlsx", engine = "openpyxl").drop("Unnamed: 0", axis = 1)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_openpyxl.py", line 480, in __init__
+    super().__init__(filepath_or_buffer)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 353, in __init__
+    self.book = self.load_workbook(filepath_or_buffer)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_openpyxl.py", line 492, in load_workbook
+    filepath_or_buffer, read_only=True, data_only=True, keep_links=False
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/openpyxl/reader/excel.py", line 317, in load_workbook
+    reader.read()
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/openpyxl/reader/excel.py", line 278, in read
+    self.read_workbook()
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/openpyxl/reader/excel.py", line 150, in read_workbook
+    self.parser.parse()
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/openpyxl/reader/workbook.py", line 47, in parse
+    src = self.archive.read(self.workbook_part_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/zipfile.py", line 1337, in read
+    with self.open(name, "r", pwd) as fp:
+  File "/apps/python/3.6/3.6.12/lib/python3.6/zipfile.py", line 1393, in open
+    raise BadZipFile("Truncated file header")
+zipfile.BadZipFile: Truncated file header
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 104, in <module>
+    df = pd.read_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/full_conf_calls_compustat_match.xlsx", engine = "openpyxl").drop("Unnamed: 0", axis = 1)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_openpyxl.py", line 480, in __init__
+    super().__init__(filepath_or_buffer)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 353, in __init__
+    self.book = self.load_workbook(filepath_or_buffer)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_openpyxl.py", line 492, in load_workbook
+    filepath_or_buffer, read_only=True, data_only=True, keep_links=False
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/openpyxl/reader/excel.py", line 316, in load_workbook
+    data_only, keep_links)
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/openpyxl/reader/excel.py", line 124, in __init__
+    self.archive = _validate_archive(fn)
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/openpyxl/reader/excel.py", line 96, in _validate_archive
+    archive = ZipFile(filename, 'r')
+  File "/apps/python/3.6/3.6.12/lib/python3.6/zipfile.py", line 1131, in __init__
+    self._RealGetContents()
+  File "/apps/python/3.6/3.6.12/lib/python3.6/zipfile.py", line 1198, in _RealGetContents
+    raise BadZipFile("File is not a zip file")
+zipfile.BadZipFile: File is not a zip file
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 104, in <module>
+    df = pd.read_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/full_conf_calls_compustat_match.xlsx", engine = "openpyxl").drop("Unnamed: 0", axis = 1)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_openpyxl.py", line 480, in __init__
+    super().__init__(filepath_or_buffer)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 353, in __init__
+    self.book = self.load_workbook(filepath_or_buffer)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_openpyxl.py", line 492, in load_workbook
+    filepath_or_buffer, read_only=True, data_only=True, keep_links=False
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/openpyxl/reader/excel.py", line 316, in load_workbook
+    data_only, keep_links)
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/openpyxl/reader/excel.py", line 124, in __init__
+    self.archive = _validate_archive(fn)
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/openpyxl/reader/excel.py", line 96, in _validate_archive
+    archive = ZipFile(filename, 'r')
+  File "/apps/python/3.6/3.6.12/lib/python3.6/zipfile.py", line 1131, in __init__
+    self._RealGetContents()
+  File "/apps/python/3.6/3.6.12/lib/python3.6/zipfile.py", line 1198, in _RealGetContents
+    raise BadZipFile("File is not a zip file")
+zipfile.BadZipFile: File is not a zip file
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 104, in <module>
+    df = pd.read_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/full_conf_calls_compustat_match.xlsx", engine = "openpyxl").drop("Unnamed: 0", axis = 1)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_openpyxl.py", line 480, in __init__
+    super().__init__(filepath_or_buffer)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 353, in __init__
+    self.book = self.load_workbook(filepath_or_buffer)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_openpyxl.py", line 492, in load_workbook
+    filepath_or_buffer, read_only=True, data_only=True, keep_links=False
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/openpyxl/reader/excel.py", line 316, in load_workbook
+    data_only, keep_links)
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/openpyxl/reader/excel.py", line 124, in __init__
+    self.archive = _validate_archive(fn)
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/openpyxl/reader/excel.py", line 96, in _validate_archive
+    archive = ZipFile(filename, 'r')
+  File "/apps/python/3.6/3.6.12/lib/python3.6/zipfile.py", line 1131, in __init__
+    self._RealGetContents()
+  File "/apps/python/3.6/3.6.12/lib/python3.6/zipfile.py", line 1198, in _RealGetContents
+    raise BadZipFile("File is not a zip file")
+zipfile.BadZipFile: File is not a zip file
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 105, in spawn_main
+    exitcode = _main(fd)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 114, in _main
+    prepare(preparation_data)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 225, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/python/3.6/3.6.12/lib/python3.6/multiprocessing/spawn.py", line 277, in _fixup_main_from_path
+    run_name="__mp_main__")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 263, in run_path
+    pkg_name=pkg_name, script_name=fname)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 96, in _run_module_code
+    mod_name, mod_spec, pkg_name, script_name)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/project/kh_mercury_1/conference_call/code/03.5_prithvi_cc_20211108-20211130/fuzzy_match/cc_fuzzy_match.py", line 151, in <module>
+    geo_df = pd.read_csv("ciqcountrygeo.csv")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 688, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 454, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 948, in __init__
+    self._make_engine(self.engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 1180, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/parsers.py", line 2010, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 674, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] No such file or directory: 'ciqcountrygeo.csv'
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 8619448 ON mcn34 CANCELLED AT 2021-12-15T20:57:15 ***
+slurmstepd: error: *** STEP 8619448.0 ON mcn34 CANCELLED AT 2021-12-15T20:57:15 ***

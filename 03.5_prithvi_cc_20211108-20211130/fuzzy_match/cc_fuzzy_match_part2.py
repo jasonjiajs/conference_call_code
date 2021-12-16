@@ -15,20 +15,14 @@ new_df = df.rename({"Keyword": "Keywords", "Para": "Paragraph"}, axis = 1)
 columns = ["Keywords", "Paragraph", "Date", "Title", "Subtitle", "Report"]
 new_df = new_df[columns].rename({"final_gvkey": "gvkey", "final_country": "country"}, axis = 1)
 
-
-compustat_df = pd.read_csv("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/project/kh_mercury_1/conference_call/output/03_firm_identification/03.3_compustat_processed_2/ciqcompany_mergedwithgvkeyandcountry.csv")
+compustat_df = pd.read_csv("/project/kh_mercury_1/conference_call/output/03_firm_identification/03.3_compustat_processed_2/ciqcompany_mergedwithgvkeyandcountry.csv")
 compustat_df = compustat_df[compustat_df["gvkey"].notnull()]
 
-edf = pd.read_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/entryfilescombined_test.xlsx")
+edf = pd.read_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/entryfilescombined_test.xlsx", engine = "openpyxl")
 edf_merge = edf.merge(compustat_df.drop_duplicates("gvkey"), on = "gvkey", how = "left")
 edf_merge = edf_merge[["Keywords", "Paragraph", "Date", "Title", "Subtitle", "Report", "gvkey", "companyname", "country"]]
 
-edf_merge.to_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/old_conf_call_compustat_match.xlsx")
-
 combined = pd.concat([edf_merge, new_df])
-
-combined.to_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/full_conf_calls_compustat_match.xlsx")
-
 
 old_words = ["earnings conference call","conference call on productivity", "earnings release conference", "financial release conference",
         "conference call regarding", "earnings conference", "comprehensive review", "final transcript", "edited transcript",
@@ -91,10 +85,10 @@ def get_names(df, compustat_df, new_words):
 
 #full_df = pd.read_excel("updated_full_conf_calls_match.xlsx")
 #full_df
+
 df[df["Title"] == "nan"]
 
-entry_df = pd.read_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/entryfilescombined_test.xlsx")
-entry_df
+entry_df = pd.read_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/entryfilescombined_test.xlsx", engine = "openpyxl")
 
 def getTitles(row):
     if row["Title_x"] == "nan":#pd.isna(row["Title_x"]):
@@ -103,16 +97,15 @@ def getTitles(row):
         return row["Title_x"]
 
 df = pd.read_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/full_conf_calls_compustat_match.xlsx", engine = "openpyxl").drop("Unnamed: 0", axis = 1)
+
+
 df["Title"] = df["Title"].astype(str)
 full_df = df.copy()
 full_df = full_df.merge(entry_df, on = ["Keywords", "Report"], how = "left")
 full_df["Title"] = full_df.apply(getTitles, axis = 1)
 full_df[full_df["Title"] == "nan"]
 
-full_df
-
 df, compustat_df = get_names(full_df, compustat_df, new_words)
-df
 
 df[df["Title"] == "nan"]
 
@@ -128,9 +121,13 @@ small = full_df
 small_dask = dd.from_pandas(small, npartitions = 100)
 match_choices = compustat_df["companyname_No_Punctuations"]
 results = small_dask["Cleaned_Name_No_Punctuations"].apply(lambda x: process.extractOne(x, match_choices, scorer = fuzz.ratio), meta = "str")
-results = results.compute(scheduler = "processes")
 
-results
+def compute_results(results):
+    results = results.compute(scheduler = "processes")
+    return results
+
+if __name__ == "__main__":
+    results = compute_results(results)
 
 c_firms, sims = [], []
 our_firms = full_df["Cleaned_Name_No_Punctuations"]
@@ -140,23 +137,25 @@ for our_firm, j in zip(our_firms, results):
     sims.append(sim)
 full_df["New_Cleaned_No_Punctuation_Compustat_Closest_Match"] = c_firms
 full_df["New_Cleaned_No_Punctuation_Compustat_Closest_Match_Similarity"] = sims
-full_df
 
 hassan_df = pd.read_csv("/project/kh_mercury_1/conference_call/output/03_firm_identification/03.3_hassan_processed_2/Hassanfile_raw_updated2019030_viewable.csv")
 hassan_df = hassan_df[hassan_df["gvkey"].notnull()]
 hassan_df = hassan_df[["gvkey", "company_name", "hqcountrycode", "ticker"]]
 hassan_df = hassan_df.drop_duplicates("company_name")
 hassan_df = hassan_df.reset_index(drop = True)
-geo_df = pd.read_csv("ciqcountrygeo.csv")
+geo_df = pd.read_csv("/project/kh_mercury_1/conference_call/output/03_firm_identification/03.3_compustat_processed_2/ciqcountrygeo.csv")
 non_null_geo_df = geo_df[geo_df["isocountry2"].notnull()]
 country_dict = dict(non_null_geo_df.set_index("isocountry2")["country"])
 hassan_df["country_name"] = hassan_df["hqcountrycode"].apply(lambda x: country_dict.get(x, np.nan))
 hassan_df["company_name_No_Punctuations"] = hassan_df["company_name"].str.upper().str.split().apply(lambda x: remove_punc(x, new_words))
-hassan_df
+
 
 match_choices = hassan_df["company_name_No_Punctuations"]
 results = small_dask["Cleaned_Name_No_Punctuations"].apply(lambda x: process.extractOne(x, match_choices, scorer = fuzz.ratio), meta = "str")
-results = results.compute(scheduler = "processes")
+
+if __name__ == "__main__":
+    results = compute_results(results)
+
 c_firms, sims = [], []
 our_firms = full_df["Cleaned_Name_No_Punctuations"]
 for our_firm, j in zip(our_firms, results):
@@ -187,7 +186,7 @@ for i in full_df["New_Cleaned_No_Punctuation_Hassan_Closest_Match"]:
     h_countries.append(country)
 full_df["New_Cleaned_No_Punctuation_Hassan_Closest_Match_gvkey"] = h_gvkeys
 full_df["New_Cleaned_No_Punctuation_Hassan_Closest_Match_country"] = h_countries
-full_df
+
 
 def choose_gvkey(row, threshold = 95):
     s1 = "New_Cleaned_No_Punctuation_Compustat_Closest_Match_Similarity"
@@ -211,7 +210,7 @@ new_gvkeys = [i[0] for i in t]
 new_countries = [i[1] for i in t]
 full_df["final_gvkey"] = new_gvkeys
 full_df["final_country"] = new_countries
-full_df
+
 
 full_df = full_df.rename({"Paragraph_x": "Paragraph", "Date_x": "Date", "Subtitle_x": "Subtitle"}, axis = 1)
 full_df.columns
@@ -227,7 +226,7 @@ for c_firm, h_firm in zip(full_df["New_Cleaned_No_Punctuation_Compustat_Closest_
     
 full_df["New_Cleaned_No_Punctuation_Compustat_Closest_Match_Fullname"] = c_firms_fullnames
 full_df["New_Cleaned_No_Punctuation_Hassan_Closest_Match_Fullname"] = h_firms_fullnames
-full_df
+
 
 cols = ["Keywords", "Paragraph", "Date", "Title", "Subtitle", "Report",
        'Cleaned_Name', 'Cleaned_Name_No_Punctuations', 'New_Cleaned_No_Punctuation_Compustat_Closest_Match',
@@ -249,14 +248,14 @@ for colname in new_full_df.columns:
     else:
         new_names.append(colname)
 new_full_df.columns = new_names
-new_full_df
+
 
 new_matched = new_full_df[new_full_df["final_gvkey"].notnull()]
-new_matched.to_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1updated_matched_conf_calls_match.xlsx", index = False)
+new_matched.to_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/updated_matched_conf_calls_match.xlsx", index = False)
 # new_matched#.to_excel("updated_matched_conf_calls_match.xlsx", index = False)
 
 new_unmatched = new_full_df[new_full_df["final_gvkey"].isnull()]
-new_unmatched.to_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1updated_unmatched_conf_calls_match.xlsx", index = False)
+new_unmatched.to_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/updated_unmatched_conf_calls_match.xlsx", index = False)
 # new_unmatched#.to_excel("updated_unmatched_conf_calls_match.xlsx", index = False)
 
 # Updating after manual work
