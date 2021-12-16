@@ -1,0 +1,29 @@
+Job ID: 8619305
+Job User: jasonjia
+Num Cores: 16
+
+Python file to run: cc_fuzzy_match.py
+
+Traceback (most recent call last):
+  File "cc_fuzzy_match.py", line 22, in <module>
+    edf = pd.read_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/entryfilescombined_test.xlsx")
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 21, in __init__
+    import_optional_dependency("xlrd", extra=err_msg)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/compat/_optional.py", line 110, in import_optional_dependency
+    raise ImportError(msg) from None
+ImportError: Missing optional dependency 'xlrd'. Install xlrd >= 1.0.0 for Excel support Use pip or conda to install xlrd.
+srun: error: mcn09: task 0: Exited with exit code 1
+cc_fuzzy_match.py: done!
+
+    MaxRSS    Elapsed     ReqMem  Timelimit 
+---------- ---------- ---------- ---------- 
+             00:00:41       16Gc 1-20:00:00 
+             00:00:41       16Gc            
+             00:00:41       16Gc            
+  3179516K   00:00:41       16Gc            

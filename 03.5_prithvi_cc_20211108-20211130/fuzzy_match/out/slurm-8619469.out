@@ -1,0 +1,14 @@
+Job ID: 8619469
+Job User: jasonjia
+Num Cores: 16
+
+Python file to run: cc_fuzzy_match_part2.py
+
+cc_fuzzy_match_part2.py: done!
+
+    MaxRSS    Elapsed     ReqMem  Timelimit 
+---------- ---------- ---------- ---------- 
+             00:05:31       16Gc   10:00:00 
+             00:05:31       16Gc            
+             00:05:31       16Gc            
+145568912K   00:05:30       16Gc            

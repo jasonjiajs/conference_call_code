@@ -1,0 +1,19 @@
+Job ID: 8619428
+Job User: jasonjia
+Num Cores: 16
+
+Python file to run: cc_fuzzy_match.py
+
+Traceback (most recent call last):
+  File "cc_fuzzy_match.py", line 8, in <module>
+    import dask.dataframe as dd
+ModuleNotFoundError: No module named 'dask'
+srun: error: mcn09: task 0: Exited with exit code 1
+cc_fuzzy_match.py: done!
+
+    MaxRSS    Elapsed     ReqMem  Timelimit 
+---------- ---------- ---------- ---------- 
+             00:00:03       16Gc   10:00:00 
+             00:00:03       16Gc            
+             00:00:03       16Gc            
+         0   00:00:03       16Gc            

@@ -1,0 +1,33 @@
+Job ID: 8619318
+Job User: jasonjia
+Num Cores: 16
+
+Python file to run: cc_fuzzy_match.py
+
+Traceback (most recent call last):
+  File "cc_fuzzy_match.py", line 105, in <module>
+    df = pd.read_excel("/project/kh_mercury_1/conference_call/output/04_keyword_identification/04.4_groups_keyword_test1/full_conf_calls_compustat_match.xlsx")#.drop("Unnamed: 0", axis = 1)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 304, in read_excel
+    io = ExcelFile(io, engine=engine)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 867, in __init__
+    self._reader = self._engines[engine](self._io)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 22, in __init__
+    super().__init__(filepath_or_buffer)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_base.py", line 353, in __init__
+    self.book = self.load_workbook(filepath_or_buffer)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/excel/_xlrd.py", line 37, in load_workbook
+    return open_workbook(filepath_or_buffer)
+  File "/project/kh_mercury_1/conference_call/code/env/lib/python3.6/site-packages/xlrd/__init__.py", line 170, in open_workbook
+    raise XLRDError(FILE_FORMAT_DESCRIPTIONS[file_format]+'; not supported')
+xlrd.biffh.XLRDError: Excel xlsx file; not supported
+srun: error: mcn53: task 0: Exited with exit code 1
+cc_fuzzy_match.py: done!
+
+    MaxRSS    Elapsed     ReqMem  Timelimit 
+---------- ---------- ---------- ---------- 
+             00:00:36        4Gc   10:00:00 
+             00:00:36        4Gc            
+             00:00:36        4Gc            
+     4516M   00:00:35        4Gc            
