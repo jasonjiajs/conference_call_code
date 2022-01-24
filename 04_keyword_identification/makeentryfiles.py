@@ -8,11 +8,12 @@ import re
 import os
 
 #%% This wasn't in the original code...
-os.chdir(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification")
+os.chdir(r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_keyword_identification\test")
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification
 
 #%%%
-raw_data = openpyxl.load_workbook(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\cric1_newtotal\cric1_newtotal_prithvi.xlsx")
+raw_data = openpyxl.load_workbook(r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_keyword_identification\test\cric1_newtotal_truncated.xlsx")
+#(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\cric1_newtotal\cric1_newtotal_prithvi.xlsx")
 #r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\cric1_newtotal\Sixun\cric1_newtotal_sixun_new.xlsx
 raw_data = raw_data[raw_data.sheetnames[0]] # choose first sheet of the workbook 
 # (there's only one sheet but we want a sheet object)
@@ -23,18 +24,18 @@ raw_data = raw_data[raw_data.sheetnames[0]] # choose first sheet of the workbook
 #%%
 row = 0 
 col = 0
-with open(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\keyterms\keyterms.txt", "r", encoding="utf-8", errors="ignore") as f1:
+with open(r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_keyword_identification\04.2_reference_files\keyterms.txt", "r", encoding="utf-8", errors="ignore") as f1:
     key_set = set(f1.read().splitlines())
 keyw_list = list(key_set) 
 keyw_list = [t.lower() for t in keyw_list]
 
 
 #%%% title
-title_file = openpyxl.load_workbook(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entrymask\Entry mask.xlsx")
+title_file = openpyxl.load_workbook(r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_keyword_identification\04.2_reference_files\Entry mask.xlsx")
 title_file = title_file[title_file.sheetnames[0]]
 
 #%%% overview
-overview_file = xlsxwriter.Workbook(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\Paragraph Record\Paragraph Record_prithvi.xlsx")
+overview_file = xlsxwriter.Workbook(r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_keyword_identification\test\paragraphrecord_fromterminal.xlsx")
 w1 = overview_file.add_worksheet()
 w1.write(0,0,"File Name")
 w1.write(0,1,"Starting Row")
@@ -102,23 +103,33 @@ for row_val in range(1,raw_data.max_row):
 
     keyw = raw_data.cell(row_val+1,0+1).value
     text = raw_data.cell(row_val+1,1+1).value
+    print(keyw)
+    print(text)
     in_list_key = []
     for i in keyw_list:
         if i in text.lower():
+            print(i)
             in_list_key.append(i)
     new_text = re.split("|".join(in_list_key),text,flags=re.I)
+    print("new text:", new_text)
     format_text = []
+
     for i in range(len(new_text)):
         splited_text = new_text[i]
+        print("splited_text ", str(i), ": ", splited_text)
         if splited_text!="":
             format_text.append(splited_text)
+            print("splited_text not empty:", format_text)
         if i<len(new_text)-1:
             format_text.append(bold_1)
             for each_key in in_list_key:
                 test_text = splited_text + each_key
+                print("test_text: ", test_text)
                 if test_text.lower() in text.lower():
                     format_text.append(each_key)
+                    print("format_text: ", format_text)
                     break
+    print("final format_text: ", format_text)
     for col_val in dict_title.keys():
         worksheet.write((row_val-1)%500+2, dict_title[col_val],raw_data.cell(row_val+1,col_val+1).value)
 
@@ -130,6 +141,10 @@ for row_val in range(1,raw_data.max_row):
 
 
 overview_file.close()
+# %%
+
+# %%
+
 # %%
 
 # %%
