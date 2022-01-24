@@ -7,6 +7,7 @@ import argparse
 # Combine all the "xls" files.
 # Save into an actual excel file, in .xlsx format.
 
+#<<<<<<< local
 # Read in command-line arguments
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Combine .xls files from Thomson One. The key point to note is that the so-called .xls files are actually .html files in disguise.')
@@ -22,6 +23,14 @@ if __name__ == '__main__':
 
 # Previous input / output folders
 # "C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\Not Part of Processing Pipeline\Checkreportidstallywithtitles"
+=======
+#inputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\Not Part of Processing Pipeline\Checkreportidstallywithtitles")
+
+# C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Dates and Titles Missing\Filezilla
+# C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Titles Still Missing in v3
+# C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\Not Part of Processing Pipeline\Checkreportidstallywithtitles
+#outputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\Not Part of Processing Pipeline\Checkreportidstallywithtitles")
+#>>>>>>> master
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Dates and Titles Missing\Filezilla
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Titles Still Missing in v3
 # C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\Not Part of Processing Pipeline\Checkreportidstallywithtitles

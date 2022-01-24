@@ -38,6 +38,10 @@ printf "\n"
 
 module load python/booth/3.6/3.6.12
 
+#---------------------------------------------------------------------------------
+# Go into env
+source /project/kh_mercury_1/conference_call/code/env/bin/activate
+
 #--------------------------
 # echo inputted command-line arguments
 
