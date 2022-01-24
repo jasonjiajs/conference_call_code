@@ -1,0 +1,28 @@
+Job ID: 8702826
+Job User: jasonjia
+Num Cores: 16
+
+Python file to run: /project/kh_mercury_1/conference_call/code/12_summary_statistics/count_number_of_conference_calls.py
+
+/project/kh_mercury_1/conference_call/output/01_download_cc/01.1_xls_2/20210218-20210221_9.xls
+Traceback (most recent call last):
+  File "/project/kh_mercury_1/conference_call/code/12_summary_statistics/count_number_of_conference_calls.py", line 13, in <module>
+    df_report_id = pd.read_html(xlsfile)[0]['Report #']
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/util/_decorators.py", line 296, in wrapper
+    return func(*args, **kwargs)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/html.py", line 1101, in read_html
+    displayed_only=displayed_only,
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/html.py", line 894, in _parse
+    parser = _parser_dispatch(flav)
+  File "/apps/python/3.6/3.6.12/lib/python3.6/site-packages/pandas/io/html.py", line 851, in _parser_dispatch
+    raise ImportError("lxml not found, please install it")
+ImportError: lxml not found, please install it
+srun: error: mcn58: task 0: Exited with exit code 1
+/project/kh_mercury_1/conference_call/code/12_summary_statistics/count_number_of_conference_calls.py: done!
+
+    MaxRSS    Elapsed     ReqMem  Timelimit 
+---------- ---------- ---------- ---------- 
+             00:00:04       16Gc 1-20:00:00 
+             00:00:04       16Gc            
+             00:00:04       16Gc            
+         0   00:00:03       16Gc            
