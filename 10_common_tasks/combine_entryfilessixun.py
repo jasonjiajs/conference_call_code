@@ -1,23 +1,40 @@
 import pandas as pd
 from pathlib import Path
+import argparse
 
 # Overall structure:
 # Go into a folder.
 # Combine all the .xlsx entry files.
 # Save into an actual excel file, in .xlsx format.
 
-inputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entry_files\Sixun\v2 - titlesubtitleadded")
+# Read in command-line arguments
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Combine entry files.')
+    parser.add_argument('inputfolder', help="inputfolder containing the .xls files", type=str)
+    parser.add_argument('outputfolder', help="outputfolder containing the .xlsx file", type=str)
+    parser.add_argument('outputfile', help="output file name, e.g. entryfilescombined.xlsx", type=str)
+    args = parser.parse_args()
+
+    inputfolder = Path(args.inputfolder)
+    outputfolder = Path(args.outputfolder)
+    outputfile = args.outputfile
+    outputpath = Path(outputfolder / outputfile)
+
+# inputfolder
+#"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entry_files\Sixun\v2 - titlesubtitleadded"
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Dates and Titles Missing\Filezilla
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files\From Jason's Reports
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files\From Sixun's Reports
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files
-outputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entry_files_combined\sixun")
+
+# outputfolder
+# "C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\entry_files_combined\sixun"
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Dates and Titles Missing
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files_combined\From Jason's reports
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files_combined\From Sixun's reports
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\entry_files_combined
-outputfile = "entryfiles_combined_sixun_v3withparagraphs.xlsx"
-outputpath = Path(outputfolder / outputfile)
+# outputfile = "entryfiles_combined_sixun_v3withparagraphs.xlsx"
+# outputpath = Path(outputfolder / outputfile)
 
 table = pd.DataFrame()
 # columnstouse = ["Report", "Keywords", "Date", "Title", "Subtitle"]

@@ -1,5 +1,6 @@
 import pandas as pd
 from pathlib import Path
+import argparse
 
 # Overall structure:
 # Go into a folder.
@@ -14,7 +15,18 @@ from pathlib import Path
 #outputfile = "entryfiles_combined_jason_v2withparagraphs.xlsx"
 #outputfile = "entryfiles_combined_sixun_v0_withparagraphs.xlsx"
 
-outputpath = Path(outputfolder / outputfile)
+# Read in command-line arguments
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Combine entry files.')
+    parser.add_argument('inputfolder', help="inputfolder containing the .xls files", type=str)
+    parser.add_argument('outputfolder', help="outputfolder containing the .xlsx file", type=str)
+    parser.add_argument('outputfile', help="output file name, e.g. entryfilescombined.xlsx", type=str)
+    args = parser.parse_args()
+
+    inputfolder = Path(args.inputfolder)
+    outputfolder = Path(args.outputfolder)
+    outputfile = args.outputfile
+    outputpath = Path(outputfolder / outputfile)
 
 table = pd.DataFrame()
 columnstouse = ["Report", "Keywords", "Date", "Title", "Subtitle", "Paragraph", "gvkey"]
