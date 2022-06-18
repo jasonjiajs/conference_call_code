@@ -13,7 +13,9 @@ from tkinter import *
 # ------ Hardcode coordinates of different points on the screen ------
 coords = {
 'address_bar': (529, 35), 'screening_and_analysis': (665, 67), 'research': (306, 93), 'contributor': (152, 605), 
-'refinitiv_streetevents': (177, 641), 'start_date': (383, 356), 'end_date': (519, 353),
+'refinitiv_streetevents': (177, 641), 
+'start_date': (383, 356), 'clear_start_date': (427, 352), 
+'end_date': (519, 353), 'clear_end_date': (581, 353), 
 'number_of_conference_calls': (157, 765), 'next_page': (1855, 764), 
 'select_all_main': (31, 841), 'view_main': (57, 797),
 'select_all_toc': (558, 319), 'view_toc': (556, 769),
@@ -38,6 +40,8 @@ if __name__ == '__main__':
     output_pdf_folder = Path(args.output_pdf_folder)
     output_xls_folder = Path(args.output_xls_folder) 
 
+# Sample command: python download_conference_calls_from_thomsonone.py 20210101_20220617 2021 01 01 2022 06 17 C:\Users\jasonjia\Dropbox\Projects\conference_call\output\01_download_cc\01.1_pdf_20210101_20220617 C:\Users\jasonjia\Dropbox\Projects\conference_call\output\01_download_cc\01.1_xls_20210101_20220617
+
 # ------ Print screen size and command-line arguments ------
 # Get screen size
 root = Tk()
@@ -49,8 +53,8 @@ print("width x height: %d x %d (pixels)" %(monitor_width, monitor_height))
 print("")
 
 # Set initial and end date
-date_start = datetime.date(year=args.end_year, month=args.end_month, day=args.end_day)
-date_end = datetime.date(year=args.start_year, month=args.start_month, day=args.start_day)
+date_start = datetime.date(year=args.start_year, month=args.start_month, day=args.start_day)
+date_end = datetime.date(year=args.end_year, month=args.end_month, day=args.end_day)
 date_start_current = date_end + timedelta(days = 1)
 
 # Print command-line arguments
@@ -104,7 +108,7 @@ def get_dates(date_start_current, time_delta):
     date_end_current = date_start_current - timedelta(days=1)
     date_start_current = date_start_current - timedelta(days=time_delta)
 
-    return [
+    return [date_start_current, date_end_current, 
     '{0:02d}/{1:02d}/{2:02d}'.format(date_start_current.month, date_start_current.day, date_start_current.year%100), 
     '{0:02d}/{1:02d}/{2:02d}'.format(date_end.month, date_end.day, date_end.year%100), 
     '{0}{1:02d}{2:02d}-{3}{4:02d}{5:02d}'.format(date_start_current.year, date_start_current.month, date_start_current.day, date_end_current.year, date_end_current.month, date_end_current.day)
@@ -114,33 +118,35 @@ def login_and_enter_query(date_start_current, date_end_current = 0, date_range_c
     # Enter http://proxy.uchicago.edu/login/thomsonone"
     mouse_click(coords['address_bar'], 1)
     enter_string("http://proxy.uchicago.edu/login/thomsonone")
-    press_key(Key.enter)
+    press_key(Key.enter, 5)
 
     # Go to: Screening & Analysis -> Research"
-    mouse_click(coords['screening_and_analysis'], 1) 
-    mouse_click(coords['research'], 1)
+    mouse_click(coords['screening_and_analysis'], 2) 
+    mouse_click(coords['research'], 3)
 
     # Set Contributor to 'REFINITIV STREETEVENTS'
-    mouse_click(coords['contributor'], 0.5)
+    mouse_click(coords['contributor'], 1)
     enter_string("STREETEVENTS")
     time.sleep(1)
-    mouse_click(coords['refinitiv_streetevents'],0.5)
+    mouse_click(coords['refinitiv_streetevents'], 1)
 
     # Get dates
     if get_new_dates:
-        date_start_current, date_end_current, date_range_current = get_dates(date_start_current, 4)
+        date_start_current, date_end_current, date_start_current_str, date_end_current_str, date_range_current = get_dates(date_start_current, 4)
 
     ##### type in start date, and end date #####
     print('Current 4-day window:', date_range_current)
 
     # Type start date
-    mouse_double_click(coords['start_date'],0.5)
-    enter_string(date_start_current)
+    mouse_click(coords['start_date'], 1)
+    mouse_click(coords['clear_start_date'], 1)
+    enter_string(date_start_current_str)
     time.sleep(0.5)
 
     # Type end date
-    mouse_double_click(coords['end_date'],0.5)
-    enter_string(date_end_current)
+    mouse_click(coords['end_date'], 1)
+    mouse_click(coords['clear_end_date'], 1)
+    enter_string(date_end_current_str)
     time.sleep(0.5)
     
     # Search for conference calls and wait for results to display
@@ -170,11 +176,11 @@ def get_number_of_pages_of_conf_calls(number_of_conference_calls):
 # ------ Main loop ------
 ### Note: Before you run the code, open Internet Explorer.
 
-print("Main loop starting in 3 seconds!")
-time.sleep(3)
+print("Main loop starting in 5 seconds!")
+time.sleep(5)
 restarted_process = False
 
-while date_start >= date_start_current:
+while date_start <= date_start_current:
     # Login and query with a 4-day time-window
     if restarted_process:
         print("Restarted process")
@@ -209,7 +215,7 @@ while date_start >= date_start_current:
         output_xls_filepath = Path(output_xls_folder / output_xls_filename)
 
         # If pdf and xls already exists, skip page
-        if os.exists(output_pdf_filepath) and os.exists(output_xls_filepath):
+        if os.path.exists(output_pdf_filepath) and os.path.exists(output_xls_filepath):
             print("Pdf and xls of current page already exists, skipping page")
             mouse_click(coords['next_page'], 5) 
             print("Finished page", current_page, "/", number_of_pages_of_conf_calls)
@@ -219,7 +225,7 @@ while date_start >= date_start_current:
         mouse_click(coords['select_all_main'], 1)
 
         # Get the pdf
-        if os.exists(output_pdf_filepath):
+        if os.path.exists(output_pdf_filepath):
             print("pdf already exists, skipping pdf:", output_pdf_filepath)
         else:
             print("pdf does not exist, downloading pdf:", output_pdf_filepath)
@@ -258,14 +264,14 @@ while date_start >= date_start_current:
             mouse_click(coords['reselect_thomsonone_window'],2) 
 
         # Get the xls
-        if os.exists(output_xls_filepath):
+        if os.path.exists(output_xls_filepath):
             print("xls already exists, not downloading xls:", output_xls_filepath)
         else:
             print("xls does not exist, downloading xls:", output_xls_filepath)
 
             # If no new file is downloaded, keep rerunning the process up to the stop limit
             attempt = 1
-            while not(os.exists(output_xls_filepath)):
+            while not(os.path.exists(output_xls_filepath)):
                 # Stop limit
                 print('Saving xls: attempt', attempt)
                 if attempt > 5: 
