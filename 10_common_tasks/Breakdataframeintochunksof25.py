@@ -1,14 +1,7 @@
-import pynput
-import time
-from pynput import mouse as MS
-from pynput import keyboard as KB
-from pynput.keyboard import Key
 from datetime import datetime
-import pyperclip
-import os
 import numpy as np
-import io
 import pandas as pd
+from pathlib import Path
 
 # Overall structure:
 # 1. load the excel file and get the report numbers
@@ -22,7 +15,7 @@ import pandas as pd
 inputfolder = "C:\\Users\\jasonjia\\Dropbox\\ConferenceCall\\Output\\KeywordIdentification\entry_files_combined\\sixunandjason\\v3"
 inputfile = "reportswithmissingtitles.xlsx"
 
-df = pd.read_excel(inputfolder + "\\" + inputfile, header=None)
+df = pd.read_excel(Path(inputfolder / inputfile), header=None)
 
 
 # 2. parse into 25-bit pieces

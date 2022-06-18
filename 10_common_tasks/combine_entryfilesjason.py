@@ -29,8 +29,8 @@ if __name__ == '__main__':
     outputpath = Path(outputfolder / outputfile)
 
 table = pd.DataFrame()
-columnstouse = ["Report", "Keywords", "Date", "Title", "Subtitle", "Paragraph", "gvkey"]
-
+# columnstouse = ["Report", "Keywords", "Date", "Title", "Subtitle", "Paragraph", "gvkey"]
+columnstouse = "All"
 for file in inputfolder.iterdir(): 
     if '.xlsx' in file.name:
         print(file)

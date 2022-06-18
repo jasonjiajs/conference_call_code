@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
 # Previous input / output folders
 # "C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\Not Part of Processing Pipeline\Checkreportidstallywithtitles"
-=======
+# =======
 #inputfolder = Path(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\Not Part of Processing Pipeline\Checkreportidstallywithtitles")
 
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Misc\Why are Dates and Titles Missing\Filezilla
