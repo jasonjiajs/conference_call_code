@@ -12,17 +12,13 @@ from tkinter import *
 
 # ------ Hardcode coordinates of different points on the screen ------
 coords = {
-'address_bar': (), 'screening_and_analysis': (), 'research': (), 'contributor': (), 
-'refinitiv_streetevents': (), 
-'start_date_candidate_1': (), 'start_date_candidate_2': (), 'end_date_candidate_1': (), 'end_date_candidate_2': (),
-'number_of_conference_calls': (), 'next_page': (), 
-'select_all_main': (),
-'view_main': (),
-'select_all_toc': (),
-'view_toc': (),
-'xls_icon_multiple_pages': (),
-'xls_icon_one_page': (),
-'reselect_thomsonone_window': ()
+'address_bar': (529, 35), 'screening_and_analysis': (665, 67), 'research': (306, 93), 'contributor': (152, 605), 
+'refinitiv_streetevents': (177, 641), 'start_date': (383, 356), 'end_date': (519, 353),
+'number_of_conference_calls': (157, 765), 'next_page': (1855, 764), 
+'select_all_main': (31, 841), 'view_main': (57, 797),
+'select_all_toc': (558, 319), 'view_toc': (556, 769),
+'xls_icon_multiple_pages': (1684, 763), 'xls_icon_one_page': (1714, 765),
+'reselect_thomsonone_window': (1034, 510)
 }
 
 # ------ Read in command-line arguments ------
@@ -138,14 +134,12 @@ def login_and_enter_query(date_start_current, date_end_current = 0, date_range_c
     print('Current 4-day window:', date_range_current)
 
     # Type start date
-    mouse_click(coords['start_date_candidate_1'],0.5)
-    mouse_click(coords['start_date_candidate_2'],0.5)
+    mouse_double_click(coords['start_date'],0.5)
     enter_string(date_start_current)
     time.sleep(0.5)
 
     # Type end date
-    mouse_click(coords['end_date_candidate_1'],0.5)
-    mouse_click(coords['end_date_candidate_2'],0.5)
+    mouse_double_click(coords['end_date'],0.5)
     enter_string(date_end_current)
     time.sleep(0.5)
     
