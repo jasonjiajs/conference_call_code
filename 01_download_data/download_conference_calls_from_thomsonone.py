@@ -17,7 +17,7 @@ coords = {
 'start_date': (383, 356), 'clear_start_date': (427, 352), 
 'end_date': (519, 353), 'clear_end_date': (581, 353), 
 'number_of_conference_calls': (157, 765), 'next_page': (1855, 764), 
-'select_all_main': (31, 841), 'view_main': (57, 797),
+'select_all_main': (29, 830), 'view_main': (57, 797),
 'select_all_toc': (558, 319), 'view_toc': (556, 769),
 'xls_icon_multiple_pages': (1684, 763), 'xls_icon_one_page': (1714, 765),
 'reselect_thomsonone_window': (1034, 510)
@@ -42,6 +42,8 @@ if __name__ == '__main__':
 
 # Sample command: python download_conference_calls_from_thomsonone.py 20210101_20220617 2021 01 01 2022 06 17 C:\Users\jasonjia\Dropbox\Projects\conference_call\output\01_download_cc\01.1_pdf_20210101_20220617 C:\Users\jasonjia\Dropbox\Projects\conference_call\output\01_download_cc\01.1_xls_20210101_20220617
 
+# Sample command: python download_conference_calls_from_thomsonone.py 20210101_20220617 2021 01 01 2022 06 17 C:\Users\jasonjia\Dropbox\Projects\conference_call\output\01_download_cc\01.1_pdf_20210101_20220617 C:\Users\jasonjia\Dropbox\Projects\conference_call\output\01_download_cc\01.1_xls_20210101_20220617
+
 # ------ Print screen size and command-line arguments ------
 # Get screen size
 root = Tk()
@@ -58,11 +60,13 @@ date_end = datetime.date(year=args.end_year, month=args.end_month, day=args.end_
 date_start_current = date_end + timedelta(days = 1)
 
 # Print command-line arguments
+print("--- Command-line arguments ---")
 print("Data pull used:", suffix)
 print("Start date:", date_start)
 print("End date:", date_end)
 print("Output pdf folder:", output_pdf_folder)
 print("Output xls folder:", output_xls_folder)
+print("")
 
 # Open keyboard and mouse Controller
 KB_enter = pynput.keyboard.Controller()
@@ -103,6 +107,11 @@ def save_pdf_hotkey(delay = 0):
         press_key('s')   
     time.sleep(delay)
 
+def copy_hotkey(delay = 0):
+    with KB_enter.pressed(Key.ctrl):
+        press_key('c')
+    time.sleep(delay)
+
 # Generate ideal time-window strings to be typed into date (legacy function)
 def get_dates(date_start_current, time_delta):
     date_end_current = date_start_current - timedelta(days=1)
@@ -110,11 +119,12 @@ def get_dates(date_start_current, time_delta):
 
     return [date_start_current, date_end_current, 
     '{0:02d}/{1:02d}/{2:02d}'.format(date_start_current.month, date_start_current.day, date_start_current.year%100), 
-    '{0:02d}/{1:02d}/{2:02d}'.format(date_end.month, date_end.day, date_end.year%100), 
+    '{0:02d}/{1:02d}/{2:02d}'.format(date_end_current.month, date_end_current.day, date_end_current.year%100), 
     '{0}{1:02d}{2:02d}-{3}{4:02d}{5:02d}'.format(date_start_current.year, date_start_current.month, date_start_current.day, date_end_current.year, date_end_current.month, date_end_current.day)
     ]
 
-def login_and_enter_query(date_start_current, date_end_current = 0, date_range_current = 0, get_new_dates = True):
+def login():
+    print("Logging in")
     # Enter http://proxy.uchicago.edu/login/thomsonone"
     mouse_click(coords['address_bar'], 1)
     enter_string("http://proxy.uchicago.edu/login/thomsonone")
@@ -122,45 +132,37 @@ def login_and_enter_query(date_start_current, date_end_current = 0, date_range_c
 
     # Go to: Screening & Analysis -> Research"
     mouse_click(coords['screening_and_analysis'], 2) 
-    mouse_click(coords['research'], 3)
+    mouse_click(coords['research'], 5)
 
     # Set Contributor to 'REFINITIV STREETEVENTS'
     mouse_click(coords['contributor'], 1)
-    enter_string("STREETEVENTS")
-    time.sleep(1)
+    enter_string("STREETEVENTS", 1)
     mouse_click(coords['refinitiv_streetevents'], 1)
 
-    # Get dates
-    if get_new_dates:
-        date_start_current, date_end_current, date_start_current_str, date_end_current_str, date_range_current = get_dates(date_start_current, 4)
+def get_new_time_window(date_start_current):
+    date_start_current, date_end_current, date_start_current_str, date_end_current_str, date_range_current = get_dates(date_start_current, 4)
+    return date_start_current, date_end_current, date_start_current_str, date_end_current_str, date_range_current
 
-    ##### type in start date, and end date #####
+def enter_query(date_start_current, date_end_current, date_start_current_str, date_end_current_str, date_range_current):
     print('Current 4-day window:', date_range_current)
 
     # Type start date
     mouse_click(coords['start_date'], 1)
     mouse_click(coords['clear_start_date'], 1)
-    enter_string(date_start_current_str)
-    time.sleep(0.5)
+    enter_string(date_start_current_str, 0.5)
 
     # Type end date
     mouse_click(coords['end_date'], 1)
     mouse_click(coords['clear_end_date'], 1)
-    enter_string(date_end_current_str)
-    time.sleep(0.5)
+    enter_string(date_end_current_str, 0.5)
     
     # Search for conference calls and wait for results to display
-    press_key(Key.enter) 
-    time.sleep(3)
-
-    return date_start_current, date_end_current, date_range_current
+    press_key(Key.enter, 0.5) 
 
 def get_number_of_conference_calls():
     pyperclip.copy("")
     mouse_double_click(coords['number_of_conference_calls'],0.5)
-    with KB_enter.pressed(Key.ctrl):
-        press_key('c')
-    time.sleep(0.5)
+    copy_hotkey(0.5)
     number_of_conference_calls = pyperclip.paste()
     return number_of_conference_calls
 
@@ -179,16 +181,21 @@ def get_number_of_pages_of_conf_calls(number_of_conference_calls):
 print("Main loop starting in 5 seconds!")
 time.sleep(5)
 restarted_process = False
+login()
 
 while date_start <= date_start_current:
+    print("---")
+
     # Login and query with a 4-day time-window
     if restarted_process:
-        print("Restarted process")
-        date_start_current, date_end_current, date_range_current = login_and_enter_query(date_start_current, date_end_current, date_range_current, get_new_dates = False)
+        print("Trying new time window")
+        login()
         restarted_process = False
     else:
-        print("Continuing process")
-        date_start_current, date_end_current, date_range_current = login_and_enter_query(date_start_current, get_new_dates = True)
+        print("Retrying previous time window")
+        date_start_current, date_end_current, date_range_current, date_start_current_str, date_end_current_str = get_new_time_window(date_start_current)
+    
+    enter_query(date_start_current, date_end_current, date_range_current, date_start_current_str, date_end_current_str)
     
     # Get number of conference calls and number of pages of conference calls to scroll through
     try:
@@ -301,7 +308,7 @@ while date_start <= date_start_current:
         # Go to next page
         mouse_click(coords['next_page'], 2.5)
 
-        print("Finished page", current_page + 1, "/", number_of_pages_of_conf_calls)  
+        print("Finished page", current_page + 1, "/", number_of_pages_of_conf_calls)
 
 # ------ Summary ------
 print("")
