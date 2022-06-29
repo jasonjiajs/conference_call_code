@@ -30,7 +30,7 @@ for file in inputfolder.iterdir():
         print("Reading:", file)
         # Read .html file into a pandas df and append to larger table
         chunktable = pd.read_html(file)[0]
-        chunktable['filename'] = file.name
+        chunktable['filestem'] = file.stem
         table = pd.concat([table, chunktable])
 
 # Save table into excel
