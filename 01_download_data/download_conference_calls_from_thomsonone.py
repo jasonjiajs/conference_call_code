@@ -43,7 +43,9 @@ if __name__ == '__main__':
     output_xls_folder = Path(args.output_xls_folder) 
     relogin = bool(args.relogin)
 
-# Sample command: python download_conference_calls_from_thomsonone.py 20210101_20220617 2021 01 01 2022 06 17 C:\Users\jasonjia\Dropbox\Projects\conference_call\output\01_download_cc\01.1_pdf_20210101_20220617 C:\Users\jasonjia\Dropbox\Projects\conference_call\output\01_download_cc\01.1_xls_20210101_20220617 0
+# Example command: python download_conference_calls_from_thomsonone.py 20210101_20220617 2021 01 01 2022 06 17 C:\Users\jasonjia\Dropbox\Projects\conference_call\output\01_download_cc\01.1_pdf_20210101_20220617 C:\Users\jasonjia\Dropbox\Projects\conference_call\output\01_download_cc\01.1_xls_20210101_20220617 0
+
+# Example command: python download_conference_calls_from_thomsonone.py 20210101_20220617 2021 05 05 2022 05 12 C:\Users\jasonjia\Dropbox\Projects\conference_call\output\01_download_cc\01.1_pdf_20210101_20220617 C:\Users\jasonjia\Dropbox\Projects\conference_call\output\01_download_cc\01.1_xls_20210101_20220617 1
 
 # ------ Print screen size and command-line arguments ------
 # Get screen size
