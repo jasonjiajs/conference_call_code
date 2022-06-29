@@ -15,10 +15,10 @@ print("xls folder:", xls_folder)
 def check_pairs(folder_A, folder_B, extension_B):
     for item in folder_A.iterdir():
         filestem = item.stem
-    filename_B = filestem + extension_B
-    filepath_B = Path(folder_B / filename_B)
-    if not(os.path.exists(filepath_B)):
-        print("File missing:", filename_B)
+        filename_B = filestem + extension_B
+        filepath_B = Path(folder_B / filename_B)
+        if not(os.path.exists(filepath_B)):
+            print("File missing:", filename_B)
 
 # For each file in .pdf, check if an equivalent .xls file exists
 print("\n--- For each file in .pdf, checking if an equivalent .xls file exists ---")
