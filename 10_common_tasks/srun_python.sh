@@ -28,6 +28,7 @@
 #---------------------------------------------------------------------------------
 # Print some useful variables
 
+echo "-----------------------------------"
 echo "Job ID: $SLURM_JOB_ID"
 echo "Job User: $SLURM_JOB_USER"
 echo "Num Cores: $SLURM_JOB_CPUS_PER_NODE"
@@ -45,7 +46,9 @@ source /project/kh_mercury_1/conference_call/code/env/bin/activate
 #--------------------------
 # echo inputted command-line arguments
 
+echo "-----------------------------------"
 echo "Python file to run: $1"
+echo "-----------------------------------"
 printf "\n"
 
 #---------------------------------------------------------------------------------
