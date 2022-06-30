@@ -15,6 +15,13 @@ import Gumbo.text
 using Statistics
 using Test
 
+confcalloutputfolder = "C:/Users/jasonjia/Dropbox/Projects/conference_call/output"
+pdffolder = "01_download_cc/01.1_pdf_20210101_20220617"
+xlsfolder = "01_download_cc/01.1_xls_20210101_20220617"
+txtfolder = "02_process_cc/02.1_txt_20210101_20220617"
+csvfolder = "02_process_cc/02.2_csv_20210101_20220617"
+badlistfilepath = "02_process_cc/checks/BadList_20210101_20220617.csv"
+
 ``` read list of firm per pdf documents ```
 function parseHtmlXlsToDf(filename)
     print(string("parseHtmlXlsToDf: ", " | "))
@@ -237,16 +244,16 @@ function findColumn(line)
 end
 
 # ``` Parse file```
-function parseCalls(filename)
+function parseCalls(filename, pdffolder, xlsfolder, txtfolder, badlistfilepath)
     try
     #get list of CC
-    dflist=parseHtmlXlsToDf("01_download_cc/01.1_xls_test1/$filename.xls")
+    dflist=parseHtmlXlsToDf("$xlsfolder/$filename.xls")
     #dflist=parseHtmlXlsToDf("XlsTest/$filename.xls")
     dflist[!,:Call].=""
 
     #doc = pdDocOpen("$filename.pdf")
-    doc_pdf = pdDocOpen("01_download_cc/01.1_pdf_test1/$filename.pdf")
-    doc_text=String(read("02_process_cc/02.1_txt_test1/$filename.txt"))
+    doc_pdf = pdDocOpen("$pdffolder/$filename.pdf")
+    doc_text=String(read("$txtfolder/$filename.txt"))
     #doc_pdf = pdDocOpen("PdfTest/$filename.pdf")
     #doc_text=String(read("TxtTest/$filename.txt"))
     doc=split(doc_text,"\f")
@@ -268,7 +275,7 @@ function parseCalls(filename)
                 else
                     global dfBadFile
                     push!(dfBadFile,[filename,row.Title])
-                    CSV.write("02_process_cc/checks/BadList.csv",dfBadFile)
+                    CSV.write(badlistfilepath,dfBadFile)
                 end
             catch e
                 println("Row Error:-",e)
@@ -301,7 +308,7 @@ end
 
 # ```parse all file from the currrent  ```
 function main()
-    files=readdir("01_download_cc/01.1_xls_test1")
+    files=readdir("$xlsfolder")
     # files=readdir("XlsTest")
     for file in files
         if file[end-2:end]=="xls"
@@ -309,8 +316,8 @@ function main()
                 filename=file[1:end-4]
                 println("")
                 println(file)
-                @time dfCalls=parseCalls(filename)
-                CSV.write("02_process_cc/02.2_csv_test1/$filename.csv",dfCalls)
+                @time dfCalls=parseCalls(filename, pdffolder, xlsfolder, txtfolder, badlistfilepath)
+                CSV.write("$csvfolder/$filename.csv",dfCalls)
                 #CSV.write("CsvTest/$filename.csv",dfCalls)
             catch e
                 println(e)
@@ -328,10 +335,10 @@ global dfBadFile=DataFrame(filename=String[],Title=String[])
 # Overall structure: -> main
 try
     # Sixun's comment, N/A: cd("..//..//..//..//project//EC_Mercury//final_sup")
-    cd("C:/Users/jasonjia/Dropbox/Projects/conference_call/output")
+    cd(confcalloutputfolder)
     # cd("C:/Users/jasonjia/Dropbox/ConferenceCall/Misc/Trial2")
     @time main()
-    CSV.write("02_process_cc/checks/BadList.csv",dfBadFile)
+    CSV.write(badlistfilepath,dfBadFile)
     #CSV.write("BadListTest.csv",dfBadFile)
     try
         mkdir("Csv")
@@ -343,7 +350,7 @@ try
 catch error
     println(error)
 end
-CSV.write("02_process_cc/checks/BadList.csv",dfBadFile)
+CSV.write(badlistfilepath,dfBadFile)
 println("Finished parsing CCs from pdf, txt and xls into csv")
 
 # @test
