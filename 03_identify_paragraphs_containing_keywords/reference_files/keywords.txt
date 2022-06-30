@@ -1,0 +1,25 @@
+ROIC
+return on invested capital
+hurdle premium
+discount rate
+opportunity cost of capital
+OCC
+fudge factor
+required return
+required rate of return
+require a return
+expected return
+expected rate of return
+expect a return
+CAPM
+capital asset pricing model
+interest rate
+weighted cost of capital
+weighted average cost of capital
+WACC
+hurdle rate
+cost of capital
+cost of equity
+cost of debt
+return on assets
+return on net assets
