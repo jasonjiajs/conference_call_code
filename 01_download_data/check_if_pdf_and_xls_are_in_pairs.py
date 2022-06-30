@@ -11,21 +11,22 @@ xls_folder = Path(sys.argv[2])
 print("pdf folder:", pdf_folder)
 print("xls folder:", xls_folder)
 
-# Function: for each file in folder A, check if an equivalent file in folder B (same filestem, but with extension B) exists.
-def check_pairs(folder_A, folder_B, extension_B):
+# Function: for each file with extension A in folder A, check if an equivalent file in folder B (same filestem, but with extension B) exists.
+def check_pairs(folder_A, folder_B, extension_A, extension_B):
     for item in folder_A.iterdir():
-        filestem = item.stem
-        filename_B = filestem + extension_B
-        filepath_B = Path(folder_B / filename_B)
-        if not(os.path.exists(filepath_B)):
-            print("File missing:", filename_B)
+        if item.suffix == extension_A:
+            filestem = item.stem
+            filename_B = filestem + extension_B
+            filepath_B = Path(folder_B / filename_B)
+            if not(os.path.exists(filepath_B)):
+                print("File missing:", filename_B)
 
 # For each file in .pdf, check if an equivalent .xls file exists
 print("\n--- For each file in .pdf, checking if an equivalent .xls file exists ---")
-check_pairs(pdf_folder, xls_folder, ".xls")
+check_pairs(pdf_folder, xls_folder, ".pdf", ".xls")
 
 # For each file in .xls, check if an equivalent .pdf file exists
 print("\n--- For each file in .xls, checking if an equivalent .pdf file exists ---")
-check_pairs(xls_folder, pdf_folder, ".pdf")
+check_pairs(xls_folder, pdf_folder, ".xls",  ".pdf")
 
 print("\n--- Done! ---")
