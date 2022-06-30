@@ -1,20 +1,20 @@
 ##parsecc Notes
 
-``` read list of firm per pdf documents ```
+``` read list of firm per .pdf file ```
 
 - function parseHtmlXlsToDf(filename)
 
-``` get page from the document ```
+``` get page from the .pdf file ```
 
 - function getPage(doc::Vector,page_n)
 - function getPage(doc,page_n)
 
-``` get contents of the pdf documnet```
+``` get contents of the .pdf file```
 
 - function getPageContents(doc)
 
 ``` get from the content the first page number of the CCall firm by name or by Rpt number```
-``` we use report number, since the firm can have several report for a documents ```
+``` we use report number, since the firm can have several reports for a .pdf file ```
 
 - function getFirmPageNumber(content,report_n::Int)
 
@@ -33,7 +33,7 @@
 - function cutHeaderFooter_t2_1(page)
 - function cutHeaderFooter_t2_2(page)
 
-```given line, looking for a second conlumn start ```
+```given line, looking for a second column start ```
 
 - function findColumn(line)
 - function twoColumsToText(page,disclaimer=false)
@@ -42,17 +42,15 @@
 
 ``` Parse file```
 
-function parseCalls(filename)
+- function parseCalls(filename)
 
-```parse all file from the currrent  ```
+```parse all file from the current  ```
 
-function main()
-
+- function main()
 getpage: get page from the document
 
-
 ``` Other comments ```
-Areas for improvement for the .jl script:
-- folder directory -> retrieve from dictionary
-- command line arguments (suffix)
-- turn it into python?
+
+- Areas for improvement for the .jl script:
+  - command line arguments (suffix)
+  - turn it into python?
