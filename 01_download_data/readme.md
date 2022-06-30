@@ -20,4 +20,4 @@ Steps:
 
   - Some pdf files only have 1 conference call. In this case, the title extracted may be different from that in the xls file, even though they both refer to the same firm. In these cases, check manually and update the "Manual Replacements" section of check_if_pdf_and_xls_firm_names_are_the_same.ipynb, so that tests will pass.
 
-  - Tests could fail because a pdf file was downloaded twice in a glitch, once for the true filestem (e.g. 20210101-20210104_1), and once more for the next filestem (e.g. 20210101-20210104_2). Then the conference calls in 20210101-20210104_2.pdf will clash with that of 20210101-20210104_2.xls. 
+  - Tests could fail because a pdf file was downloaded twice in a glitch, once for the true filestem (e.g. 20210101-20210104_1), and once more for the next filestem (e.g. 20210101-20210104_2). On the other hand, the .xls file was correct for 20210101-20210104_2. Then the conference calls in 20210101-20210104_2.pdf will clash with that of 20210101-20210104_2.xls. 
