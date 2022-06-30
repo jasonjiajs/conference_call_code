@@ -16,7 +16,7 @@ Steps:
 
 - The pdf_titles and xls_combined files record each conference call with the filestem (e.g. 20210101-20210104_1) and index (e.g. 0), giving an order to the list of calls (e.g. 0-th call in the pdf 20210101-20210104_1). We want to check that the i-th row in the pdf_titles and xls_combined files both record the same conference call, i.e. have the same filestem, index, and title (firm name). To do this, run check_if_pdf_and_xls_firm_names_are_the_same.ipynb. 
 
-  - We note that the order of conference calls in Thomson One does not change with every query, unless new conference calls were added. Thus, if everything is correct, the sequences of conference calls in the pdf and xls files will match perfectly.
+  - We note that the order of conference calls in Thomson One does not change with every query, unless new conference calls were added. Thus, if everything is correct, the sequences of conference calls in the pdf and xls files will match perfectly. This happens when all 3 tests pass.
 
   - Some pdf files only have 1 conference call. In this case, the title extracted may be different from that in the xls file, even though they both refer to the same firm. In these cases, check manually and update the "Manual Replacements" section of check_if_pdf_and_xls_firm_names_are_the_same.ipynb, so that tests will pass.
 
