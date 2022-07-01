@@ -13,7 +13,8 @@ expected rate of return
 expect a return
 CAPM
 capital asset pricing model
-interest rate
+internal rate of return
+IRR
 weighted cost of capital
 weighted average cost of capital
 WACC
