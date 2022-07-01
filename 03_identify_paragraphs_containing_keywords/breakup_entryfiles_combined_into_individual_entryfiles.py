@@ -5,37 +5,38 @@ from operator import truediv
 import openpyxl
 import xlsxwriter
 import re
-import os
+import os, sys
+from pathlib import Path
 
 #%% This wasn't in the original code...
 os.chdir(r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_keyword_identification\test")
 # C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification
 
+entryfiles_combined_filepath = Path(sys.argv[1])
+keywords_filepath = Path(sys.argv[2])
+entry_file_template_filepath = Path(sys.argv[3])
+outputfolder = Path(sys.argv[4])
+overview_file_filepath = Path(r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_keyword_identification\test\paragraphrecord_fromterminal.xlsx")
+
 #%%%
-raw_data = openpyxl.load_workbook(r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_keyword_identification\test\cric1_newtotal_truncated.xlsx")
-#(r"C:\Users\jasonjia\Dropbox\Projects\ConferenceCall\Output\KeywordIdentification\cric1_newtotal\cric1_newtotal_prithvi.xlsx")
-#r"C:\Users\jasonjia\Dropbox\ConferenceCall\Output\KeywordIdentification\cric1_newtotal\Sixun\cric1_newtotal_sixun_new.xlsx
-raw_data = raw_data[raw_data.sheetnames[0]] # choose first sheet of the workbook 
-# (there's only one sheet but we want a sheet object)
-# cric1_newtotal_countryadded_interestrateattheback
-# cric1_newtotal_datetitlesubtitleadded_countriesadded
-# cric1_newtotal_sixun_new
+# Choose first sheet of the workbook (there's only one sheet but we want a sheet object)
+entryfiles_combined = openpyxl.load_workbook(entryfiles_combined_filepath)
+entryfiles_combined = entryfiles_combined[entryfiles_combined.sheetnames[0]] 
 
 #%%
 row = 0 
 col = 0
-with open(r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_keyword_identification\04.2_reference_files\keyterms.txt", "r", encoding="utf-8", errors="ignore") as f1:
+with open(keywords_filepath, "r", encoding="utf-8", errors="ignore") as f1:
     key_set = set(f1.read().splitlines())
 keyw_list = list(key_set) 
 keyw_list = [t.lower() for t in keyw_list]
 
-
-#%%% title
-title_file = openpyxl.load_workbook(r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_keyword_identification\04.2_reference_files\Entry mask.xlsx")
+#%%% Title
+title_file = openpyxl.load_workbook(entry_file_template_filepath)
 title_file = title_file[title_file.sheetnames[0]]
 
-#%%% overview
-overview_file = xlsxwriter.Workbook(r"C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_keyword_identification\test\paragraphrecord_fromterminal.xlsx")
+#%%% Overview
+overview_file = xlsxwriter.Workbook(overview_file_filepath)
 w1 = overview_file.add_worksheet()
 w1.write(0,0,"File Name")
 w1.write(0,1,"Starting Row")
@@ -53,11 +54,13 @@ col_width = [13.29, 14.43, 30.43,  8.29,  8.29, 84.29, 13.57, 13.71, 61.57,    3
 row_height = 15 #
 
 #%%
-for row_val in range(1,raw_data.max_row):
+for row_val in range(1,entryfiles_combined.max_row):
     if row_val%500==1:
         if row_val//500>0:
             final_data.close()
-        final_data = xlsxwriter.Workbook(r"entry_files/"+ str(row_val//500+1) + ".xlsx")
+        final_data_filename = str(row_val//500+1) + ".xlsx"
+        final_data_filepath = Path(outputfolder / final_data_filename)
+        final_data = xlsxwriter.Workbook(final_data_filepath)
         bold_1 = final_data.add_format({"bold":True, "align":"center","valign":"center"}) # the bold "format"
 
         cell_format = final_data.add_format()
@@ -65,24 +68,8 @@ for row_val in range(1,raw_data.max_row):
         cell_format.set_align('vcenter') #vertical center
         cell_format.set_text_wrap()
 
-        #cell_leftalign = final_data.add_format()
-        #cell_format.set_align('left') #horizontal center
-        #cell_format.set_align('vcenter') #vertical center
-        #cell_format.set_text_wrap()
-
-        #cellborderright = final_data.add_format()
-        #cellborderright.set_border()
-        #cellborderright.set_bottom(2)
-        #cellborderright.set_left(0)
-        #cellborderright.set_top(0)
-        #cellborderright.set_border_color('black')
-        #cellborderbottom = final_data.add_format()
-        #cellborderbottom.set_bottom(1)
-
         worksheet = final_data.add_worksheet()
 
-        #[worksheet.set_column(i, 5, cellborderright) for i in ['C:C']]
-        #worksheet.set_column(3,3, cellborderright)
         for i in range(46):
             #if i != 5:
             worksheet.set_column(i, i, col_width[i],cell_format)
@@ -90,8 +77,6 @@ for row_val in range(1,raw_data.max_row):
                 #worksheet.set_column(i, i, col_width[i],cell_leftalign)
         for i in range(2,502):
             worksheet.set_row(i, row_height,cell_format)
-        #[worksheet.set_column(i, i, col_width[i],cellborderright) for key, i in enumerate(['C', 'E', 'F', 'J', 'M', 'P', 'S', 'AA', 'AD', 'AG', 'AP', 'AR'])]
-        #worksheet.set_row(i, 15, cellborderbottom)
 
         w1.write(row_val//500+1,0,row_val//500+1)
         w1.write(row_val//500+1,1,row_val)
@@ -101,8 +86,8 @@ for row_val in range(1,raw_data.max_row):
             for col_val_1 in range(title_file.max_column):
                 worksheet.write(row_val_1,col_val_1,title_file.cell(row_val_1+1,col_val_1+1).value,bold_1) # write out the titles
 
-    keyw = raw_data.cell(row_val+1,0+1).value
-    text = raw_data.cell(row_val+1,1+1).value
+    keyw = entryfiles_combined.cell(row_val+1,0+1).value
+    text = entryfiles_combined.cell(row_val+1,1+1).value
     print(keyw)
     print(text)
     in_list_key = []
@@ -131,14 +116,13 @@ for row_val in range(1,raw_data.max_row):
                     break
     print("final format_text: ", format_text)
     for col_val in dict_title.keys():
-        worksheet.write((row_val-1)%500+2, dict_title[col_val],raw_data.cell(row_val+1,col_val+1).value)
+        worksheet.write((row_val-1)%500+2, dict_title[col_val],entryfiles_combined.cell(row_val+1,col_val+1).value)
 
     worksheet.write_rich_string((row_val-1)%500+2,5,*format_text)
     worksheet.write((row_val-1)%500+2, 1, row_val)
-    if row_val == raw_data.max_row-1:
+    if row_val == entryfiles_combined.max_row-1:
         w1.write(row_val//500+1,2,row_val)
         final_data.close()
 
 
 overview_file.close()
-# %%
