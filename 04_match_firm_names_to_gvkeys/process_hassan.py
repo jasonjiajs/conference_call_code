@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 import argparse
 
-# Example command: python process_hassan.py C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_match_firm_names_to_gvkeys\04.1_process_compustat_and_hassan_files\hassan_raw\20220331\hassan_raw.txt C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_match_firm_names_to_gvkeys\04.1_process_compustat_and_hassan_files\hassan_processed\20220331\hassan_processed.csv
+# Example command: python process_hassan.py C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_match_firm_names_to_gvkeys\04.1_process_compustat_and_hassan_files\hassan_raw\20210930\hassan_raw.txt C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_match_firm_names_to_gvkeys\04.1_process_compustat_and_hassan_files\hassan_processed\20210930\hassan_processed.csv
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Make Hassan .csv file viewable on Excel, and truncate it by removing unnecessary columns.')
