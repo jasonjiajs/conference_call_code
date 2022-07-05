@@ -2,27 +2,26 @@ from pathlib import Path
 import pandas as pd
 import argparse
 
-# convert a file from csv to pd
-# previously ended with '_truncated3.csv'
+# Example command: python process_hassan.py C:\Users\jasonjia\Dropbox\Projects\conference_call\output\04_match_firm_names_to_gvkeys\04.1_process_compustat_and_hassan_files\hassan_raw\20210930\hassan_raw.txt
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Make Hassan .csv file viewable on Excel, and truncate it by removing unnecessary columns.')
-    parser.add_argument('inputfolder', help="input folder containing the .Hassan file.", type=str)
-    parser.add_argument('inputfile', help="input file name / Name of the Hassan file, e.g. Hassanfile_raw_updated2019030.csv", type=str)
-    parser.add_argument('outputfolder', help="output folder that will contain the .csv files", type=str)
+    parser.add_argument('inputfilepath', help="inputfilepath of the raw Hassan file.", type=str)
+    parser.add_argument('outputfilepath', help="outputfilepath that contains processed and truncated hassan file", type=str)
     args = parser.parse_args()
-    inputfolder = Path(args.inputfolder)
-    inputfile = Path(args.inputfile)
-    outputfolder = Path(args.outputfolder)
-    inputpath = Path(inputfolder / inputfile)
-    outputfile = inputfile.stem + '_processed.csv'
-    outputpath = Path(outputfolder / outputfile)
+    inputfilepath = Path(args.inputfilepath)
+    outputfilepath = Path(args.outputfilepath)
 
-df = pd.read_csv(inputpath, sep="\t")
+# Import raw Hassan file
+df = pd.read_csv(inputfilepath, sep="\t")
 
-variablestokeep = ['gvkey','company_name','ticker']
-df2 = df[variablestokeep]
+# Filter relevant columns
+variablestokeep = ['gvkey','company_name']
+df = df[variablestokeep]
 
-df2 = df2.drop_duplicates(subset=['company_name'], keep='first')
+# Drop rows with duplicate company names
+df = df.drop_duplicates(subset=['company_name'], keep='first')
 
-df2.to_csv(outputpath, index = None)
+# Save df to csv
+df.to_csv(outputfilepath, index = None)
+print("Saved processed and truncated Hassan file to:", outputfilepath)

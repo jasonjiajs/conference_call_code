@@ -21,4 +21,6 @@ for file in inputfolder.iterdir():
             with SAS7BDAT(str(inputpath)) as reader:
                 df = reader.to_data_frame()
             df.to_csv(outputpath, index = None)
-            print("Converted from .sas7bdat to .csv: {}".format(filestem + file.suffix))
+            print("Converted from .sas7bdat to .csv: {}".format(file.name))
+        else:
+            print(".csv file already exists, did not convert: {}".format(file.name))
