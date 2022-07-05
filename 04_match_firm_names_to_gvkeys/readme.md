@@ -4,3 +4,5 @@ Steps:
 - Process the Hassan file with `process_hassan.py`.
 - Convert the Compustat files to .csv with `convert_compustat_sas7bdat_to_csv.py`.
   - Note: this warning may arise, but it won't affect the csv: [ciqcompany.sas7bdat] header length 65536 != 8192
+- Merge and process the Compustat files with `merge_and_process_compustat.py`.
+- Combine the processed Hassan and Compustat files with `combine_processed_hassan_and_compustat_files.py`.
