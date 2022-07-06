@@ -8,3 +8,8 @@ Steps:
 - Get firm names to match from entryfiles using `get_firm_names_to_match_from_entryfiles.ipynb`. The outputs are: entryfilescombined_with_cleanfirmnames.xlsx, and cleanfirmnames_to_match.xlsx. 
   - Note that the same function is used to clean firm names (get_clean_firm_name) for both the source files (Hassan and Compustat), as well as the target files (entryfilescombined).
   - Developing the function first used entries from entryfilescombined, then was modified based on entries from Hassan and Compustat.
+- Perform exact matching, followed by fuzzy matching with `exact_and_fuzzy_match.ipynb`. The outputs are: exactmatch_yes.csv, exactmatch_no.csv, fuzzymatch_not_manually_filled_in.xlsx.
+- Copy fuzzymatch_not_manually_filled_in.xlsx in the same folder, and rename it as fuzzymatch_manually_filled_in.xlsx.
+- Open fuzzymatch_manually_filled_in.xlsx, and manually fill in the correct firm names.
+- Process fuzzymatch_manually_filled_in.xlsx, and combine exact and fuzzy matchs into a full df of matched clean firm names (that came from entry files) with `combine_exact_and_fuzzy_matches.ipynb`. The outputs are: fuzzymatch_done.csv and cleanfirmnames_matched.csv.
+- Merge entryfiles_combined (with clean_firm_name_entryfile, without gvkey/country) with cleanfirmnames_matched (with clean_firm_name_entryfile, with gvkey + country) using `merge_entryfiles_combined_with_cleanfirmnames_matche.ipynb`. The outputs are: entryfilescombined_with_cleanfirmnames_matched.xlsx (entryfilescombined + all columns from cleanfirmnames_matched) and entryfilescombined_with_gvkeycountry.xlsx (entryfilescombined + gvkey and country from cleanfirmnames_matched).
