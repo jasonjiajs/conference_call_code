@@ -7,7 +7,7 @@ Steps:
 - Combine the processed Hassan and Compustat files with `combine_processed_hassan_and_compustat_files.py`.
 - Get firm names to match from entryfiles using `get_firm_names_to_match_from_entryfiles.ipynb`. The outputs are: entryfilescombined_with_cleanfirmnames.xlsx, and cleanfirmnames_to_match.xlsx. 
   - The same function should be used to clean firm names (get_clean_firm_name) for both the source files (Hassan and Compustat), as well as the target files (entryfilescombined).
-  - The initial function (used for source files) is now different from the current function (used for conference call firm names), after accounting for vastly different formats given older conference calls. However, the new function was not run on the compustat names for time reasons + it's unlikely to make much of a difference. But in future, this should be done for consistency.
+  - The initial function (used for source files) is now different from the current function (used for conference call firm names from 20010101 onwards), after accounting for vastly different formats given older conference calls. However, the new function was not run on the compustat names for time reasons + it's unlikely to make much of a difference. But in future, this should be done for consistency.
   - Developing the function first used entries from entryfilescombined, then was modified based on entries from Hassan and Compustat.
 - Perform exact matching, followed by fuzzy matching with `exact_and_fuzzy_match.ipynb`. The outputs are: exactmatch_yes.csv, exactmatch_no.csv, fuzzymatch_not_manually_filled_in.xlsx.
 - Copy fuzzymatch_not_manually_filled_in.xlsx in the same folder, and rename it as fuzzymatch_manually_filled_in.xlsx.
