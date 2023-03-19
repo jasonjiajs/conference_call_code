@@ -1,0 +1,23 @@
+-----------------------------------------------------------
+Output from Shell Script:
+Job ID: 10493522
+Job User: jasonjia
+Num Cores: 1
+Array(Task ID):  of 
+Program Path: combine_xls_combined_from_multiple_data_pulls.py
+Input Filepath 1: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20010101-20210405/xls_combined_20010101-20210405.csv
+Input Filepath 2: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20201001-20210909/xls_combined_20201001-20210909.csv
+Output Filepath: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/multiple_data_pulls_combined/20010101-20210909/xls_combined_20010101-20210909.csv
+-----------------------------------------------------------
+Reading in df1: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20010101-20210405/xls_combined_20010101-20210405.csv
+Reading in df2: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20201001-20210909/xls_combined_20201001-20210909.csv
+Number of rows of df1: 548086
+Number of rows of df2: 40154
+Number of rows of df: 588240
+df.columns: Index(['index', 'PPV', 'TOC', 'Title', 'Subtitle', 'Date', 'Pages', 'Price',
+       'Contributor', 'Analyst', 'Ratings', 'Language', 'Report #',
+       'Collection', 'filestem'],
+      dtype='object')
+Number of rows of df (after dropping duplicates): 588240
+Saved df to: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/multiple_data_pulls_combined/20010101-20210909/xls_combined_20010101-20210909.csv
+Done!

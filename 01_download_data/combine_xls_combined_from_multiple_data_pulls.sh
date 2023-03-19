@@ -25,8 +25,8 @@
 # '%a': task ID (e.g. 1, 2, 3)
 # '%J': job ID (e.g. 7823507, 7823506, 7823505)
 
-#SBATCH --job-name=combine_xls_files
-#SBATCH --output=log/combine_xls_files%A-%a-%J.out 
+#SBATCH --job-name=combine_xls_combined_from_multiple_data_pulls
+#SBATCH --output=log/combine_xls_combined_from_multiple_data_pulls%A-%a-%J.out 
 
 #---------------------------------------------------------------------------------
 # Print some useful variables
@@ -48,27 +48,26 @@ module load python/booth/3.8
 
 #---------------------------------------------------------------------------------
 # Commands to execute below...
-program_path="$1" # i.e. combine_xls_files.py
-input_folder="$2"
-output_filepath="$3"
+program_path="$1"
+inputfilepath1="$2"
+inputfilepath2="$3"
+outputfilepath="$4"
 
 echo "Program Path: $program_path"
-echo "Input Folder: $input_folder"
-echo "Output Filepath: $output_filepath"
+echo "Input Filepath 1: $inputfilepath1"
+echo "Input Filepath 2: $inputfilepath2"
+echo "Output Filepath: $outputfilepath"
 echo "-----------------------------------------------------------"
 
-srun python3 $program_path $input_folder $output_filepath
+srun python3 $program_path $inputfilepath1 $inputfilepath2 $outputfilepath
 
 echo "Done!"
 
 # Example commands
 # cd to /project/kh_mercury_1/conference_call/code/01_download_data first, i.e. folder containing the .py and .sh files.
 
-# 20010101-20210405
-# sbatch combine_xls_files.sh combine_xls_files.py /project/kh_mercury_1/conference_call/output/01_download_cc/01.1_xls/20010101-20210405 /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20010101-20210405/xls_combined_20010101-20210405.csv
+# 20010101-20210909 (20010101-20210405 + 20201001-20210909)
+# sbatch combine_xls_combined_from_multiple_data_pulls.sh combine_xls_combined_from_multiple_data_pulls.py /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20010101-20210405/xls_combined_20010101-20210405.csv /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20201001-20210909/xls_combined_20201001-20210909.csv /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/multiple_data_pulls_combined/20010101-20210909/xls_combined_20010101-20210909.csv
 
-# 20201001-20210909
-# sbatch combine_xls_files.sh combine_xls_files.py /project/kh_mercury_1/conference_call/output/01_download_cc/01.1_xls/20201001-20210909 /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20201001-20210909/xls_combined_20201001-20210909.csv
-
-# 20210101-20220617
-# sbatch combine_xls_files.sh combine_xls_files.py /project/kh_mercury_1/conference_call/output/01_download_cc/01.1_xls/20210101-20220617 /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20210101-20220617/xls_combined_20210101-20220617.csv
+# 20010101-20220617 (20010101-20210909 + 20210101-20220617)
+# sbatch combine_xls_combined_from_multiple_data_pulls.sh combine_xls_combined_from_multiple_data_pulls.py /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/multiple_data_pulls_combined/20010101-20210909/xls_combined_20010101-20210909.csv /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20210101-20220617/xls_combined_20210101-20220617.csv /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/multiple_data_pulls_combined/20010101-20220617/xls_combined_20010101-20220617.csv

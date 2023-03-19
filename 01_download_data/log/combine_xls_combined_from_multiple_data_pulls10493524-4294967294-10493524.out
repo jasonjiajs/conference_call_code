@@ -1,0 +1,28 @@
+==========================================
+SLURM_JOB_ID = 10493524
+SLURM_SUBMIT_DIR = /project/kh_mercury_1/conference_call/code/01_download_data
+SLURM_JOB_NODELIST = mcn33
+==========================================
+-----------------------------------------------------------
+Output from Shell Script:
+Job ID: 10493524
+Job User: jasonjia
+Num Cores: 1
+Array(Task ID):  of 
+Program Path: combine_xls_combined_from_multiple_data_pulls.py
+Input Filepath 1: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/multiple_data_pulls_combined/20010101-20210909/xls_combined_20010101-20210909.csv
+Input Filepath 2: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20210101-20220617/xls_combined_20210101-20220617.csv
+Output Filepath: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/multiple_data_pulls_combined/20010101-20220617/xls_combined_20010101-20220617.csv
+-----------------------------------------------------------
+Reading in df1: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/multiple_data_pulls_combined/20010101-20210909/xls_combined_20010101-20210909.csv
+Reading in df2: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20210101-20220617/xls_combined_20210101-20220617.csv
+Number of rows of df1: 588240
+Number of rows of df2: 58070
+Number of rows of df: 646310
+df.columns: Index(['index', 'PPV', 'TOC', 'Title', 'Subtitle', 'Date', 'Pages', 'Price',
+       'Contributor', 'Analyst', 'Ratings', 'Language', 'Report #',
+       'Collection', 'filestem'],
+      dtype='object')
+Number of rows of df (after dropping duplicates): 646310
+Saved df to: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/multiple_data_pulls_combined/20010101-20220617/xls_combined_20010101-20220617.csv
+Done!

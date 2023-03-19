@@ -8,7 +8,7 @@ Steps:
 
 - Combine xls files with combine_xls_files.py to get xls_combined.xlsx (and xls_combined.csv).
   
-  - If you want to combine the xls_combined files from different pulls, use combine_xls_combined_from_multiple_data_pulls.ipynb.
+  - If you want to combine the xls_combined files from different pulls, use combine_xls_combined_from_multiple_data_pulls.py.
 
 - Scroll through the rows of xls_combined.xlsx, and check for any entries with "The application encountered an internal error.  Research: Unknown error". These happen when the xls file is not downloaded correctly, so find the corrupted xls file and redownload it from Thomson One. 
 

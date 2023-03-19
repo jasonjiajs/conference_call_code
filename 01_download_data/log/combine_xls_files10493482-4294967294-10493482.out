@@ -1,12 +1,12 @@
 -----------------------------------------------------------
 Output from Shell Script:
-Job ID: 10493404
+Job ID: 10493482
 Job User: jasonjia
 Num Cores: 1
 Array(Task ID):  of 
 Program Path: combine_xls_files.py
 Input Folder: /project/kh_mercury_1/conference_call/output/01_download_cc/01.1_xls/20010101-20210405
-Output Filepath: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20010101-20210405/xls_compiled_20010101-20210405.csv
+Output Filepath: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20010101-20210405/xls_combined_20010101-20210405.csv
 -----------------------------------------------------------
 Reading: /project/kh_mercury_1/conference_call/output/01_download_cc/01.1_xls/20010101-20210405/20121106-20121109_7.xls
 Reading: /project/kh_mercury_1/conference_call/output/01_download_cc/01.1_xls/20010101-20210405/20130728-20130731_13.xls
@@ -11861,6 +11861,6 @@ Reading: /project/kh_mercury_1/conference_call/output/01_download_cc/01.1_xls/20
 Reading: /project/kh_mercury_1/conference_call/output/01_download_cc/01.1_xls/20010101-20210405/20030203-20030206_12.xls
 Reading: /project/kh_mercury_1/conference_call/output/01_download_cc/01.1_xls/20010101-20210405/20081014-20081017_9.xls
 
-Saving xls combined into: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20010101-20210405/xls_compiled_20010101-20210405.csv
+Saving xls combined into: /project/kh_mercury_1/conference_call/output/01_download_cc/01.2_xls_combined/single_data_pull/20010101-20210405/xls_combined_20010101-20210405.csv
 Saved!
 Done!
